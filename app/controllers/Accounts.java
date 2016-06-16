@@ -81,7 +81,7 @@ public class Accounts extends Controller {
 		if ((user != null) && (user.checkPassword(password) == true)) {
 			Logger.info("Authentication successful");
 			session.put("logged_in_userid", user.id);
-			MyRent.index();
+			InputData.index();
 
 		} else {
 			Logger.info("Authentication failed");

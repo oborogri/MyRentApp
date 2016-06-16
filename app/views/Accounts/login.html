@@ -1,4 +1,4 @@
-#{extends 'main.html' /} #{set title:'Sign Up' /}
+#{extends 'main.html' /} #{set title:'Login' /}
 <div class="ui inverted teal menu">
 	<a class="ui item" href="/home">Home</a>
 	<a class="ui item" href="/signup">Sign Up</a>
@@ -7,15 +7,15 @@
 <div class="ui segment">
 	<h3 class="ui header">Log into your account</h3>
 	<h4 class="ui item">Your username in the email you registered with</h4>
-	<form class="ui form segment" action="/authenticate" method="POST">
+	<form class="ui fluid form segment" action="/authenticate" method="POST">
 		<div class="field">
 			<div class="required field">
 				<label>Username:</label> <input placeholder="e-mail" type="text"
-					name="email">
+					name="email" required>
 			</div>
 			<div class="required field">
 				<label>Password</label> <input placeholder="password" type="text"
-					name="password">
+					name="password" required>
 			</div>
 		</div>
 		<button class="ui teal button" type="submit">Login</button>

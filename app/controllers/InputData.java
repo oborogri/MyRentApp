@@ -7,7 +7,7 @@ import java.util.*;
 
 import models.*;
 
-public class MyRent extends Controller {
+public class InputData extends Controller {
 
     public static void index() {
         render();

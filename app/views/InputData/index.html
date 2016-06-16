@@ -1,0 +1,73 @@
+#{extends 'main.html' /} #{set title:'InputData' /}
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<style type="text/css">
+    html { height: 100% }
+    body { height: 100%; margin: 0; padding: 0 }
+    #map-canvas { height: 100% }
+</style>
+<div class="ui inverted teal menu">
+	<a class="ui item" href="/home">Home</a> <a class="ui active item">InputData</a>
+	<a class="ui item" href="/home">Logout</a>
+</div>
+<section class="ui segment">      
+  <form class="ui form" action="/inputdata/datacapture" method="POST">
+<h3 class="ui header">Please input residence data</h3>
+<div class="ui two column grid">
+	<div class="column">
+		<div class="ui fluid form segment">
+			<labeL>Location</labeL>
+			  <div class="ui input"><input id="geolocation"
+					value="53.347298,-6.268344" name="residence.geolocation"  type="text" readonly>
+			</div>
+		</div>
+			<div class="ui fluid form segment">
+				<input type="radio" name="residence.rented" value="rented"> Rented
+				<input type="radio" name="residence.rented" value="vacant"> Vacant
+			</div>
+			<div class="ui two column grid">
+          <div class="column">
+		        <div class="ui fluid form segment">
+		          <!-- <label class="control-label"> Rent per calendar month(&euro;): </label>  -->
+		          <div class="ui labeled input">
+		            <div class="ui label">
+		              Rent (&euro;)
+		            </div>   
+                <input value="1500" name="residence.rent"  type="text" size="4">
+             </div>
+		        </div>
+		      </div>
+		      <div class="column">
+            <div class="ui fluid form segment">
+              <div class="ui labeled input">
+                <div class="ui label">
+                  Bedrooms:
+                </div>   
+                <input value="3" name="residence.numberBedrooms"  type="text" size=1>
+             </div>
+            </div>
+          </div>
+        </div>   
+		<div class="ui compact fluid form segment">
+			<select name="residenceType">
+			    <option value="0">Residence type</option>
+				<option value="flat">Apartment | Flat</option>
+				<option value="studio">Studio</option>
+				<option value="house">House</option>
+			</select>
+	    </div> 
+			<button class="ui teal button" type="submit">
+				Submit Data <i class="plus icon"></i>
+			</button>
+			<a class="ui teal button" href="/index"><i class="ban icon"></i>
+				Cancel </a>
+		</div>
+	<div class="column">
+		<div class="ui raised fluid form segment">
+			<div id="map-canvas"></div>
+			<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+			<script src="@{'/public/javascripts/map.js'}" type="text/javascript" charset="utf-8"></script>			
+		</div>
+	</div>
+</form>
+</section>
+<script src="@{'/public/javascripts/inputdata.js'}" type="text/javascript" charset="utf-8"></script>

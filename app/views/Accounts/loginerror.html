@@ -1,4 +1,4 @@
-#{extends 'main.html' /} #{set title:'Sign Up' /}
+#{extends 'main.html' /} #{set title:'Login error' /}
 <div class="ui inverted teal menu">
 	<a class="ui item" href="/home">Home</a> 
 	<a class="ui item" href="/signup">Sign Up</a> 
@@ -11,11 +11,11 @@
 		<div class="field">			
 			<div class="required field">
 				<label>Username:</label> <input placeholder="e-mail" type="text"
-					name="email">
+					name="email" required>
 			</div>
 			<div class="required field">
 				<label>Password</label> <input placeholder="password" type="text"
-					name="password">
+					name="password" required>
 			</div>
 		</div>
 		<button class="ui teal button" type="submit">Login</button>

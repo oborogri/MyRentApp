@@ -10,13 +10,14 @@ GET     /signup                                 Accounts.signup
 GET     /home                                   Welcome.index
 GET     /error                                  Accounts.error
 GET     /login                                  Accounts.login
-GET     /MyRent                                 MyRent.index
+GET     /InputData                              InputData.index
 
 POST    /register                               Accounts.register
 POST    /authenticate                           Accounts.authenticate
 
-#MyRent
-GET     /                                       MyRent.index
+#InputData
+GET     /                                       InputData.index
+GET     /index                                  InputData.index
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
