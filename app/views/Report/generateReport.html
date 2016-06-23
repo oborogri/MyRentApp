@@ -1,0 +1,55 @@
+#{extends 'main.html' /} #{set title:'Report' /}
+<div class="ui inverted teal menu">
+    <a class="ui item" href="/welcome">Welcome</a>
+	<a class="ui item" href="/signup">Sign Up</a>
+	<a class="ui item" href="/login">Login</a>
+	<a class="ui item" href="/inputData">Input Data</a>
+	<a class="ui item" href="/report">Report</a>
+	<a class="ui item" href="/contact">Contact</a>
+	<a class="ui item" href="/logout">Logout</a>
+</div>
+<section class="ui segment">
+  <h4 class="ui header">Report</h4>
+    <table class="ui table segment">
+      <thead>
+        <tr>
+          <th>Commissioned by:</th>
+          <th>Search: radius (m)</th>
+          <th>center (latitude)</th>
+          <th>center (longitude)</th>
+         </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>${user.getName()}</td>
+            <td>${circle.radius}</td>
+            <td>${circle.latcenter}</td>
+            <td>${circle.lngcenter}</td>
+            </tr>
+        </tbody>
+     </table>
+     <table class="ui five column celled table segment">
+       <thead>
+         <tr>
+           <th>Residence Id</th>
+           <th>Residence User</th>
+           <th>Date registered</th>
+           <th>Rented?</th>
+           <th>Rent<i class="dollar icon"></i></th>
+           <th>Bedrooms</th>
+         </tr>
+       </thead>
+       <tbody>
+         #{list items:residences, as:'residence'}
+           <tr>
+             <td>${residences.indexOf(residence) +1}</td>
+             <td>${residence.tenant.getName()}</td>
+             <td>${residence.dateRegistered}</td>
+             <td>${residence.rented}</td>
+             <td>${residence.rent}</td>
+             <td>${residence.numberBedrooms}</td>
+           </tr>
+         #{/list}
+       </tbody>
+     </table>
+  </section>

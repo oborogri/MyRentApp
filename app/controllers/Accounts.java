@@ -41,6 +41,21 @@ public class Accounts extends Controller {
 	public static void loginerror() {
 		render();
 	}
+	
+	/**
+	 * Logs out current user
+	 */
+	public static void logout() {
+		session.clear();
+		Welcome.index();
+	}
+	
+	/**
+	 * Log out user
+	 */
+	public static void contact() {
+		render();
+	}
 
 	/**
 	 * Registers new user with details entered on sign up page Displays error
@@ -88,7 +103,7 @@ public class Accounts extends Controller {
 			loginerror();
 		}
 	}
-
+	
 	/**
 	 * Compares two users based on their e-mails
 	 * 

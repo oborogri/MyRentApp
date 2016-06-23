@@ -1,0 +1,26 @@
+#{extends 'main.html' /} #{set title:'generate Report' /}
+<div class="ui inverted teal menu">
+	<a class="ui item" href="/welcome">Welcome</a>
+	<a class="ui item" href="/signup">Sign Up</a>
+	<a class="ui item" href="/login">Login</a>
+	<a class="ui item" href="/inputdata/index">Input Data</a>
+	<a class="ui active item">Report</a>
+	<a class="ui item" href="/contact">Contact</a>
+	<a class="ui item" href="/logout">Logout</a>
+</div>
+<section class="ui segment">      
+  <h4 class="ui header">Define the region for which you require a report</h4>
+  <form action="/generateReport" method="POST">    
+   <h5 class="ui header">Size and position circle to select region for report</h5> 
+    <div id="map-canvas"></div>
+    <br>
+    <button type="submit" class="ui teal submit button" onclick="requestReport()">Generate Report</button>
+    <div style="visibility: hidden" name="circledata" id="circledata">
+      <input type="text"  id="radius" name="radius">
+      <input type="text"  id="latcenter" name="latcenter">
+      <input type="text"  id="lngcenter" name="lngcenter">
+    </div>
+  </form>
+</section>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+<script src="@{'/public/javascripts/reportmap.js'}" type="text/javascript" charset="utf-8"></script>

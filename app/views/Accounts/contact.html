@@ -1,0 +1,35 @@
+#{extends 'main.html' /} #{set title:'Contact' /}
+<div class="ui inverted teal menu">
+	<a class="ui item" href="/welcome">Welcome</a> <a class="ui item"
+		href="/signup">Sign Up</a> <a class="ui item" href="/login">Login</a>
+	<a class="ui item" href="/inputData">Input Data</a> <a class="ui item"
+		href="/report">Report</a> <a class="ui active item">Contact</a> <a
+		class="ui item" href="/logout">Logout</a>
+</div>
+<section class="ui segment">
+	<h5 class="ui header">We would very much appreciate if you would provide some
+		feedback!</h5>
+	<form action="/accounts/sendmessage" method="POST">
+		<div class="ui input field">
+			<label>First Name</label><input placeholder="Your first name" name="user.firstName"
+				type="text" required>
+		</div>
+		<div class="ui input field">
+			<label>Last Name</label><input placeholder="Your last name" name="user.lastName" type="text" required>
+		</div>
+		<div class="ui divider"></div>
+		<div class="ui left icon input">
+			<label>E-mail</label><input placeholder="Your email address" name="user.email" type="text"
+				size="30" required>
+		</div>
+		<div class="ui divider"></div>
+		<div class="ui form">
+			<div class="field">
+				<textarea placeholder="Your message" name="messageText"></textarea>
+			</div>
+		</div>
+		<div class="ui divider"></div>
+		<button type="submit" class="ui teal submit button"><i class="send icon"></i>Send
+			Message</button>
+	</form>
+</section>

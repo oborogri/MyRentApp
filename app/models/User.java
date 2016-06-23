@@ -1,6 +1,7 @@
 package models;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import play.db.jpa.Model;
@@ -16,6 +17,9 @@ public class User extends Model {
 	public String lastName;
 	public String email;
 	public String password;
+	
+	@OneToMany(mappedBy = "tenant")
+	public List<Residence> residences = new ArrayList<Residence>();
 	
 	/**
 	 * Constructor for user object
@@ -52,6 +56,13 @@ public class User extends Model {
 	 */
 	public boolean checkPassword(String password) {
 		return this.password.equals(password);
+	}
+	
+	public String getName() {
+				
+		String userName = this.firstName + " " + this.lastName;
+		return userName; 
+		
 	}
 	
 }

@@ -4,20 +4,28 @@
 
 # Welcome page
 GET     /                                       Welcome.index
+GET     /welcome                                Welcome.index
 GET     /signup                                 Accounts.signup
 
 #Accounts page
-GET     /home                                   Welcome.index
 GET     /error                                  Accounts.error
 GET     /login                                  Accounts.login
-GET     /InputData                              InputData.index
+GET     /logout                                 Welcome.index
+GET     /contact                                Accounts.contact
 
 POST    /register                               Accounts.register
 POST    /authenticate                           Accounts.authenticate
 
 #InputData
-GET     /                                       InputData.index
-GET     /index                                  InputData.index
+GET     /inputData                              InputData.index
+GET     /report                                 Report.index
+
+POST    /datacapture                            InputData.datacapture
+
+#Report
+GET     /generateReport                         Report.generateReport
+
+POST    /generateReport                         Report.generateReport 
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

@@ -8,3 +8,4 @@ User(marge):
     firstName: Marge
     lastName: Simpson
     email: marge@simpson.com
+    password: secret
