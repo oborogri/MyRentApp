@@ -45,6 +45,11 @@ public User tenant;
 		this.dateRegistered = new Date();
 	}
 	
+	/**
+	 * Access method to return residence geolocation as LatLang 
+	 * 
+	 * @return LatLng geolocation
+	 */
 	public LatLng getGeolocation() {
 		return LatLng.toLatLng(geolocation);
 		

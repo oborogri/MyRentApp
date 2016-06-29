@@ -58,6 +58,11 @@ public class User extends Model {
 		return this.password.equals(password);
 	}
 	
+	/**
+	 * Concatenates user firstName and user lastName in one string 
+	 * 
+	 * @return userName
+	 */
 	public String getName() {
 				
 		String userName = this.firstName + " " + this.lastName;

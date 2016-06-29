@@ -32,6 +32,8 @@ public class Accounts extends Controller {
 	 * Renders login page
 	 */
 	public static void login() {
+		
+		session.clear();
 		render();
 	}
 
@@ -39,6 +41,8 @@ public class Accounts extends Controller {
 	 * Renders login error page
 	 */
 	public static void loginerror() {
+		
+		session.clear();
 		render();
 	}
 	
@@ -46,17 +50,11 @@ public class Accounts extends Controller {
 	 * Logs out current user
 	 */
 	public static void logout() {
-		session.clear();
+		
+		session.clear();			
 		Welcome.index();
 	}
 	
-	/**
-	 * Log out user
-	 */
-	public static void contact() {
-		render();
-	}
-
 	/**
 	 * Registers new user with details entered on sign up page Displays error
 	 * message if user already registered and if user not USA citizen
@@ -64,6 +62,7 @@ public class Accounts extends Controller {
 	 * @param user
 	 */
 	public static void register(User user, boolean terms) {
+		
 		List<User> users = User.findAll();
 
 		for (User a : users) {
@@ -77,6 +76,7 @@ public class Accounts extends Controller {
 			Logger.info("New member details: " + user.firstName + " " + user.lastName + " " + user.email + " "
 					+ user.password);
 			Welcome.index();
+			
 		} else {
 			Logger.info("Error - user " + user.email + " not registered! Please check your details!");
 			signuperror();
@@ -95,6 +95,7 @@ public class Accounts extends Controller {
 
 		if ((user != null) && (user.checkPassword(password) == true)) {
 			Logger.info("Authentication successful");
+			
 			session.put("logged_in_userid", user.id);
 			InputData.index();
 
@@ -124,7 +125,7 @@ public class Accounts extends Controller {
 	 * @param email
 	 * @return true if e-mail not null and is a valid format
 	 */
-	private static boolean isValidEmailAddress(String email) {
+	public static boolean isValidEmailAddress(String email) {
 
 		String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
 		java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);

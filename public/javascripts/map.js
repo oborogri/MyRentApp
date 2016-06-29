@@ -10,7 +10,7 @@ function initialize() {
     };
     var mapDiv = document.getElementById('map-canvas');
     map = new google.maps.Map(mapDiv,mapOptions);
-    mapDiv.style.width = '500px';
+    mapDiv.style.width = '600px';
     mapDiv.style.height = '600px';
     // place a marker
         marker = new google.maps.Marker({

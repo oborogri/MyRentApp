@@ -6,12 +6,16 @@
 GET     /                                       Welcome.index
 GET     /welcome                                Welcome.index
 GET     /signup                                 Accounts.signup
+GET     /contact                                Welcome.contact
+GET     /feedback                               Welcome.feedback
+
+#Contact
+POST    /acknowledge                            Welcome.acknowledge
 
 #Accounts page
 GET     /error                                  Accounts.error
 GET     /login                                  Accounts.login
 GET     /logout                                 Welcome.index
-GET     /contact                                Accounts.contact
 
 POST    /register                               Accounts.register
 POST    /authenticate                           Accounts.authenticate

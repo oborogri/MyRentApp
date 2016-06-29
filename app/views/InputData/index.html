@@ -1,8 +1,6 @@
 #{extends 'main.html' /} #{set title:'InputData' /}
 <div class="ui inverted teal menu">
-	<a class="ui item" href="/welcome">Welcome</a>
-	<a class="ui item" href="/signup">Sign Up</a>
-	<a class="ui item" href="/login">Login</a>
+	<a class="ui item">Welcome</a>
 	<a class="ui active item">Input Data</a>
 	<a class="ui item" href="/report">Report</a>
 	<a class="ui item" href="/contact">Contact</a>
@@ -60,7 +58,7 @@
 				Cancel </a>
 		</div>
 	<div class="column">
-		<div class="ui raised fluid form segment">
+		<div class="ui segment">
 			<div class="ui embed 4:3" id="map-canvas"></div>
 			<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 			<script src="@{'/public/javascripts/map.js'}" type="text/javascript" charset="utf-8"></script>			
@@ -69,4 +67,3 @@
 	</div>
 </form>
 </section>
-<!-- <script src="@{'/public/javascripts/inputdata.js'}" type="text/javascript" charset="utf-8"></script> -->
