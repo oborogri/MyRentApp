@@ -39,11 +39,12 @@ public class InputData extends Controller {
 
 		User user = Accounts.getCurrentUser();
 
-		residence.addUser(user);
 		residence.dateRegistered = new Date();
+		residence.addUser(user);
 		residence.save();
 		
 		Logger.info("Residence data received and saved");
+		Logger.info("Residence user " + residence.user.getName());
 	    Logger.info("Residence type: " + residence.residenceType);
 	    Logger.info("Rented? " + residence.rented);
 	    Logger.info("Number bathrooms: " + residence.numberBathrooms);

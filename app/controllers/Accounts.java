@@ -32,7 +32,7 @@ public class Accounts extends Controller {
 	 * Renders login page
 	 */
 	public static void login() {
-		
+
 		render();
 	}
 
@@ -40,19 +40,19 @@ public class Accounts extends Controller {
 	 * Renders login error page
 	 */
 	public static void loginerror() {
-		
+
 		render();
 	}
-	
+
 	/**
 	 * Logs out current user
 	 */
 	public static void logout() {
-		
-		session.clear();			
+
+		session.clear();
 		Welcome.index();
 	}
-	
+
 	/**
 	 * Registers new user with details entered on sign up page Displays error
 	 * message if user already registered and if user not USA citizen
@@ -60,7 +60,7 @@ public class Accounts extends Controller {
 	 * @param user
 	 */
 	public static void register(User user, boolean terms) {
-		
+
 		List<User> users = User.findAll();
 
 		for (User a : users) {
@@ -74,7 +74,7 @@ public class Accounts extends Controller {
 			Logger.info("New member details: " + user.firstName + " " + user.lastName + " " + user.email + " "
 					+ user.password);
 			Welcome.index();
-			
+
 		} else {
 			Logger.info("Error - user " + user.email + " not registered! Please check your details!");
 			signuperror();
@@ -93,8 +93,9 @@ public class Accounts extends Controller {
 
 		if ((user != null) && (user.checkPassword(password) == true)) {
 			Logger.info("Authentication successful");
-			
+
 			session.put("logged_in_userid", user.id);
+			session.put("logged_status", "logged_in");
 			InputData.index();
 
 		} else {
@@ -102,30 +103,33 @@ public class Accounts extends Controller {
 			loginerror();
 		}
 	}
-	
+
 	/**
 	 * Compares two users based on their e-mails
 	 * 
-	 * @param User a
-	 * @param User b
+	 * @param User
+	 *            a
+	 * @param User
+	 *            b
 	 * 
 	 * @return true if two user e-mails are the same
 	 */
 	private static boolean equalUser(User a, User b) {
 		return (a.email.equals(b.email));
 	}
-	
+
 	/**
-	 * Checks logged in userId 
+	 * Checks logged in userId
 	 * 
-	 * @return String currentuser 
+	 * @return String currentuser
 	 */
 	public static User getCurrentUser() {
-		
-		String userId = session.get("logged_in_userid");
-		User currentuser = User.findById(Long.parseLong(userId));
-		
-		return currentuser;
+		User user = null;
+		if (session.contains("logged_in_userid")) {
+			String userId = session.get("logged_in_userid");
+			user = User.findById(Long.parseLong(userId));
+		}
+		return user;
 	}
 
 	/**
