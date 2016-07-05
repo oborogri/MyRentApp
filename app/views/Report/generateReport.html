@@ -33,8 +33,10 @@
            <th>Residence User</th>
            <th>Date registered</th>
            <th>Rented?</th>
-           <th>Rent<i class="dollar icon"></i></th>
+           <th>Rent<i class="euro icon"></i></th>
+           <th>Area(sq.m.)</th>
            <th>Bedrooms</th>
+           <th>Bathrooms</th>
          </tr>
        </thead>
        <tbody>
@@ -45,7 +47,9 @@
              <td>${residence.dateRegistered.format('dd/MM/yyyy','en')}</td>
              <td>${residence.rented}</td>
              <td>${residence.rent}</td>
+             <td>${residence.area}</td>
              <td>${residence.numberBedrooms}</td>
+             <td>${residence.numberBathrooms}</td>
            </tr>
          #{/list}
        </tbody>

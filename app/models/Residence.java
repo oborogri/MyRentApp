@@ -18,6 +18,8 @@ public class Residence extends Model {
 	public String rented;
 	public int rent;
 	public int numberBedrooms;
+	public int numberBathrooms;
+	public int area;
 	public String geolocation;
 	public Date dateRegistered;
 	
@@ -27,18 +29,24 @@ public User user;
 	/**
 	 * Constructor for Residence object
 	 * 
-	 * @param user
-	 * @param rented
-	 * @param rent
-	 * @param numberBedrooms
+	 * @param user - user registering the residence
+	 * @param residenceType - type of residence
+	 * @param rented - occupied or no
+	 * @param rent - amount of rent 
+	 * @param numberBedrooms 
+	 * @param numberBathrooms
+	 * @param area
+	 * @param geolocation
 	 */
-	public Residence(User user, String residenceType, String rented, int rent, int numberBedrooms, String geolocation) {
+	public Residence(User user, String residenceType, String rented, int rent, int numberBedrooms, int numberBathrooms, int area, String geolocation) {
 
 		this.user = user;
 		this.residenceType = residenceType;
 		this.rented = rented;
 		this.rent = rent;
 		this.numberBedrooms = numberBedrooms;
+		this.numberBathrooms = numberBathrooms;
+		this.area = area;
 		this.geolocation = geolocation;
 		this.dateRegistered = new Date();
 	}

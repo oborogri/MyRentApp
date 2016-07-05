@@ -7,7 +7,7 @@
 	<a class="ui item" href="/logout">Logout</a>
 </div>
 <section class="ui segment">      
-  <form class="ui form" action="/datacapture" method="POST">
+<form class="ui form" action="/datacapture" method="POST">
 <h3 class="ui header">Please input residence data</h3>
 <div class="ui two column grid">
 	<div class="column">
@@ -42,7 +42,29 @@
              </div>
             </div>
           </div>
-        </div>   
+        </div> 
+        <div class="ui two column grid">
+          <div class="column">
+		        <div class="ui fluid form segment">
+		          <div class="ui labeled input">
+		            <div class="ui label">
+		              Area (sq.m.)
+		            </div>   
+                <input value="50" name="residence.area"  type="text" size="4" required>
+             </div>
+		        </div>
+		      </div>
+		      <div class="column">
+            <div class="ui fluid form segment">
+              <div class="ui labeled input">
+                <div class="ui label">
+                  Bathrooms:
+                </div>   
+                <input value="1" name="residence.numberBathrooms"  type="text" size=1em required>
+             </div>
+            </div>
+          </div>
+        </div>     
 		<div class="ui compact fluid form segment">
 			<select name="residence.residenceType" required>
 			    <option value="0">Residence type</option>
