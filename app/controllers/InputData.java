@@ -31,28 +31,22 @@ public class InputData extends Controller {
 	}
 	
 	/**
-	 * Facilitates residence data capture  
+	 * Facilitates registering new residence  
 	 * 
-	 * @param residenceType
-	 * @param rented
-	 * @param rent
-	 * @param numberBedrooms
-	 * @param geolocation
 	 */
 
-	public static void datacapture(String residenceType, String rented, int rent, int numberBedrooms,
-			String geolocation) {
+	public static void datacapture(Residence residence) {
 
-		ArrayList<Residence> residences = new ArrayList<Residence>();
+		User user = Accounts.getCurrentUser();
 
-		String userId = session.get("logged_in_userid");
-		User tenant = User.findById(Long.parseLong(userId));
-
-		Residence residence = new Residence(tenant, residenceType, rented, rent, numberBedrooms, geolocation);
+		residence.addUser(user);
+		residence.dateRegistered = new Date();
 		residence.save();
-		residences.add(residence);
-
-		Logger.info("Geolocation " + geolocation + " Tenant: " + tenant);
+		
+		Logger.info("Residence data received and saved");
+	    Logger.info("Residence type: " + residence.residenceType);
+	    Logger.info("Rented? " + residence.rented);
+	    
 		index();
 	}
 }

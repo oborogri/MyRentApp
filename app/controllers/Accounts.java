@@ -33,7 +33,6 @@ public class Accounts extends Controller {
 	 */
 	public static void login() {
 		
-		session.clear();
 		render();
 	}
 
@@ -42,7 +41,6 @@ public class Accounts extends Controller {
 	 */
 	public static void loginerror() {
 		
-		session.clear();
 		render();
 	}
 	
@@ -108,15 +106,26 @@ public class Accounts extends Controller {
 	/**
 	 * Compares two users based on their e-mails
 	 * 
-	 * @param User
-	 *            a
-	 * @param User
-	 *            b
+	 * @param User a
+	 * @param User b
 	 * 
-	 * @return true if user e-mails are the same
+	 * @return true if two user e-mails are the same
 	 */
 	private static boolean equalUser(User a, User b) {
 		return (a.email.equals(b.email));
+	}
+	
+	/**
+	 * Checks logged in userId 
+	 * 
+	 * @return String currentuser 
+	 */
+	public static User getCurrentUser() {
+		
+		String userId = session.get("logged_in_userid");
+		User currentuser = User.findById(Long.parseLong(userId));
+		
+		return currentuser;
 	}
 
 	/**

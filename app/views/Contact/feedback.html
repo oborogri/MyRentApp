@@ -1,16 +1,16 @@
 #{extends 'main.html' /} #{set title:'Feedback' /}
 <div class="ui inverted teal menu">
-	<a class="ui item">Welcome</a>
+	<a class="ui item" href="/welcome">Welcome</a>
 	<a class="ui item" href="/inputdata/index">Input Data</a>
 	<a class="ui item" href="/report">Report</a>
-	<a class="ui item" href="/contact">Contact</a>
+	<a class="ui active item" href="/contact">Contact</a>
 	<a class="ui item" href="/logout">Logout</a>
 </div>
 <h2 class="ui header">MyRent</h2>
 <h3 class="ui header">Acknowledgement</h3>
 <div class="ui compact segment">
 	<p>
-		Dear ${from.email}, thank you for your message.<br><br> We very much appreciate you
+		Thank you for your message.<br><br> We very much appreciate you
 		having taken the time out of your very busy schedule to contact us.<br>
 		<br> We will deal with the issue you have raised and advise you
 		of the outcome as soon as possible. <br>

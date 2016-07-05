@@ -18,7 +18,7 @@ public class User extends Model {
 	public String email;
 	public String password;
 	
-	@OneToMany(mappedBy = "tenant")
+	@OneToMany(mappedBy = "user")
 	public List<Residence> residences = new ArrayList<Residence>();
 	
 	/**

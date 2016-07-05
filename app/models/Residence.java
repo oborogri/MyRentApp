@@ -6,8 +6,6 @@ import javax.persistence.Table;
 
 import play.db.jpa.Model;
 import utils.LatLng;
-import play.Logger;
-import play.db.jpa.Blob;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -24,7 +22,7 @@ public class Residence extends Model {
 	public Date dateRegistered;
 	
 @ManyToOne
-public User tenant;
+public User user;
 
 	/**
 	 * Constructor for Residence object
@@ -36,7 +34,7 @@ public User tenant;
 	 */
 	public Residence(User user, String residenceType, String rented, int rent, int numberBedrooms, String geolocation) {
 
-		this.tenant = user;
+		this.user = user;
 		this.residenceType = residenceType;
 		this.rented = rented;
 		this.rent = rent;
@@ -46,7 +44,16 @@ public User tenant;
 	}
 	
 	/**
-	 * Access method to return residence geolocation as LatLang 
+	 * Facilitates adding user to a residence
+	 * @param user
+	 */
+	
+	public void addUser(User user) {
+		this.user = user;
+		this.save();
+	}
+	/**
+	 * Access method that return residence geolocation as LatLang 
 	 * 
 	 * @return LatLng geolocation
 	 */

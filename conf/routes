@@ -6,11 +6,9 @@
 GET     /                                       Welcome.index
 GET     /welcome                                Welcome.index
 GET     /signup                                 Accounts.signup
-GET     /contact                                Welcome.contact
-GET     /feedback                               Welcome.feedback
 
 #Contact
-POST    /acknowledge                            Welcome.acknowledge
+POST    /acknowledge                            Contact.sendMessage
 
 #Accounts page
 GET     /error                                  Accounts.error
@@ -30,6 +28,12 @@ POST    /datacapture                            InputData.datacapture
 GET     /generateReport                         Report.generateReport
 
 POST    /generateReport                         Report.generateReport 
+
+#Contact
+GET     /contact                                Contact.index
+
+GET     /feedback                               Contact.feedback
+
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

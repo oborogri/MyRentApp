@@ -14,12 +14,12 @@
 		<div class="ui fluid form segment">
 			<labeL>Location</labeL>
 			  <div class="ui input"><input id="geolocation"
-					value="53.347298,-6.268344" name="geolocation"  type="text" readonly>
+					value="53.347298,-6.268344" name="residence.geolocation"  type="text" readonly>
 			</div>
 		</div>
 			<div class="ui fluid form segment">
-				<input type="radio" name="rented" value="yes" required> Rented
-				<input type="radio" name="rented" value="no" required> Vacant
+				<input type="radio" name="residence.rented" value="yes" required> Rented
+				<input type="radio" name="residence.rented" value="no" required> Vacant
 			</div>
 			<div class="ui two column grid">
           <div class="column">
@@ -28,7 +28,7 @@
 		            <div class="ui label">
 		              Rent (&euro;)
 		            </div>   
-                <input value="1500" name="rent"  type="text" size="4" required>
+                <input value="1500" name="residence.rent"  type="text" size="4" required>
              </div>
 		        </div>
 		      </div>
@@ -38,13 +38,13 @@
                 <div class="ui label">
                   Bedrooms:
                 </div>   
-                <input value="3" name="numberBedrooms"  type="text" size=1 required>
+                <input value="3" name="residence.numberBedrooms"  type="text" size=1em required>
              </div>
             </div>
           </div>
         </div>   
 		<div class="ui compact fluid form segment">
-			<select name="residenceType" required>
+			<select name="residence.residenceType" required>
 			    <option value="0">Residence type</option>
 				<option value="flat">Apartment | Flat</option>
 				<option value="studio">Studio</option>

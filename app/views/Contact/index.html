@@ -9,22 +9,24 @@
 <section class="ui segment">
 	<h5 class="ui header">We would very much appreciate if you would provide some
 		feedback!</h5>
-	<form class="ui form" action="/acknowledge" method="POST">
+	<form action="/acknowledge" method="POST">
 		<div class="ui input field">
-			<label>First Name</label><input placeholder="your first name" name="user.firstName"
+			<input placeholder="your first name" name="user.firstName"
 				type="text" required>
 		</div>
 		<div class="ui input field">
-			<label>Last Name</label><input placeholder="your last name" name="user.lastName" type="text" required>
+		<input placeholder="your last name" name="user.lastName" type="text" required>
 		</div>
 		<div class="ui divider"></div>
 		<div class="ui input field">
-			<label>E-mail</label><input placeholder="your email address" name="email" type="text"
+		<input placeholder="your email address" name="user.email" type="text"
 				size="30" required>
 		</div>
 		<div class="ui divider"></div>
+		<div class="ui form">
 		<div class="field">
 				<textarea placeholder="Enter message here" name="messageText"></textarea>
+			</div>
 			</div>
 		<div class="ui divider"></div>
 		<button type="submit" class="ui teal submit button"><i class="send icon"></i>Send

@@ -14,13 +14,27 @@ import utils.LatLng;
 
 public class Report extends Controller {
 
-	/**
-	 * Renders report index page 
-	 */
-    public static void index() {
-        render();
-    }
+	 /**
+	   * This method executed before each action call in the controller.
+	   * Checks that a user has logged in.
+	   * If no user logged in the user is presented with the log in screen.
+	   */
+	  @Before
+	  static void checkAuthentification()
+	  {
+	    if(session.contains("logged_in_userid") == false)
+	      Accounts.login();
+	  }
     
+	  /**
+	   * Renders the report index view html template
+	   * This presents a map and resizable circle to indicate a search area for residences
+	   */
+	  public static void index()
+	  {
+	    render();
+	  }
+	
     /**
      * Generates a Report instance relating to all residences within circle
      * 

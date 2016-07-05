@@ -41,8 +41,8 @@
          #{list items:residences, as:'residence'}
            <tr>
              <td>${residences.indexOf(residence) +1}</td>
-             <td>${residence.tenant.getName()}</td>
-             <td>${residence.dateRegistered}</td>
+             <td>${residence.user.getName()}</td>
+             <td>${residence.dateRegistered.format('dd/MM/yyyy','en')}</td>
              <td>${residence.rented}</td>
              <td>${residence.rent}</td>
              <td>${residence.numberBedrooms}</td>
