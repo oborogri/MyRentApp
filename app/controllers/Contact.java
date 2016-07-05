@@ -37,7 +37,10 @@ public class Contact extends Controller {
 	 * Renders feedback page
 	 */
 	public static void feedback() {
-		render();
+		
+		User user = Accounts.getCurrentUser();
+		
+		render(user);
 	}
 
 	/**
