@@ -31,6 +31,7 @@ POST    /generateReport                         Report.generateReport
 
 #Contact
 GET     /contact                                Contact.index
+GET     /contacterror                           Contact.contacterror
 
 GET     /feedback                               Contact.feedback
 

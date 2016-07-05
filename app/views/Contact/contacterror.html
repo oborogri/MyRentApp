@@ -1,4 +1,4 @@
-#{extends 'main.html' /} #{set title:'Contact' /}
+#{extends 'main.html' /} #{set title:'Contact error' /}
 <div class="ui inverted teal menu">
 	<a class="ui item">Welcome</a>
 	<a class="ui item" href="/inputdata/index">Input Data</a>
@@ -7,8 +7,7 @@
 	<a class="ui item" href="/logout">Logout</a>
 </div>
 <section class="ui segment">
-	<h5 class="ui header">We would very much appreciate if you would provide some
-		feedback!</h5>
+	<h5 class="ui header">Error! Please check your details and try again!</h5>
 	<form action="/acknowledge" method="POST">
 		<div class="ui input field">
 			<input placeholder="your first name" name="user.firstName"
