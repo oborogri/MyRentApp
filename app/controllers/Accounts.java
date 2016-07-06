@@ -59,24 +59,24 @@ public class Accounts extends Controller {
 	 * 
 	 * @param user
 	 */
-	public static void register(User user, boolean terms) {
+	public static void register(Landlord landlord, boolean terms) {
 
-		List<User> users = User.findAll();
+		List<Landlord> landlords = Landlord.findAll();
 
-		for (User a : users) {
-			if (equalUser(user, a)) {
-				Logger.info("Error - user " + user.email + " already registered!");
+		for (Landlord a : landlords) {
+			if (equalLandlord(landlord, a)) {
+				Logger.info("Error - user " + landlord.email + " already registered!");
 				signuperror();
 			}
 		}
-		if (isValidEmailAddress(user.email) && (terms != false)) {
-			user.save();
-			Logger.info("New member details: " + user.firstName + " " + user.lastName + " " + user.email + " "
-					+ user.password);
+		if (isValidEmailAddress(landlord.email) && (terms != false)) {
+			landlord.save();
+			Logger.info("New member details: " + landlord.firstName + " " + landlord.lastName + " " + landlord.email
+					+ " " + landlord.password);
 			Welcome.index();
 
 		} else {
-			Logger.info("Error - user " + user.email + " not registered! Please check your details!");
+			Logger.info("Error - user " + landlord.email + " not registered! Please check your details!");
 			signuperror();
 		}
 	}
@@ -89,12 +89,12 @@ public class Accounts extends Controller {
 	 */
 	public static void authenticate(String email, String password) {
 		Logger.info("Attempting to authenticate with " + email + " : " + password);
-		User user = User.findByEmail(email);
+		Landlord landlord = Landlord.findByEmail(email);
 
-		if ((user != null) && (user.checkPassword(password) == true)) {
+		if ((landlord != null) && (landlord.checkPassword(password) == true)) {
 			Logger.info("Authentication successful");
 
-			session.put("logged_in_userid", user.id);
+			session.put("logged_in_userid", landlord.id);
 			session.put("logged_status", "logged_in");
 			InputData.index();
 
@@ -114,7 +114,7 @@ public class Accounts extends Controller {
 	 * 
 	 * @return true if two user e-mails are the same
 	 */
-	private static boolean equalUser(User a, User b) {
+	private static boolean equalLandlord(Landlord a, Landlord b) {
 		return (a.email.equals(b.email));
 	}
 
@@ -123,13 +123,13 @@ public class Accounts extends Controller {
 	 * 
 	 * @return String currentuser
 	 */
-	public static User getCurrentUser() {
-		User user = null;
+	public static Landlord getCurrentLandlord() {
+		Landlord landlord = null;
 		if (session.contains("logged_in_userid")) {
 			String userId = session.get("logged_in_userid");
-			user = User.findById(Long.parseLong(userId));
+			landlord = Landlord.findById(Long.parseLong(userId));
 		}
-		return user;
+		return landlord;
 	}
 
 	/**

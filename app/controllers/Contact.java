@@ -44,9 +44,9 @@ public class Contact extends Controller {
 	 */
 	public static void feedback() {
 
-		User user = Accounts.getCurrentUser();
+		Landlord landlord = Accounts.getCurrentLandlord();
 
-		render(user);
+		render(landlord);
 	}
 
 	/**
@@ -62,9 +62,9 @@ public class Contact extends Controller {
 	 */
 	// public static void sendMessage(String firstName, String lastName, String
 	// emailSender, String messageTxd)
-	public static void sendMessage(User user, String messageText) {
+	public static void sendMessage(Landlord landlord, String messageText) {
 
-		if (Accounts.isValidEmailAddress(user.email)) {
+		if (Accounts.isValidEmailAddress(landlord.email)) {
 
 			if (session.get("logged_in_userid") != null) {
 
@@ -85,7 +85,7 @@ public class Contact extends Controller {
 
 				try {
 					String forwarderAddress = username;
-					String destinationAddress1 = user.email;
+					String destinationAddress1 = landlord.email;
 					String destinationAddress2 = username;
 					Message message = new MimeMessage(session);
 					message.setFrom(new InternetAddress(forwarderAddress));

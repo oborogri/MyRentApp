@@ -2,8 +2,8 @@ package controllers;
 
 import java.util.Date;
 
+import models.Landlord;
 import models.Residence;
-import models.User;
 import play.Logger;
 import play.mvc.Controller;
 import org.json.simple.JSONObject;
@@ -36,14 +36,14 @@ public class InputData extends Controller {
 
 	public static void datacapture(Residence residence) {
 
-		User user = Accounts.getCurrentUser();
+		Landlord landlord = Accounts.getCurrentLandlord();
 
 		residence.dateRegistered = new Date();
-		residence.addUser(user);
+		residence.addUser(landlord);
 		residence.save();
 		
 		Logger.info("Residence data received and saved");
-		Logger.info("Residence user " + residence.user.getName());
+		Logger.info("Residence user " + residence.landlord);
 	    Logger.info("Residence type: " + residence.residenceType);
 	    Logger.info("Rented? " + residence.rented);
 	    Logger.info("Number bathrooms: " + residence.numberBathrooms);

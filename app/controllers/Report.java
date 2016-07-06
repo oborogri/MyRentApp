@@ -3,8 +3,8 @@ package controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import models.Landlord;
 import models.Residence;
-import models.User;
 import play.Logger;
 import play.mvc.Before;
 import play.mvc.Controller;
@@ -45,7 +45,7 @@ public class Report extends Controller {
 	 */
 	public static void generateReport(double radius, double latcenter, double lngcenter) {
 
-	 	User user = Accounts.getCurrentUser();
+	 	Landlord landlord = Accounts.getCurrentLandlord();
 
 		ArrayList<Residence> residences = new ArrayList<Residence>();
 
@@ -65,7 +65,7 @@ public class Report extends Controller {
 
 		}
 				
-		render(user, circle, residences);
+		render(landlord, circle, residences);
 	}
 
 }
