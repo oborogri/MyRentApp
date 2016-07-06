@@ -1,13 +1,12 @@
 package controllers;
 
-import play.*;
-import play.mvc.*;
-import utils.LatLng;
+import java.util.Date;
 
-import java.util.*;
-
-import models.*;
-import utils.LatLng;
+import models.Residence;
+import models.User;
+import play.Logger;
+import play.mvc.Controller;
+import org.json.simple.JSONObject;
 
 public class InputData extends Controller {
 	
@@ -51,5 +50,10 @@ public class InputData extends Controller {
 	    Logger.info("Residence area: " + residence.area);
 	    
 		index();
+	    
+	   /* JSONObject obj = new JSONObject();
+	    String value = "Congratulations. You have successfully registered your " + residence.residenceType +".";
+	    obj.put("inputdata", value);
+	    renderJSON(obj);*/
 	}
 }

@@ -37,7 +37,7 @@ public User user;
 	 * @param numberBathrooms
 	 * @param area
 	 * @param geolocation
-	 */
+	 *//*
 	public Residence(User user, String residenceType, String rented, int rent, int numberBedrooms, int numberBathrooms, int area, String geolocation) {
 
 		this.user = user;
@@ -49,7 +49,7 @@ public User user;
 		this.area = area;
 		this.geolocation = geolocation;
 		this.dateRegistered = new Date();
-	}
+	}*/
 	
 	/**
 	 * Facilitates adding user to a residence

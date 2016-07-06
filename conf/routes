@@ -22,7 +22,7 @@ POST    /authenticate                           Accounts.authenticate
 GET     /inputData                              InputData.index
 GET     /report                                 Report.index
 
-POST    /datacapture                            InputData.datacapture
+POST    inputdata/datacapture                   InputData.datacapture
 
 #Report
 GET     /generateReport                         Report.generateReport
