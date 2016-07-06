@@ -11,7 +11,7 @@ public class Message extends Model {
 	public Date postedAt;
 
 	@ManyToOne
-	public User from;
+	public Landlord from;
 	
 	/**
 	 * Constructor for message object
@@ -20,7 +20,7 @@ public class Message extends Model {
 	 * @param messageText
 	 */
 
-	public Message(User from, String messageText) {
+	public Message(Landlord from, String messageText) {
 		this.from = from;
 		this.messageText = messageText;
 		postedAt = new Date();

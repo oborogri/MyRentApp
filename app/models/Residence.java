@@ -24,15 +24,15 @@ public class Residence extends Model {
 	public Date dateRegistered;
 	
 @ManyToOne
-public User user;
+public Landlord landlord;
 
 	/**
 	 * Facilitates adding user to a residence
 	 * @param user
 	 */
 	
-	public void addUser(User user) {
-		this.user = user;
+	public void addUser(Landlord landlord) {
+		this.landlord = landlord;
 		this.save();
 	}
 	/**
