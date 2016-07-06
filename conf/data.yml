@@ -1,17 +1,17 @@
-User(homer):
+Landlord(homer):
     firstName: Homer
     lastName: Simpson
     email: homer@simpson.com
     password: secret
         
-User(marge):
+Landlord(marge):
     firstName: Marge
     lastName: Simpson
     email: marge@simpson.com
     password: secret
 
 Residence(residence1):
-    user: homer
+    landlord: homer
     residenceType: Apartment | Flat
     rented: yes
     rent: 1200
@@ -22,7 +22,7 @@ Residence(residence1):
     dateRegistered: 2016-07-03 20:24:43
     
 Residence(residence2):
-    user: marge
+    landlord: marge
     residenceType: House
     rented: yes
     rent: 1400
@@ -33,7 +33,7 @@ Residence(residence2):
     dateRegistered: 2016-07-04 21:32:22
     
 Residence(residence3):
-    user: homer
+    landlord: homer
     residenceType: Studio
     rented: no
     rent: 1200

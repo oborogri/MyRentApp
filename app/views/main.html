@@ -7,10 +7,12 @@
     <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
   </head>
   <body>
+  <div class="ui segment">
     #{doLayout /}       
     <script src="@{'/public/javascripts/jquery-2.2.4.js'}" type="text/javascript" charset="${_response_encoding}"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js"></script>     
     <script src="@{'/public/javascripts/inputdata.js'}" charset="${_response_encoding}"></script>     
     #{get 'moreScripts' /}
+    </div>
   </body>
 </html>
