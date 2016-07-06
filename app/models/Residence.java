@@ -27,31 +27,6 @@ public class Residence extends Model {
 public User user;
 
 	/**
-	 * Constructor for Residence object
-	 * 
-	 * @param user - user registering the residence
-	 * @param residenceType - type of residence
-	 * @param rented - occupied or no
-	 * @param rent - amount of rent 
-	 * @param numberBedrooms 
-	 * @param numberBathrooms
-	 * @param area
-	 * @param geolocation
-	 *//*
-	public Residence(User user, String residenceType, String rented, int rent, int numberBedrooms, int numberBathrooms, int area, String geolocation) {
-
-		this.user = user;
-		this.residenceType = residenceType;
-		this.rented = rented;
-		this.rent = rent;
-		this.numberBedrooms = numberBedrooms;
-		this.numberBathrooms = numberBathrooms;
-		this.area = area;
-		this.geolocation = geolocation;
-		this.dateRegistered = new Date();
-	}*/
-	
-	/**
 	 * Facilitates adding user to a residence
 	 * @param user
 	 */
