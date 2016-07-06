@@ -34,10 +34,19 @@ public class Contact extends Controller {
 	}
 
 	/**
+	 * Renders contact error page
+	 */
+	public static void contacterror() {
+		render();
+	}
+	/**
 	 * Renders feedback page
 	 */
 	public static void feedback() {
-		render();
+
+		User user = Accounts.getCurrentUser();
+
+		render(user);
 	}
 
 	/**
@@ -55,47 +64,53 @@ public class Contact extends Controller {
 	// emailSender, String messageTxd)
 	public static void sendMessage(User user, String messageText) {
 
-		if (session.get("logged_in_userid") != null) {
+		if (Accounts.isValidEmailAddress(user.email)) {
 
-			final String username = "xxxxxx@yahoo.com";
-			final String password = "password";
+			if (session.get("logged_in_userid") != null) {
 
-			Properties props = new Properties();
-			props.put("mail.smtp.auth", "true");
-			props.put("mail.smtp.starttls.enable", "true");
-			props.put("mail.smtp.host", "smtp.mail.yahoo.com");
-			props.put("mail.smtp.port", "587");
+				final String username = "xxxxxx@yahoo.com";
+				final String password = "password";
 
-			Session session = Session.getInstance(props, new javax.mail.Authenticator() {
-				protected PasswordAuthentication getPasswordAuthentication() {
-					return new PasswordAuthentication(username, password);
+				Properties props = new Properties();
+				props.put("mail.smtp.auth", "true");
+				props.put("mail.smtp.starttls.enable", "true");
+				props.put("mail.smtp.host", "smtp.mail.yahoo.com");
+				props.put("mail.smtp.port", "587");
+
+				Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+					protected PasswordAuthentication getPasswordAuthentication() {
+						return new PasswordAuthentication(username, password);
+					}
+				});
+
+				try {
+					String forwarderAddress = username;
+					String destinationAddress1 = user.email;
+					String destinationAddress2 = username;
+					Message message = new MimeMessage(session);
+					message.setFrom(new InternetAddress(forwarderAddress));
+					message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(destinationAddress1));
+					message.setRecipients(Message.RecipientType.BCC, InternetAddress.parse(destinationAddress2));
+					message.setSubject("Message for MyRent Webmaster");
+					message.setText(messageText);
+
+					Transport.send(message);
+
+				} catch (MessagingException e) {
+					Logger.info(e.getMessage());
+					feedback();// a temporary fix: an exception caught when
+								// sendMessage invoked from Cloud
+					throw new RuntimeException(e);
 				}
-			});
 
-			try {
-				String forwarderAddress = username;
-				String destinationAddress1 = user.email;
-				String destinationAddress2 = username;
-				Message message = new MimeMessage(session);
-				message.setFrom(new InternetAddress(forwarderAddress));
-				message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(destinationAddress1));
-				message.setRecipients(Message.RecipientType.BCC, InternetAddress.parse(destinationAddress2));
-				message.setSubject("Message for MyRent Webmaster");
-				message.setText(messageText);
+				feedback();
 
-				Transport.send(message);
-
-			} catch (MessagingException e) {
-				Logger.info(e.getMessage());
-				feedback();// a temporary fix: an exception caught when
-							// sendMessage invoked from Cloud
-				throw new RuntimeException(e);
+			} else {
+				Accounts.login();
 			}
-
-			feedback();
 			
 		} else {
-			Accounts.login();
+			contacterror();
 		}
 	}
 }

@@ -1,69 +1,97 @@
 #{extends 'main.html' /} #{set title:'InputData' /}
 <div class="ui inverted teal menu">
-	<a class="ui item">Welcome</a>
-	<a class="ui active item">Input Data</a>
-	<a class="ui item" href="/report">Report</a>
-	<a class="ui item" href="/contact">Contact</a>
-	<a class="ui item" href="/logout">Logout</a>
+	<a class="ui item">Welcome</a> <a class="ui active item">Input Data</a>
+	<a class="ui item" href="/report">Report</a> <a class="ui item"
+		href="/contact">Contact</a> <a class="ui item" href="/logout">Logout</a>
 </div>
-<section class="ui segment">      
-  <form class="ui form" action="/datacapture" method="POST">
-<h3 class="ui header">Please input residence data</h3>
-<div class="ui two column grid">
-	<div class="column">
-		<div class="ui fluid form segment">
-			<labeL>Location</labeL>
-			  <div class="ui input"><input id="geolocation"
-					value="53.347298,-6.268344" name="residence.geolocation"  type="text" readonly>
+<section class="ui segment">
+	<h3 class="ui header">Please input residence data</h3>
+	<div class="ui two column grid">
+		<div class="column">
+			<form class="ui form" action="inputdata/datacapture" method="POST">
+				<div class="ui fluid form segment">
+					<labeL>Location</labeL>
+					<div class="ui input">
+						<input id="geolocation" value="53.347298,-6.268344"
+							name="residence.geolocation" type="text" readonly>
+					</div>
+				</div>
+				<div class="ui fluid form segment">
+					<div class="grouped inline fields">
+						<div class="ui radio checkbox">
+							<input name="residence.rented" checked="checked" type="radio"
+								value="yes"> <label>Rented</label>
+						</div>
+						<div class="ui radio checkbox">
+							<input name="residence.rented" type="radio" value="no"> <label>Vacant</label>
+						</div>
+					</div>
+				</div>
+				<div class="ui two column grid">
+					<div class="column">
+						<div class="ui form segment">
+							<div class="ui fluid labeled input">
+								<div class="ui label">Rent (&euro;)</div>
+								<input value="1500" name="residence.rent" type="text" size="4"
+									required>
+							</div>
+						</div>
+					</div>
+					<div class="column">
+						<div class="ui form segment">
+							<div class="ui fluid labeled input">
+								<div class="ui label">Bedrooms:</div>
+								<input value="3" name="residence.numberBedrooms" type="text"
+									size=1em required>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="ui two column grid">
+					<div class="column">
+						<div class="ui fluid form segment">
+							<div class="ui labeled input">
+								<div class="ui label">Area (sq.m.)</div>
+								<input value="50" name="residence.area" type="text" size="4"
+									required>
+							</div>
+						</div>
+					</div>
+					<div class="column">
+						<div class="ui fluid form segment">
+							<div class="ui labeled input">
+								<div class="ui label">Bathrooms:</div>
+								<input value="1" name="residence.numberBathrooms" type="text"
+									size=1em required>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="ui fluid form segment">
+					<div class="ui selection dropdown">
+						<input name="residence.residenceType" type="hidden" required>
+						<div class="text">Residence type</div>
+						<i class="dropdown icon"></i>
+						<div class="menu">
+							<div class="item" data-value="flat">Apartment|Flat</div>
+							<div class="item" data-value="studio">Studio</div>
+							<div class="item" data-value="house">House</div>
+						</div>
+					</div>
+				</div>
+					<button class="ui teal button" type="submit">
+						Submit Data <i class="add icon"></i>
+					</button>
+			</form>
+		</div>
+		<div class="column">
+			<div class="ui raised fluid segment">
+				<div class="ui embed 4:3" id="map-canvas"></div>
+				<script
+					src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+				<script src="@{'/public/javascripts/map.js'}" type="text/javascript"
+					charset="utf-8"></script>
 			</div>
 		</div>
-			<div class="ui fluid form segment">
-				<input type="radio" name="residence.rented" value="yes" required> Rented
-				<input type="radio" name="residence.rented" value="no" required> Vacant
-			</div>
-			<div class="ui two column grid">
-          <div class="column">
-		        <div class="ui fluid form segment">
-		          <div class="ui labeled input">
-		            <div class="ui label">
-		              Rent (&euro;)
-		            </div>   
-                <input value="1500" name="residence.rent"  type="text" size="4" required>
-             </div>
-		        </div>
-		      </div>
-		      <div class="column">
-            <div class="ui fluid form segment">
-              <div class="ui labeled input">
-                <div class="ui label">
-                  Bedrooms:
-                </div>   
-                <input value="3" name="residence.numberBedrooms"  type="text" size=1em required>
-             </div>
-            </div>
-          </div>
-        </div>   
-		<div class="ui compact fluid form segment">
-			<select name="residence.residenceType" required>
-			    <option value="0">Residence type</option>
-				<option value="flat">Apartment | Flat</option>
-				<option value="studio">Studio</option>
-				<option value="house">House</option>
-			</select>
-	    </div> 
-			<button class="ui teal button" type="submit">
-				Submit Data <i class="plus icon"></i>
-			</button>
-			<a class="ui teal button" href="/index"><i class="ban icon"></i>
-				Cancel </a>
-		</div>
-	<div class="column">
-		<div class="ui segment">
-			<div class="ui embed 4:3" id="map-canvas"></div>
-			<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-			<script src="@{'/public/javascripts/map.js'}" type="text/javascript" charset="utf-8"></script>			
-		</div>
 	</div>
-	</div>
-</form>
 </section>

@@ -19,10 +19,10 @@
         </thead>
         <tbody>
           <tr>
-            <td>${user.getName()}</td>
-            <td>${circle.radius}</td>
-            <td>${circle.latcenter}</td>
-            <td>${circle.lngcenter}</td>
+            <td>${user}</td>
+            <td>${circle.radius.format('#.0')}</td>
+            <td>${circle.latcenter.format('#.00000')}</td>
+            <td>${circle.lngcenter.format('#.00000')}</td>
             </tr>
         </tbody>
      </table>
@@ -33,19 +33,23 @@
            <th>Residence User</th>
            <th>Date registered</th>
            <th>Rented?</th>
-           <th>Rent<i class="dollar icon"></i></th>
+           <th>Rent<i class="euro icon"></i></th>
+           <th>Area(sq.m.)</th>
            <th>Bedrooms</th>
+           <th>Bathrooms</th>
          </tr>
        </thead>
        <tbody>
          #{list items:residences, as:'residence'}
            <tr>
-             <td>${residences.indexOf(residence) +1}</td>
-             <td>${residence.user.getName()}</td>
-             <td>${residence.dateRegistered.format('dd/MM/yyyy','en')}</td>
+             <td>${residence.id}</td>
+             <td>${residence.user}</td>
+             <td>${residence.dateRegistered.format('dd/MM/yyyy', 'en')}</td>
              <td>${residence.rented}</td>
-             <td>${residence.rent}</td>
+             <td>${residence.rent.format('#')}</td>
+             <td>${residence.area}</td>
              <td>${residence.numberBedrooms}</td>
+             <td>${residence.numberBathrooms}</td>
            </tr>
          #{/list}
        </tbody>

@@ -59,6 +59,14 @@ public class User extends Model {
 	}
 	
 	/**
+	 * Overrides toString method for user object
+	 */
+	 public String toString()
+	  {
+	    return firstName + " " + lastName;
+	  }
+	
+	/**
 	 * Concatenates user firstName and user lastName in one string 
 	 * 
 	 * @return userName
