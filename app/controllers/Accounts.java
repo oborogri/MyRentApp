@@ -123,7 +123,7 @@ public class Accounts extends Controller {
 	 * 
 	 * @return String currentuser
 	 */
-	public static Landlord getCurrentLandlord() {
+	public static Landlord getCurrentUser() {
 		Landlord landlord = null;
 		if (session.contains("logged_in_userid")) {
 			String userId = session.get("logged_in_userid");

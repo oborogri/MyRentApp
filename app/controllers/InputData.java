@@ -36,7 +36,7 @@ public class InputData extends Controller {
 
 	public static void datacapture(Residence residence) {
 
-		Landlord landlord = Accounts.getCurrentLandlord();
+		Landlord landlord = Accounts.getCurrentUser();
 
 		residence.dateRegistered = new Date();
 		residence.addUser(landlord);

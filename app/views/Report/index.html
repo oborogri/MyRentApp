@@ -4,9 +4,12 @@
 	<a class="ui item" href="/inputdata/index">Input Data</a>
 	<a class="ui active item">Report</a>
 	<a class="ui item" href="/contact">Contact</a>
+	<a class="ui item" href="/editprofile">Edit Profile</a>
 	<a class="ui item" href="/logout">Logout</a>
 </div>
-<section class="ui segment">      
+<section class="ui raised segment">   
+<div class="ui two column grid">
+<div class="column">   
   <h4 class="ui header">Define the region for which you require a report</h4>
   <form action="/generateReport" method="POST">    
    <h5 class="ui header">Size and position circle to select region for report</h5> 
@@ -19,6 +22,11 @@
       <input type="text"  id="lngcenter" name="lngcenter">
     </div>
   </form>
+  </div>
+  <div class="column">
+  <img src="/public/images/rent.jpg"></img>  
+  </div>
+  </div>
 </section>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 <script src="@{'/public/javascripts/reportmap.js'}" type="text/javascript" charset="utf-8"></script>

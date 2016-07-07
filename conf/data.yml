@@ -1,12 +1,14 @@
 Landlord(homer):
     firstName: Homer
     lastName: Simpson
+    address: Waterford 
     email: homer@simpson.com
     password: secret
         
 Landlord(marge):
     firstName: Marge
     lastName: Simpson
+    address: Cork
     email: marge@simpson.com
     password: secret
 

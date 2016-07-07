@@ -1,34 +1,37 @@
 #{extends 'main.html' /} #{set title:'Welcome' /}
 <div class="ui inverted teal menu">
-	<a class="ui active item">Welcome</a>
-	<a class="ui item" href="/signup">Sign Up</a>
-	<a class="ui item" href="/login">Login</a>
+	<a class="ui active item">Welcome</a> <a class="ui item" href="/signup">Sign
+		Up</a> <a class="ui item" href="/login">Login</a>
 </div>
 <h2 class="ui header">Welcome to MyRent</h2>
-<h3 class="ui header">Your guide to residential property</h3>
-<div class="ui compact segment">
-	<p>The 2004 Residential Tenancies act gives every landlord and
-		tenant a right to a rent review once each year.
-	</p>
-	<p> The Act makes it illegal for a landlord to charge a rent higher than the market rent.
-	</p>
-	<p> If there is a dispute about the market rent, either the landlord or
-		the tenant can take a case to the Private Residential Tenancies Board
-		(the PTRB). 
-	</p>
-	<p> The problem with this system is in establishing an
-		objective way of determining the market rent of a property.
-	</p>
-	<p> The purpose of myrent is to gather information on rents from landlords and
-		tenants and allow any registered user to generate a report on the
-		state of the rental market.
-	</p>
-	<p> The success of the project will depend on
-		the willingness of tenants and landlords to provide information about
-		their properties.
-	</p>
-	<div class="ui message"><a href="/accounts/login">Login </a> or <a href="/accounts/signup"> create a new account </a> and input your
-		details on the Input Data page. To provide the required information
-		will take just a few minutes of your time.
+<div class="ui raised segment">
+	<h3 class="ui header">Your guide to residential property</h3>
+	<div class="ui two column grid">
+		<div class="column">
+			<p>The 2004 Residential Tenancies act gives every landlord and
+				tenant a right to a rent review once each year.</p>
+			<p>The Act makes it illegal for a landlord to charge a rent
+				higher than the market rent.</p>
+			<p>If there is a dispute about the market rent, either the
+				landlord or the tenant can take a case to the Private Residential
+				Tenancies Board (the PTRB).</p>
+			<p>The problem with this system is in establishing an objective
+				way of determining the market rent of a property.</p>
+			<p>The purpose of myrent is to gather information on rents from
+				landlords and tenants and allow any registered user to generate a
+				report on the state of the rental market.</p>
+			<p>The success of the project will depend on the willingness of
+				tenants and landlords to provide information about their properties.
+			</p>
+		</div>
+		<div class="column">
+		<img src="/public/images/banner.jpg"></img>
+	</div>
+	</div>
+	<div class="ui message">
+		<a href="/accounts/login">Login </a> or <a href="/accounts/signup">
+			create a new account </a> and input your details on the Input Data page.
+		To provide the required information will take just a few minutes of
+		your time.
 	</div>
 </div>

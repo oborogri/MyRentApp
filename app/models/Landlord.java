@@ -16,6 +16,7 @@ public class Landlord extends Model {
 	public String firstName;
 	public String lastName;
 	public String email;
+	public String address;
 	public String password;
 
 	@OneToMany(mappedBy = "landlord")

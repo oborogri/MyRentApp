@@ -7,9 +7,6 @@ GET     /                                       Welcome.index
 GET     /welcome                                Welcome.index
 GET     /signup                                 Accounts.signup
 
-#Contact
-POST    /acknowledge                            Contact.sendMessage
-
 #Accounts page
 GET     /error                                  Accounts.error
 GET     /login                                  Accounts.login
@@ -19,10 +16,14 @@ POST    /register                               Accounts.register
 POST    /authenticate                           Accounts.authenticate
 
 #InputData
-GET     /inputData                              InputData.index
+GET     /inputdata                              InputData.index
 GET     /report                                 Report.index
+GET     /editprofile                            Landlords.index
 
 POST    inputdata/datacapture                   InputData.datacapture
+
+#EditProfile
+POST    /editProfile                            Landlords.editProfile 
 
 #Report
 GET     /generateReport                         Report.generateReport
@@ -32,8 +33,9 @@ POST    /generateReport                         Report.generateReport
 #Contact
 GET     /contact                                Contact.index
 GET     /contacterror                           Contact.contacterror
-
 GET     /feedback                               Contact.feedback
+
+POST    /acknowledge                            Contact.sendMessage
 
 
 # Ignore favicon requests

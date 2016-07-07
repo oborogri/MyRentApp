@@ -45,7 +45,7 @@ public class Report extends Controller {
 	 */
 	public static void generateReport(double radius, double latcenter, double lngcenter) {
 
-	 	Landlord landlord = Accounts.getCurrentLandlord();
+	 	Landlord landlord = Accounts.getCurrentUser();
 
 		ArrayList<Residence> residences = new ArrayList<Residence>();
 
