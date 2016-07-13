@@ -26,7 +26,7 @@ Tenant(bart):
     email: bart@simpson.com
     password: secret
     
-Admin(greg):
+Administrator(greg):
     firstName: Greg
     lastName: Oboroceanu
     address: Waterford 

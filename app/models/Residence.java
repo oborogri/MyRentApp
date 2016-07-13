@@ -29,9 +29,6 @@ public Landlord landlord;
 @ManyToOne
 public Tenant tenant;
 
-@ManyToOne
-public Admin admin;
-
 	/**
 	 * Facilitates adding landlord to a residence
 	 * @param user

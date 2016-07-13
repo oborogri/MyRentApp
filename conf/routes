@@ -4,7 +4,8 @@
 
 # Welcome page
 GET     /                                       Welcome.index
-GET     /home                                   Welcome.index                     
+GET     /home                                   Welcome.index    
+GET     /logout                                 Accounts.logout                 
 
 #Tenants
 GET     /tenants/signup                         Tenants.signup
@@ -20,9 +21,12 @@ GET     /landlords/login                        Landlords.login
 POST    /landlords/register                     Landlords.register
 POST    /landlords/authenticate                 Landlords.authenticate
 
-#Admin
-GET     /admin/signup                           Administrator.register
-GET     /admin/login                            Administrator.login
+#Administrators
+GET     /admin/signup                           Administrators.signup
+GET     /admin/login                            Administrators.login
+
+POST    /admin/register                         Administrators.register
+POST    /admin/authenticate                     Administrators.authenticate
 
 #InputData
 GET     /inputdata                              InputData.index

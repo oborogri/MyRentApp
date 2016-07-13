@@ -49,7 +49,7 @@ public class Tenants extends Controller {
 
 	/**
 	 * Registers new tenant with details entered on sign up page 
-	 * Displays error message if tenant already registered and if user not USA citizen
+	 * Displays error message if tenant already registered
 	 * 
 	 * @param tenant
 	 */
@@ -82,7 +82,7 @@ public class Tenants extends Controller {
 	 * @param password
 	 */
 	public static void authenticate(String email, String password) {
-		Logger.info("Attempting to authenticate with " + email + " : " + password);
+		Logger.info("Attempting to authenticate tenant with " + email + " : " + password);
 		Tenant tenant = Tenant.findByEmail(email);
 
 		if ((tenant != null) && (tenant.checkPassword(password) == true)) {
@@ -93,7 +93,7 @@ public class Tenants extends Controller {
 			Tenants.index();
 
 		} else {
-			Logger.info("Authentication failed");
+			Logger.info("Tenant authentication failed");
 			loginerror();
 		}
 	}

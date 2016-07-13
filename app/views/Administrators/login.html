@@ -1,17 +1,17 @@
-#{extends 'main.html' /} #{set title:'Landlord login' /}
+#{extends 'main.html' /} #{set title:'Admin Login' /}
 <div class="ui inverted teal menu">
 	<a class="ui item" href="/home">Home</a>
-	<a class="ui active item"> Login</a>
-	<a class="ui item" href="/contact">Contact</a> 
-	</div>
+	<a class="ui active item">Login</a>
+	<a class="ui item" href="/contact">Contact</a>
+</div>
 <div class="ui segment">
-	<h3 class="ui header">Log into your landlord account</h3>
-	<h4 class="ui item">Your username in the email you registered with</h4>
+	<h3 class="ui header">Log into your administrator account</h3>
+	<h4 class="ui item">Your username is the email you registered with</h4>
 	<div class="ui two column grid">
 		<div class="column">
-			<form class="ui fluid form segment" action="/landlords/authenticate" method="POST">
+			<form class="ui fluid form segment" action="/admin/authenticate" method="POST">
 				<div class="field">
-					<div class="required field">
+					<div class="required field">	
 						<label>Username:</label> <input placeholder="e-mail" type="text"
 							name="email" required>
 					</div>
@@ -28,6 +28,6 @@
 		</div>
 	</div>
 	<div class="ui message">
-		Don't have an account? <a href="/landlords/signup">Sign up here </a>
+		Don't have an account? <a href="/admin/signup">Sign up here </a>
 	</div>
 </div>

@@ -12,16 +12,11 @@ import java.util.List;
 import java.util.ArrayList;
 
 @Entity
-public class Admin extends Model {
+public class Administrator extends Model {
 	public String firstName;
 	public String lastName;
 	public String email;
 	public String password;
-	public int residenceId;
-
-	@OneToMany(mappedBy = "admin")
-	public List<Residence> residences = new ArrayList<Residence>();
-
 	
 	/**
 	 * Facilitates identifying a admin by their e-mail
@@ -29,7 +24,7 @@ public class Admin extends Model {
 	 * @param email
 	 * @return admin
 	 */
-	public static Admin findByEmail(String email) {
+	public static Administrator findByEmail(String email) {
 		return find("email", email).first();
 	}
 

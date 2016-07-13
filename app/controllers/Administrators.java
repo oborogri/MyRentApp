@@ -5,10 +5,11 @@ import java.util.List;
 
 import models.Landlord;
 import models.Residence;
+import models.Administrator;
 import play.Logger;
 import play.mvc.Controller;
 
-public class Landlords extends Controller {
+public class Administrators extends Controller {
 
 	/**
 	 * Renders signup page
@@ -41,35 +42,35 @@ public class Landlords extends Controller {
 	}
 
 	/**
-	 * Registers new user with details entered on sign up page 
-	 * Displays error message if user already registered
+	 * Registers new admin with details entered on sign up page 
+	 * Displays error message if admin already registered
 	 * 
-	 * @param user
+	 * @param administrator
 	 */
-	public static void register(Landlord landlord, boolean terms) {
+	public static void register(Administrator administrator, boolean terms) {
 
-		List<Landlord> landlords = Landlord.findAll();
+		List<Administrator> admins = Administrator.findAll();
 
-		for (Landlord a : landlords) {
-			if (equalLandlord(landlord, a)) {
-				Logger.info("Error - landlord " + landlord.email + " already registered!");
+		for (Administrator a : admins) {
+			if (equalAdministrator(administrator, a)) {
+				Logger.info("Error - administrator " + administrator.email + " already registered!");
 				signuperror();
 			}
 		}
-		if (Accounts.isValidEmailAddress(landlord.email) && (terms != false)) {
-			landlord.save();
-			Logger.info("New landlord details: " + landlord.firstName + " " + landlord.lastName + " " + landlord.email
-					+ " " + landlord.password);
+		if (Accounts.isValidEmailAddress(administrator.email) && (terms != false)) {
+			administrator.save();
+			Logger.info("New administrator details: " + administrator.firstName + " " + administrator.lastName + " " + administrator.email
+					+ " " + administrator.password);
 			Welcome.index();
 
 		} else {
-			Logger.info("Error - could not register landlord: " + landlord.email + " Please check your details!");
+			Logger.info("Error - could not register administrator: " + administrator.email + " Please check your details!");
 			signuperror();
 		}
 	}
 
 	/**
-	 * Checks login details are correct and renders user home page
+	 * Checks login details are correct and renders admin home page
 	 * 
 	 * @param email
 	 * @param password
@@ -92,30 +93,30 @@ public class Landlords extends Controller {
 	}
 
 	/**
-	 * Compares two users based on their e-mails
+	 * Compares two admins based on their e-mails
 	 * 
-	 * @param User
+	 * @param Administrator
 	 *            a
-	 * @param User
+	 * @param Administrator
 	 *            b
 	 * 
-	 * @return true if two user e-mails are the same
+	 * @return true if two admins e-mails are the same
 	 */
-	private static boolean equalLandlord(Landlord a, Landlord b) {
+	private static boolean equalAdministrator(Administrator a, Administrator b) {
 		return (a.email.equals(b.email));
 	}
 
 	/**
 	 * Checks logged in userId
 	 * 
-	 * @return String currentlandlord
+	 * @return current administrator
 	 */
-	public static Landlord getCurrentLandlord() {
-		Landlord landlord = null;
+	public static Administrator getCurrentAdministrator() {
+		Administrator administrator = null;
 		if (session.contains("logged_in_userid")) {
 			String userId = session.get("logged_in_userid");
-			landlord = Landlord.findById(Long.parseLong(userId));
+			administrator = Administrator.findById(Long.parseLong(userId));
 		}
-		return landlord;
+		return administrator;
 	}
 }
