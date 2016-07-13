@@ -60,7 +60,7 @@ public class Landlords extends Controller {
 			landlord.save();
 			Logger.info("New landlord details: " + landlord.firstName + " " + landlord.lastName + " " + landlord.email
 					+ " " + landlord.password);
-			Welcome.index();
+			login();
 
 		} else {
 			Logger.info("Error - could not register landlord: " + landlord.email + " Please check your details!");

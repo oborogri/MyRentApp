@@ -17,11 +17,9 @@ public class Tenant extends Model {
 	public String lastName;
 	public String email;
 	public String password;
-	public int residenceId;
-
+	
 	@OneToMany(mappedBy = "tenant")
 	public List<Residence> residences = new ArrayList<Residence>();
-
 	
 	/**
 	 * Facilitates identifying a tenant by their e-mail

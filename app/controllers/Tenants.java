@@ -67,7 +67,7 @@ public class Tenants extends Controller {
 			tenant.save();
 			Logger.info("New tenant details: " + tenant.firstName + " " + tenant.lastName + " " + tenant.email
 					+ " " + tenant.password);
-			Tenants.index();
+			login();
 
 		} else {
 			Logger.info("Error - tenant " + tenant.email + " not registered! Please check your details!");

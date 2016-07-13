@@ -1,6 +1,8 @@
 package controllers;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import models.Landlord;
 import models.Residence;
@@ -37,10 +39,13 @@ public class InputData extends Controller {
 	public static void datacapture(Residence residence) {
 
 		Landlord landlord = Landlords.getCurrentLandlord();
+		List<Residence> residences = new ArrayList<Residence>();
 
 		residence.dateRegistered = new Date();
 		residence.addLandlord(landlord);
 		residence.save();
+		residences.add(residence);
+		landlord.save();
 		
 		Logger.info("Residence data received and saved");
 		Logger.info("Residence user " + residence.landlord);

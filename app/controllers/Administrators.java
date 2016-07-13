@@ -61,7 +61,7 @@ public class Administrators extends Controller {
 			administrator.save();
 			Logger.info("New administrator details: " + administrator.firstName + " " + administrator.lastName + " " + administrator.email
 					+ " " + administrator.password);
-			Welcome.index();
+			login();
 
 		} else {
 			Logger.info("Error - could not register administrator: " + administrator.email + " Please check your details!");
