@@ -26,13 +26,29 @@ public class Residence extends Model {
 @ManyToOne
 public Landlord landlord;
 
+@ManyToOne
+public Tenant tenant;
+
+@ManyToOne
+public Admin admin;
+
 	/**
-	 * Facilitates adding user to a residence
+	 * Facilitates adding landlord to a residence
 	 * @param user
 	 */
 	
 	public void addLandlord(Landlord landlord) {
 		this.landlord = landlord;
+		this.save();
+	}
+	
+	/**
+	 * Facilitates adding tenant to a residence
+	 * @param user
+	 */
+	
+	public void addtenant(Tenant tenant) {
+		this.tenant = tenant;
 		this.save();
 	}
 	/**

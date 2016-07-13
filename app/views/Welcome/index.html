@@ -1,7 +1,9 @@
-#{extends 'main.html' /} #{set title:'Welcome' /}
+#{extends 'main.html' /} #{set title:'Home' /}
 <div class="ui inverted teal menu">
-	<a class="ui active item">Welcome</a> <a class="ui item" href="/signup">Sign
-		Up</a> <a class="ui item" href="/login">Login</a>
+	<a class="ui active item">Home</a>
+	<a class="ui item" href="/landlords/login">Landlord</a>
+	<a class="ui item" href="/tenants/login">Tenant</a>
+	<a class="ui item" href="/admin/login">Administrator</a>
 </div>
 <h2 class="ui header">Welcome to MyRent</h2>
 <div class="ui raised segment">
@@ -27,11 +29,5 @@
 		<div class="column">
 		<img src="/public/images/banner.jpg"></img>
 	</div>
-	</div>
-	<div class="ui message">
-		<a href="/accounts/login">Login </a> or <a href="/accounts/signup">
-			create a new account </a> and input your details on the Input Data page.
-		To provide the required information will take just a few minutes of
-		your time.
 	</div>
 </div>

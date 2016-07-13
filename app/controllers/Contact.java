@@ -60,9 +60,9 @@ public class Contact extends Controller {
 	 */
 	// public static void sendMessage(String firstName, String lastName, String
 	// emailSender, String messageTxd)
-	public static void sendMessage(Landlord landlord, String messageText) {
+	public static void sendMessage(String firstName, String lastName, String email, String messageText) {
 
-		if (Accounts.isValidEmailAddress(landlord.email)) {
+		if (Accounts.isValidEmailAddress(email)) {
 
 			if (session.get("logged_in_userid") != null) {
 
@@ -83,7 +83,7 @@ public class Contact extends Controller {
 
 				try {
 					String forwarderAddress = username;
-					String destinationAddress1 = landlord.email;
+					String destinationAddress1 = email;
 					String destinationAddress2 = username;
 					Message message = new MimeMessage(session);
 					message.setFrom(new InternetAddress(forwarderAddress));

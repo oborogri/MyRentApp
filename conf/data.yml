@@ -12,6 +12,27 @@ Landlord(marge):
     email: marge@simpson.com
     password: secret
 
+Tenant(barney):
+    firstName: Barney
+    lastName: Simpson
+    address: Waterford 
+    email: barney@gumble.com
+    password: secret
+    
+Tenant(bart):
+    firstName: Bart
+    lastName: Simpson
+    address: Waterford 
+    email: bart@simpson.com
+    password: secret
+    
+Admin(greg):
+    firstName: Greg
+    lastName: Oboroceanu
+    address: Waterford 
+    email: admin@witpress.ie
+    password: secret
+    
 Residence(residence1):
     landlord: homer
     residenceType: Apartment | Flat

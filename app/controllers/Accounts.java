@@ -22,7 +22,7 @@ public class Accounts extends Controller {
 		session.clear();
 		Welcome.index();
 	}
-
+	
 	/**
 	 * Checks valid e-mail format
 	 * 

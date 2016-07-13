@@ -9,23 +9,30 @@ import play.Logger;
 import play.mvc.Controller;
 
 public class Tenants extends Controller {
+	
+	/**
+	 * Renders tenants index page
+	 */
+	public static void index() {
+		render();
+	}
 
 	/**
-	 * Renders signup page
+	 * Renders tenants signup page
 	 */
 	public static void signup() {
 		render();
 	}
 
 	/**
-	 * Renders signup error page
+	 * Renders tenants signup error page
 	 */
 	public static void signuperror() {
 		render();
 	}
 
 	/**
-	 * Renders login page
+	 * Renders tenants login page
 	 */
 	public static void login() {
 
@@ -33,7 +40,7 @@ public class Tenants extends Controller {
 	}
 
 	/**
-	 * Renders login error page
+	 * Renders tenants login error page
 	 */
 	public static void loginerror() {
 
@@ -41,10 +48,10 @@ public class Tenants extends Controller {
 	}
 
 	/**
-	 * Registers new user with details entered on sign up page Displays error
-	 * message if user already registered and if user not USA citizen
+	 * Registers new tenant with details entered on sign up page 
+	 * Displays error message if tenant already registered and if user not USA citizen
 	 * 
-	 * @param user
+	 * @param tenant
 	 */
 	public static void register(Tenant tenant, boolean terms) {
 
@@ -52,24 +59,24 @@ public class Tenants extends Controller {
 
 		for (Tenant a : tenants) {
 			if (equalTenant(tenant, a)) {
-				Logger.info("Error - user " + tenant.email + " already registered!");
+				Logger.info("Error - tenant " + tenant.email + " already registered!");
 				signuperror();
 			}
 		}
 		if (Accounts.isValidEmailAddress(tenant.email) && (terms != false)) {
 			tenant.save();
-			Logger.info("New member details: " + tenant.firstName + " " + tenant.lastName + " " + tenant.email
+			Logger.info("New tenant details: " + tenant.firstName + " " + tenant.lastName + " " + tenant.email
 					+ " " + tenant.password);
-			Welcome.index();
+			Tenants.index();
 
 		} else {
-			Logger.info("Error - user " + tenant.email + " not registered! Please check your details!");
+			Logger.info("Error - tenant " + tenant.email + " not registered! Please check your details!");
 			signuperror();
 		}
 	}
 
 	/**
-	 * Checks login details are correct and renders user home page
+	 * Checks login details are correct and renders tenant home page
 	 * 
 	 * @param email
 	 * @param password
@@ -83,7 +90,7 @@ public class Tenants extends Controller {
 
 			session.put("logged_in_userid", tenant.id);
 			session.put("logged_status", "logged_in");
-			InputData.index();
+			Tenants.index();
 
 		} else {
 			Logger.info("Authentication failed");
@@ -108,7 +115,7 @@ public class Tenants extends Controller {
 	/**
 	 * Checks logged in userId
 	 * 
-	 * @return String currenttenant
+	 * @return current tenant
 	 */
 	public static Tenant getCurrentTenant() {
 		Tenant tenant = null;
