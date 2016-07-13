@@ -44,9 +44,7 @@ public class Contact extends Controller {
 	 */
 	public static void feedback() {
 
-		Landlord landlord = Accounts.getCurrentUser();
-
-		render(landlord);
+		render();
 	}
 
 	/**
@@ -106,7 +104,7 @@ public class Contact extends Controller {
 				feedback();
 
 			} else {
-				Accounts.login();
+				Welcome.index();
 			}
 			
 		} else {

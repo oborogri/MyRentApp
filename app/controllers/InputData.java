@@ -24,7 +24,7 @@ public class InputData extends Controller {
 			
 		} else {			
 			Logger.info("No user logged in");
-			Accounts.login();
+			Welcome.index();
 		}		
 		
 	}
@@ -36,10 +36,10 @@ public class InputData extends Controller {
 
 	public static void datacapture(Residence residence) {
 
-		Landlord landlord = Accounts.getCurrentUser();
+		Landlord landlord = Landlords.getCurrentLandlord();
 
 		residence.dateRegistered = new Date();
-		residence.addUser(landlord);
+		residence.addLandlord(landlord);
 		residence.save();
 		
 		Logger.info("Residence data received and saved");

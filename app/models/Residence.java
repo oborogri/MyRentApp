@@ -31,7 +31,7 @@ public Landlord landlord;
 	 * @param user
 	 */
 	
-	public void addUser(Landlord landlord) {
+	public void addLandlord(Landlord landlord) {
 		this.landlord = landlord;
 		this.save();
 	}

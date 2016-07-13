@@ -22,7 +22,7 @@ public class Report extends Controller {
 	@Before
 	static void checkAuthentification() {
 		if (session.contains("logged_in_userid") == false)
-			Accounts.login();
+			Welcome.index();
 	}
 
 	/**
@@ -45,7 +45,7 @@ public class Report extends Controller {
 	 */
 	public static void generateReport(double radius, double latcenter, double lngcenter) {
 
-	 	Landlord landlord = Accounts.getCurrentUser();
+	 	Landlord landlord = Landlords.getCurrentLandlord();
 
 		ArrayList<Residence> residences = new ArrayList<Residence>();
 

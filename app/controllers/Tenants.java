@@ -3,12 +3,12 @@ package controllers;
 import java.util.Date;
 import java.util.List;
 
-import models.Landlord;
+import models.Tenant;
 import models.Residence;
 import play.Logger;
 import play.mvc.Controller;
 
-public class Landlords extends Controller {
+public class Tenants extends Controller {
 
 	/**
 	 * Renders signup page
@@ -46,24 +46,24 @@ public class Landlords extends Controller {
 	 * 
 	 * @param user
 	 */
-	public static void register(Landlord landlord, boolean terms) {
+	public static void register(Tenant tenant, boolean terms) {
 
-		List<Landlord> landlords = Landlord.findAll();
+		List<Tenant> tenants = Tenant.findAll();
 
-		for (Landlord a : landlords) {
-			if (equalLandlord(landlord, a)) {
-				Logger.info("Error - user " + landlord.email + " already registered!");
+		for (Tenant a : tenants) {
+			if (equalTenant(tenant, a)) {
+				Logger.info("Error - user " + tenant.email + " already registered!");
 				signuperror();
 			}
 		}
-		if (Accounts.isValidEmailAddress(landlord.email) && (terms != false)) {
-			landlord.save();
-			Logger.info("New member details: " + landlord.firstName + " " + landlord.lastName + " " + landlord.email
-					+ " " + landlord.password);
+		if (Accounts.isValidEmailAddress(tenant.email) && (terms != false)) {
+			tenant.save();
+			Logger.info("New member details: " + tenant.firstName + " " + tenant.lastName + " " + tenant.email
+					+ " " + tenant.password);
 			Welcome.index();
 
 		} else {
-			Logger.info("Error - user " + landlord.email + " not registered! Please check your details!");
+			Logger.info("Error - user " + tenant.email + " not registered! Please check your details!");
 			signuperror();
 		}
 	}
@@ -76,12 +76,12 @@ public class Landlords extends Controller {
 	 */
 	public static void authenticate(String email, String password) {
 		Logger.info("Attempting to authenticate with " + email + " : " + password);
-		Landlord landlord = Landlord.findByEmail(email);
+		Tenant tenant = Tenant.findByEmail(email);
 
-		if ((landlord != null) && (landlord.checkPassword(password) == true)) {
+		if ((tenant != null) && (tenant.checkPassword(password) == true)) {
 			Logger.info("Authentication successful");
 
-			session.put("logged_in_userid", landlord.id);
+			session.put("logged_in_userid", tenant.id);
 			session.put("logged_status", "logged_in");
 			InputData.index();
 
@@ -92,30 +92,30 @@ public class Landlords extends Controller {
 	}
 
 	/**
-	 * Compares two users based on their e-mails
+	 * Compares two tenants based on their e-mails
 	 * 
-	 * @param User
+	 * @param Tenant
 	 *            a
-	 * @param User
+	 * @param Tenant
 	 *            b
 	 * 
-	 * @return true if two user e-mails are the same
+	 * @return true if two tenant e-mails are the same
 	 */
-	private static boolean equalLandlord(Landlord a, Landlord b) {
+	private static boolean equalTenant(Tenant a, Tenant b) {
 		return (a.email.equals(b.email));
 	}
 
 	/**
 	 * Checks logged in userId
 	 * 
-	 * @return String currentlandlord
+	 * @return String currenttenant
 	 */
-	public static Landlord getCurrentLandlord() {
-		Landlord landlord = null;
+	public static Tenant getCurrentTenant() {
+		Tenant tenant = null;
 		if (session.contains("logged_in_userid")) {
 			String userId = session.get("logged_in_userid");
-			landlord = Landlord.findById(Long.parseLong(userId));
+			tenant = Tenant.findById(Long.parseLong(userId));
 		}
-		return landlord;
+		return tenant;
 	}
 }
