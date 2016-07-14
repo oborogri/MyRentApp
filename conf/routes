@@ -48,7 +48,7 @@ GET     /contact                                Contact.index
 GET     /contacterror                           Contact.contacterror
 GET     /feedback                               Contact.feedback
 
-POST    /acknowledge                            Contact.sendMessage
+POST    /sendmessage                            Contact.sendMessage
 
 
 # Ignore favicon requests

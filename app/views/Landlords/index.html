@@ -1,35 +1,67 @@
-#{extends 'main.html' /} #{set title:'EditProfile' /}
+#{extends 'main.html' /} #{set title:'landlord' /}
 <div class="ui inverted teal menu">
-	<a class="ui item">Welcome</a>
-	<a class="ui item" href="/inputdata">Input Data</a>
-	<a class="ui item" href="/report">Report</a>
+	<a class="ui item">Home</a>
+	<a class="ui active item">Landlord</a>
 	<a class="ui item" href="/contact">Contact</a>
-	<a class="ui active item">Edit Profile</a>
 	<a class="ui item" href="/logout">Logout</a>
 </div>
-<h3 class="ui header">Edit profile details for: ${landlord}</h3>
-<div class="ui raised segment">
-	<div class="ui two column grid">
+<section class="ui segment">
+<h4>Landlord configuration page</h4>
+	<div class="ui three column grid">
 		<div class="column">
-			<h4 class="ui header">Enter new details:</h4>
-			<form class="ui form" action="/editProfile" method="POST">
-				<div class="ui field">
-					<label>First name</label><input placeholder="first name"
-						type="text" name="firstName" required>
+			<form action="/landlords/addresidence" method="GET">
+				<div class="ui fluid form segment">
+					<button type="submit" class="ui fluid teal submit button">Add
+						Residence</button>
 				</div>
-				<div class="ui field">
-					<label>Last name</label><input placeholder="last name" type="text"
-						name="lastName" required>
-				</div>
-				<div class="field">
-					<label>Address</label><input placeholder="city" type="text"
-						name="address" required>
-				</div>
-				<button class="ui teal button" type="submit">Submit</button>
 			</form>
-		</div>
-	<div class="cloumn">
-		<img src="/public/images/editprofile.jpg"></img>
+			<form class="ui form segment"  action="/landlords/deleteresidence" method="POST">
+				<div class="ui fluid selection dropdown" id="deleteresidence">
+				  <input name="eircode_delete" type="hidden">
+					<div class="default text">Select residence to delete</div>
+					<i class="dropdown icon"></i>
+					<div class="menu">
+						<div class="item" data-value="W91 X934">W91 X934</div>
+						<div class="item" data-value="W23 X433">W23 X433</div>
+						<div class="item" data-value="V94 D922">V94 D922</div>
+						<div class="item" data-value="F92 DYY9">F92 DYY9</div>
+						<div class="item" data-value="G91 X28D">G91 X28D</div>
+						<div class="item" data-value="X92 Y433">X92 Y433</div>
+						<div class="item" data-value="R95 TDY9">R95 TDY9</div>
+						<div class="item" data-value="789u9703">789u9703</div>
+						<div class="item" data-value="A94 X439">A94 X439</div>
+						<div class="item" data-value="X91 YYX4 ">X91 YYX4 </div>
+				  </div>
+				</div>
+				<div class="ui fluid form segment">
+                <button type="submit" class="ui fluid teal submit button">Delete residence</button>
+                </div>
+               <div class="ui error message"></div>
+			</form>
+			<form class="ui form segment"  action="/landlords/editresidence" method="POST">
+				<div class="ui fluid selection dropdown" id="editresidence" >
+				  <input name="eircode_edit" type="hidden">
+					<div class="default text">Edit Residence</div>
+					<i class="dropdown icon"></i>
+					<div class="menu">
+					<div class="item" data-value="W91 X934">W91 X934</div>
+					<div class="item" data-value="W23 X433">W23 X433</div>
+					<div class="item" data-value="V94 D922">V94 D922</div>
+					<div class="item" data-value="F92 DYY9">F92 DYY9</div>
+					<div class="item" data-value="G91 X28D">G91 X28D</div>
+					<div class="item" data-value="X92 Y433">X92 Y433</div>
+					<div class="item" data-value="R95 TDY9">R95 TDY9</div>
+					<div class="item" data-value="789u9703">789u9703</div>
+					<div class="item" data-value="A94 X439">A94 X439</div>
+					<div class="item" data-value="X91 YYX4 ">X91 YYX4 </div>
+				</div>
+			</div>
+		<div class="ui fluid form segment">
+          <button type="submit" class="ui fluid blue submit button">Edit residence</button>
+        </div>	
+        <div class="ui error message"></div>							
+		</form>
 	</div>
 </div>
-</div>
+</section>
+<script src="/public/javascripts/landlord.js"></script>

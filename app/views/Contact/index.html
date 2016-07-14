@@ -7,20 +7,20 @@
 	<a class="ui item" href="/editprofile">Edit Profile</a>
 	<a class="ui item" href="/logout">Logout</a>
 </div>
-<section class="ui segment">
-	<h5 class="ui header">We would very much appreciate if you would provide some
-		feedback!</h5>
-	<form action="/acknowledge" method="POST">
+	<h4 class="ui header">We would very much appreciate if you would provide some
+		feedback!</h4>
+		<div class="ui tertiary teal segment">
+	<form action="/sendmessage" method="POST">
 		<div class="ui input field">
-			<input placeholder="your first name" name="landlord.firstName"
+			<input placeholder="your first name" name="firstName"
 				type="text" required>
 		</div>
 		<div class="ui input field">
-		<input placeholder="your last name" name="landlord.lastName" type="text" required>
+		<input placeholder="your last name" name="lastName" type="text" required>
 		</div>
 		<div class="ui divider"></div>
 		<div class="ui input field">
-		<input placeholder="your email address" name="landlord.email" type="text"
+		<input placeholder="your email address" name="email" type="text"
 				size="30" required>
 		</div>
 		<div class="ui divider"></div>
@@ -33,4 +33,4 @@
 		<button type="submit" class="ui teal submit button"><i class="send icon"></i>Send
 			Message</button>
 	</form>
-</section>
+</div>
