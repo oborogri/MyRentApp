@@ -7,12 +7,12 @@
 	<a class="ui active item">Edit Profile</a>
 	<a class="ui item" href="/logout">Logout</a>
 </div>
-<h3 class="ui header">Edit profile details for: ${landlord}</h3>
-<div class="ui raised segment">
+<h3 class="ui header">Edit profile details for landlord: ${landlord}</h3>
+<div class="ui tertiary teal segment">
 	<div class="ui two column grid">
 		<div class="column">
 			<h4 class="ui header">Enter new details:</h4>
-			<form class="ui form" action="/editProfile" method="POST">
+			<form class="ui form" action="/landlords/updateprofile" method="POST">
 				<div class="ui field">
 					<label>First name</label><input placeholder="first name"
 						type="text" name="firstName" required>
@@ -28,8 +28,8 @@
 				<button class="ui teal button" type="submit">Submit</button>
 			</form>
 		</div>
-	<div class="cloumn">
-		<img src="/public/images/editprofile.jpg"></img>
+	<div class="ui center aligned column">
+	<br><img src="/public/images/editprofile.jpg"></img>
 	</div>
 </div>
 </div>

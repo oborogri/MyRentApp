@@ -1,25 +1,22 @@
 #{extends 'main.html' /} #{set title:'Contact error' /}
 <div class="ui inverted teal menu">
-	<a class="ui item">Welcome</a>
-	<a class="ui item" href="/inputdata/index">Input Data</a>
-	<a class="ui item" href="/report">Report</a>
-	<a class="ui active item">Contact</a>
-	<a class="ui item" href="/editprofile">Edit Profile</a>
+	<a class="ui item" href="/home">Home</a>
 	<a class="ui item" href="/logout">Logout</a>
+	<a class="ui active item">Contact</a>
 </div>
 	<h4 class="ui header">Error! Please check your details and try again!</h4>
 	<div class="ui tertiary teal segment">
-	<form action="/acknowledge" method="POST">
+	<form action="/sendmessage" method="POST">
 		<div class="ui input field">
-			<input placeholder="your first name" name="landlord.firstName"
+			<input placeholder="your first name" name="firstName"
 				type="text" required>
 		</div>
 		<div class="ui input field">
-		<input placeholder="your last name" name="landlord.lastName" type="text" required>
+		<input placeholder="your last name" name="lastName" type="text" required>
 		</div>
 		<div class="ui divider"></div>
 		<div class="ui input field">
-		<input placeholder="your email address" name="landlord.email" type="text"
+		<input placeholder="your email address" name="email" type="text"
 				size="30" required>
 		</div>
 		<div class="ui divider"></div>

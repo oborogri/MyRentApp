@@ -11,6 +11,16 @@ import play.mvc.Controller;
 public class Landlords extends Controller {
 
 	/**
+	 * Renders landlord index page
+	 */
+	public static void index() {
+
+		Landlord landlord = getCurrentLandlord();
+
+		render(landlord);
+	}
+
+	/**
 	 * Renders signup page
 	 */
 	public static void signup() {
@@ -41,8 +51,18 @@ public class Landlords extends Controller {
 	}
 
 	/**
-	 * Registers new user with details entered on sign up page 
-	 * Displays error message if user already registered
+	 * Renders landlords edit profile page
+	 */
+	public static void editprofile() {
+
+		Landlord landlord = getCurrentLandlord();
+
+		render(landlord);
+	}
+
+	/**
+	 * Registers new user with details entered on sign up page Displays error
+	 * message if user already registered
 	 * 
 	 * @param user
 	 */
@@ -83,12 +103,32 @@ public class Landlords extends Controller {
 
 			session.put("logged_in_userid", landlord.id);
 			session.put("logged_status", "logged_in");
-			InputData.index();
+			index();
 
 		} else {
 			Logger.info("Authentication failed");
 			loginerror();
 		}
+	}
+
+	/**
+	 * Facilitates updating profile details for user landlord
+	 * 
+	 * @param firstName
+	 * @param lastName
+	 * @param address
+	 */
+	public static void updateprofile(String firstName, String lastName, String address) {
+
+		Landlord landlord = getCurrentLandlord();
+
+		landlord.firstName = firstName;
+		landlord.lastName = lastName;
+		landlord.address = address;
+		landlord.save();
+
+		index();
+
 	}
 
 	/**

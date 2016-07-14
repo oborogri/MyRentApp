@@ -5,13 +5,13 @@
 	<a class="ui item" href="/contact">Contact</a>
 	<a class="ui item" href="/logout">Logout</a>
 </div>
-<section class="ui segment">
-<h4>Landlord configuration page</h4>
+<h3>Landlord: ${landlord}'s configuration page</h3>
+<div class="ui tertiary teal segment">
 	<div class="ui three column grid">
 		<div class="column">
-			<form action="/landlords/addresidence" method="GET">
+			<form action="/inputdata" method="GET">
 				<div class="ui fluid form segment">
-					<button type="submit" class="ui fluid teal submit button">Add
+					<button type="submit" class="ui fluid teal submit button"><i class="plus icon"></i>Add
 						Residence</button>
 				</div>
 			</form>
@@ -34,9 +34,16 @@
 				  </div>
 				</div>
 				<div class="ui fluid form segment">
-                <button type="submit" class="ui fluid teal submit button">Delete residence</button>
+                <button type="submit" class="ui fluid teal submit button"><i class="remove icon"></i>Delete residence</button>
                 </div>
                <div class="ui error message"></div>
+			</form>
+			</div>
+			<div class="column">
+			<form action="/landlords/editprofile" method="GET">
+				<div class="ui fluid form segment">
+					<button type="submit" class="ui fluid teal submit button"><i class="edit icon"></i>Edit profile</button>
+				</div>
 			</form>
 			<form class="ui form segment"  action="/landlords/editresidence" method="POST">
 				<div class="ui fluid selection dropdown" id="editresidence" >
@@ -57,11 +64,11 @@
 				</div>
 			</div>
 		<div class="ui fluid form segment">
-          <button type="submit" class="ui fluid blue submit button">Edit residence</button>
+          <button type="submit" class="ui fluid teal submit button"><i class="edit icon"></i>Edit residence</button>
         </div>	
         <div class="ui error message"></div>							
 		</form>
 	</div>
 </div>
-</section>
+</div>
 <script src="/public/javascripts/landlord.js"></script>

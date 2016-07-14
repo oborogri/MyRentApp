@@ -7,11 +7,11 @@
 	<a class="ui item" href="/editprofile">Edit Profile</a>
 	<a class="ui item" href="/logout">Logout</a>
 </div>
-<section class="ui raised segment">   
+ <h3 class="ui header">Define the region for which you require a report</h3>
+<div class="ui tertiary teal segment">   
 <div class="ui two column grid">
 <div class="column">   
-  <h4 class="ui header">Define the region for which you require a report</h4>
-  <form action="/generateReport" method="POST">    
+   <form action="/generateReport" method="POST">    
    <h5 class="ui header">Size and position circle to select region for report</h5> 
     <div id="map-canvas"></div>
     <br>
@@ -24,9 +24,10 @@
   </form>
   </div>
   <div class="column">
+  <br>
   <img src="/public/images/rent.jpg"></img>  
   </div>
   </div>
-</section>
+</div>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 <script src="@{'/public/javascripts/reportmap.js'}" type="text/javascript" charset="utf-8"></script>

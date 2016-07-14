@@ -64,7 +64,7 @@ public class Contact extends Controller {
 
 		if (Accounts.isValidEmailAddress(email)) {
 
-			if (session.get("logged_in_userid") != null) {
+			/*if (session.get("logged_in_userid") != null) {*/
 
 				final String username = "xxxxxx@yahoo.com";
 				final String password = "password";
@@ -103,9 +103,8 @@ public class Contact extends Controller {
 
 				feedback();
 
-			} else {
-				Welcome.index();
-			}
+			/*} else {
+				Welcome.index();*/
 			
 		} else {
 			contacterror();
