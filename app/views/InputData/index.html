@@ -1,29 +1,40 @@
 #{extends 'main.html' /} #{set title:'InputData' /}
 <div class="ui inverted teal menu">
-	<a class="ui item" href="/home">Home</a>
-	<a class="ui active item">Input Data</a>
-	<a class="ui item" href="/report">Report</a>
-	<a class="ui item" href="/contact">Contact</a>
-	<a class="ui item" href="/editprofile">Edit Profile</a>
-	<a class="ui item" href="/logout">Logout</a>
+	<a class="ui item" href="/home">Home</a> <a class="ui active item">Input
+		Data</a> <a class="ui item" href="/report">Report</a> <a class="ui item"
+		href="/contact">Contact</a> <a class="ui item" href="/editprofile">Edit
+		Profile</a> <a class="ui item" href="/logout">Logout</a>
 </div>
-	<h3 class="ui header">Please input residence data</h3>
-	<div class="ui tertiary teal segment">
+<h3 class="ui header">Please input residence data</h3>
+<div class="ui tertiary teal segment">
 	<div class="ui two column grid">
 		<div class="column">
 			<form class="ui form" action="inputdata/datacapture" method="POST">
-				<div class="ui fluid form segment">
-					<labeL>Location</labeL>
-					<div class="ui input">
-						<input id="geolocation" value="53.347298,-6.268344"
-							name="residence.geolocation" type="text" readonly>
+				<div class="ui two column grid">
+					<div class="column">
+						<div class="ui fluid form segment">
+							<labeL>Location</labeL>
+							<div class="ui input">
+								<input id="geolocation" value="53.347298,-6.268344"
+									name="residence.geolocation" type="text" readonly>
+							</div>
+						</div>
+					</div>
+					<div class="column">
+						<div class="ui form segment">
+							<div class="ui fluid labeled input">
+								<div class="ui label">Eircode</div>
+								<input value="X92 Y433" name="residence.eircode" value=""
+									type="text">
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="ui fluid form segment">
 					<div class="grouped inline fields">
 						<div class="ui radio checkbox">
 							<input name="residence.rented" checked="checked" type="radio"
-								value="yes"> <label>Rented</label>
+								value="yes"> <label>Rented </label>
 						</div>
 						<div class="ui radio checkbox">
 							<input name="residence.rented" type="radio" value="no"> <label>Vacant</label>
@@ -82,19 +93,25 @@
 						</div>
 					</div>
 				</div>
-					<button class="ui teal button" type="submit">
-						Submit Data <i class="add icon"></i>
-					</button>
+				<button class="ui teal button" type="submit">
+					Submit Data <i class="add icon"></i>
+				</button>
 			</form>
 		</div>
 		<div class="column">
 			<div class="ui raised fluid segment">
-				<div class="ui embed 4:3" id="map-canvas"></div>
-				<script
-					src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-				<script src="@{'/public/javascripts/map.js'}" type="text/javascript"
-					charset="utf-8"></script>
+				<div id="map-canvas" style="width: 100%; height: 300px; border: 0'"></div>
+			</div>
+			<div class="ui raised fluid form segment">
+				<div>
+					<iframe src="https://finder.eircode.ie/#/map" width="100%"
+						height="300px"></iframe>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
+<script
+	src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+<script src="@{'/public/javascripts/map.js'}" type="text/javascript"
+	charset="utf-8"></script>

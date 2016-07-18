@@ -11,7 +11,7 @@ function initialize() {
     var mapDiv = document.getElementById('map-canvas');
     map = new google.maps.Map(mapDiv,mapOptions);
     mapDiv.style.width = '600px';
-    mapDiv.style.height = '600px';
+    mapDiv.style.height = '400px';
     // place a marker
         marker = new google.maps.Marker({
         map : map,

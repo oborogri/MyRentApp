@@ -22,6 +22,7 @@ public class Residence extends Model {
 	public int numberBathrooms;
 	public int area;
 	public String geolocation;
+	public String eircode;
 	public Date dateRegistered;
 	
 @ManyToOne
