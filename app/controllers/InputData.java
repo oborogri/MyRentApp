@@ -11,29 +11,29 @@ import play.mvc.Controller;
 import org.json.simple.JSONObject;
 
 public class InputData extends Controller {
-	
+
 	/**
-	 * Renders InputData page 
-	 * if user not logged in - redirects to login page 
+	 * Renders InputData page if user not logged in - redirects to login page
 	 */
 
 	public static void index() {
-		
-		if (session.get("logged_in_userid") != null)  {
-			
+
+		if (session.get("logged_in_userid") != null) {
+
 			Logger.info("Logged in userId: " + session.get("logged_in_userid"));
 			render();
-			
-		} else {			
+
+		} else {
 			Logger.info("No user logged in");
 			Welcome.index();
-		}		
-		
+		}
+
 	}
-	
+
 	/**
-	 * Facilitates registering new residence  
+	 * Facilitates registering new residence details
 	 * 
+	 * @param residence
 	 */
 
 	public static void datacapture(Residence residence) {
@@ -46,14 +46,15 @@ public class InputData extends Controller {
 		residence.save();
 		residences.add(residence);
 		landlord.save();
-		
+
 		Logger.info("Residence data received and saved");
-		Logger.info("Residence user " + residence.landlord);
-	    Logger.info("Residence type: " + residence.residenceType);
-	    Logger.info("Rented? " + residence.rented);
-	    Logger.info("Number bathrooms: " + residence.numberBathrooms);
-	    Logger.info("Residence area: " + residence.area);
-	    
+		Logger.info("Registered by: " + residence.landlord);
+		Logger.info("Residence type: " + residence.residenceType);
+		Logger.info("Rented? " + residence.rented);
+		Logger.info("Number bathrooms: " + residence.numberBathrooms);
+		Logger.info("Residence area: " + residence.area);
+
 		Landlords.index();
 	}
+
 }

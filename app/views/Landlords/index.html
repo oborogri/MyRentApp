@@ -20,9 +20,9 @@
 			<form class="ui form segment" action="/landlords/deleteresidence"
 				method="POST">
 				<select name="eircode_delete" required>
-					<option value="0" required>Select residence to delete</option>
+					<option value="0">Select residence to delete</option>
 					#{list items:residences, as:'residence'}
-					<option value="${residence.eircode}" required>${residence.eircode}</option>
+					<option value="${residence.eircode}">${residence.eircode}</option>
 					#{/list}
 				</select>
 				<div class="ui fluid form segment">
@@ -41,19 +41,13 @@
 					</button>
 				</div>
 			</form>
-			<form class="ui form segment" action="/landlords/editresidence"
-				method="POST">
-				<div class="ui fluid selection dropdown" id="editresidence">
-					<input name="eircode_edit" type="hidden">
-					<div class="default text">Edit Residence</div>
-					<i class="dropdown icon"></i>
-					<div class="menu">
-						<div class="item" data-value="W91 X934">W91 X934</div>
-						<div class="item" data-value="W23 X433">W23 X433</div>
-						<div class="item" data-value="V94 D922">V94 D922</div>
-						<div class="item" data-value="F92 DYY9">F92 DYY9</div>
-					</div>
-				</div>
+			<form class="ui form segment" action="/landlords/editresidence" method="POST">
+				<select name="eircode_edit" required>
+					<option value="0">Select residence to edit</option>
+					#{list items:residences, as:'residence'}
+					<option value="${residence.eircode}">${residence.eircode}</option>
+					#{/list}
+				</select>
 				<div class="ui fluid form segment">
 					<button type="submit" class="ui fluid teal submit button">
 						<i class="edit icon"></i>Edit residence
@@ -61,7 +55,7 @@
 				</div>
 				<div class="ui error message"></div>
 			</form>
-		</div>
+			</div>
 		<div class="ui center aligned column">
 			<img src="/public/images/config.jpg"></img>
 		</div>

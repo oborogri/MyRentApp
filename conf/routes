@@ -18,12 +18,15 @@ POST    /tenants/authenticate                   Tenants.authenticate
 GET     /landlord                               Landlords.index
 GET     /landlords/signup                       Landlords.signup
 GET     /landlords/login                        Landlords.login
-GET     /landlords/editprofile                  Landlords.editprofile           
+GET     /landlords/editprofile                  Landlords.editprofile    
+
 
 POST    /landlords/register                     Landlords.register
 POST    /landlords/authenticate                 Landlords.authenticate
 POST    /landlords/updateprofile                Landlords.updateprofile 
 POST    /landlords/deleteresidence              Landlords.deleteresidence
+POST    /landlords/editresidence                Landlords.editresidence 
+POST    /landlords/updateresidence              Landlords.updateresidence 
 
 #Administrators
 GET     /admin/signup                           Administrators.signup

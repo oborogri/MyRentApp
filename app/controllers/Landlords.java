@@ -18,10 +18,11 @@ public class Landlords extends Controller {
 	public static void index() {
 
 		Landlord landlord = Landlords.getCurrentLandlord();
-		
+
 		List<Residence> residencesAll = Residence.findAll();
 		ArrayList<Residence> residences = new ArrayList<Residence>();
 
+		//selects all residences for current landlord
 		for (Residence r : residencesAll) {
 			if (r.landlord.equals(Landlords.getCurrentLandlord())) {
 				residences.add(r);
@@ -69,6 +70,20 @@ public class Landlords extends Controller {
 		Landlord landlord = getCurrentLandlord();
 
 		render(landlord);
+	}
+
+	/**
+	 * Renders update residence page
+	 */
+	public static void editresidence(String eircode_edit) {
+
+		Residence residence = Residence.findByEircode(eircode_edit);
+		
+		//checks that residence field is selected and residence is not null 
+		if (residence != null) {
+			render(residence);
+		}
+		index();
 	}
 
 	/**
@@ -152,16 +167,46 @@ public class Landlords extends Controller {
 
 		Landlord landlord = getCurrentLandlord();
 		List<Residence> residences = Residence.findAll();
-		
-		Residence residence = Residence.findByEircode(eircode_delete);
-		residence.delete();
-		
-		Logger.info("Residence to be deleted " + residence);
-		Logger.info("Eircode to be deleted " + eircode_delete);
-		
-		residences.remove(residence);
-		landlord.save();
 
+		Residence residence = Residence.findByEircode(eircode_delete);
+
+		if (residence != null) {
+			residence.delete();
+
+			Logger.info("Residence to be deleted " + residence);
+			Logger.info("Eircode to be deleted " + eircode_delete);
+
+			residences.remove(residence);
+			landlord.save();
+
+			index();
+		}
+		index();
+	}
+
+	/**
+	 * Facilitates editing residence rent field only
+	 * 
+	 * @param eircode_edit
+	 *            - eircode of residence to update
+	 * @param rent
+	 *            new rent amount
+	 */
+	public static void updateresidence(String eircode_edit, int rent) {
+
+		Landlord landlord = getCurrentLandlord();
+		Residence residence = Residence.findByEircode(eircode_edit);
+
+		if (residence != null) {
+			residence.rent = rent;
+			residence.save();
+			landlord.save();
+
+			Logger.info("Updated rent amount for residence: " + residence);
+			Logger.info("Updated rent: " + rent);
+
+			index();
+		}
 		index();
 	}
 
