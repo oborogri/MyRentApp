@@ -1,7 +1,8 @@
-#{extends 'main.html' /} #{set title:'landlord' /}
+#{extends 'main.html' /} #{set title:'landlords' /}
 <div class="ui inverted teal menu">
 	<a class="ui item">Home</a>
 	<a class="ui active item">Landlord</a>
+	<a class="ui item" href="/report">Report</a>
 	<a class="ui item" href="/contact">Contact</a>
 	<a class="ui item" href="/logout">Logout</a>
 </div>
@@ -11,14 +12,40 @@
 		<div class="column">
 			<form action="/inputdata" method="GET">
 				<div class="ui fluid form segment">
-					<button type="submit" class="ui fluid teal submit button"><i class="plus icon"></i>Add
-						Residence</button>
+					<button type="submit" class="ui fluid teal submit button">
+						<i class="plus icon"></i>Add Residence
+					</button>
 				</div>
 			</form>
-			<form class="ui form segment"  action="/landlords/deleteresidence" method="POST">
-				<div class="ui fluid selection dropdown" id="deleteresidence">
-				  <input name="eircode_delete" type="hidden">
-					<div class="default text">Select residence to delete</div>
+			<form class="ui form segment" action="/landlords/deleteresidence"
+				method="POST">
+				<select name="eircode_delete" required>
+					<option value="0" required>Select residence to delete</option>
+					#{list items:residences, as:'residence'}
+					<option value="${residence.eircode}" required>${residence.eircode}</option>
+					#{/list}
+				</select>
+				<div class="ui fluid form segment">
+					<button type="submit" class="ui fluid teal submit button">
+						<i class="remove icon"></i>Delete residence
+					</button>
+				</div>
+				<div class="ui error message"></div>
+			</form>
+		</div>
+		<div class="column">
+			<form action="/landlords/editprofile" method="GET">
+				<div class="ui fluid form segment">
+					<button type="submit" class="ui fluid teal submit button">
+						<i class="edit icon"></i>Edit profile
+					</button>
+				</div>
+			</form>
+			<form class="ui form segment" action="/landlords/editresidence"
+				method="POST">
+				<div class="ui fluid selection dropdown" id="editresidence">
+					<input name="eircode_edit" type="hidden">
+					<div class="default text">Edit Residence</div>
 					<i class="dropdown icon"></i>
 					<div class="menu">
 						<div class="item" data-value="W91 X934">W91 X934</div>
@@ -28,41 +55,15 @@
 					</div>
 				</div>
 				<div class="ui fluid form segment">
-                <button type="submit" class="ui fluid teal submit button"><i class="remove icon"></i>Delete residence</button>
-                </div>
-               <div class="ui error message"></div>
-			</form>
-			</div>
-			<div class="column">
-			<form action="/landlords/editprofile" method="GET">
-				<div class="ui fluid form segment">
-					<button type="submit" class="ui fluid teal submit button"><i class="edit icon"></i>Edit profile</button>
+					<button type="submit" class="ui fluid teal submit button">
+						<i class="edit icon"></i>Edit residence
+					</button>
 				</div>
+				<div class="ui error message"></div>
 			</form>
-			<form class="ui form segment"  action="/landlords/editresidence" method="POST">
-				<div class="ui fluid selection dropdown" id="editresidence" >
-				  <input name="eircode_edit" type="hidden">
-					<div class="default text">Edit Residence</div>
-					<i class="dropdown icon"></i>
-					<div class="menu">
-					<div class="item" data-value="W91 X934">W91 X934</div>
-					<div class="item" data-value="W23 X433">W23 X433</div>
-					<div class="item" data-value="V94 D922">V94 D922</div>
-					<div class="item" data-value="F92 DYY9">F92 DYY9</div>
-					<div class="item" data-value="G91 X28D">G91 X28D</div>
-					<div class="item" data-value="X92 Y433">X92 Y433</div>
-					<div class="item" data-value="R95 TDY9">R95 TDY9</div>
-					<div class="item" data-value="789u9703">789u9703</div>
-					<div class="item" data-value="A94 X439">A94 X439</div>
-					<div class="item" data-value="X91 YYX4 ">X91 YYX4 </div>
-				</div>
-			</div>
-		<div class="ui fluid form segment">
-          <button type="submit" class="ui fluid teal submit button"><i class="edit icon"></i>Edit residence</button>
-        </div>	
-        <div class="ui error message"></div>							
-		</form>
+		</div>
+		<div class="ui center aligned column">
+			<img src="/public/images/config.jpg"></img>
+		</div>
 	</div>
 </div>
-</div>
-<script src="/public/javascripts/landlord.js"></script>

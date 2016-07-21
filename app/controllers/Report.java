@@ -45,7 +45,7 @@ public class Report extends Controller {
 	 */
 	public static void generateReport(double radius, double latcenter, double lngcenter) {
 
-	 	Landlord landlord = Landlords.getCurrentLandlord();
+		Landlord landlord = Landlords.getCurrentLandlord();
 
 		ArrayList<Residence> residences = new ArrayList<Residence>();
 
@@ -62,9 +62,8 @@ public class Report extends Controller {
 			if (Geodistance.inCircle(residenceLocation, circle)) {
 				residences.add(res);
 			}
-
 		}
-				
+		
 		render(landlord, circle, residences);
 	}
 

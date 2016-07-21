@@ -14,7 +14,8 @@ GET     /tenants/login                          Tenants.login
 POST    /tenants/register                       Tenants.register
 POST    /tenants/authenticate                   Tenants.authenticate
 
-#Landlords
+#Landlords 
+GET     /landlord                               Landlords.index
 GET     /landlords/signup                       Landlords.signup
 GET     /landlords/login                        Landlords.login
 GET     /landlords/editprofile                  Landlords.editprofile           
@@ -22,7 +23,7 @@ GET     /landlords/editprofile                  Landlords.editprofile
 POST    /landlords/register                     Landlords.register
 POST    /landlords/authenticate                 Landlords.authenticate
 POST    /landlords/updateprofile                Landlords.updateprofile 
-
+POST    /landlords/deleteresidence              Landlords.deleteresidence
 
 #Administrators
 GET     /admin/signup                           Administrators.signup
@@ -36,7 +37,7 @@ GET     /inputdata                              InputData.index
 GET     /report                                 Report.index
 GET     /editprofile                            Landlords.index
 
-POST    inputdata/datacapture                   InputData.datacapture
+POST    /datacapture                            InputData.datacapture
 
 #Report
 GET     /generateReport                         Report.generateReport

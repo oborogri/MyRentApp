@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -11,13 +12,23 @@ import play.mvc.Controller;
 public class Landlords extends Controller {
 
 	/**
-	 * Renders landlord index page
+	 * Renders landlord index page Identifies all residences of current landlord
+	 * and renders to the page
 	 */
 	public static void index() {
 
-		Landlord landlord = getCurrentLandlord();
+		Landlord landlord = Landlords.getCurrentLandlord();
+		
+		List<Residence> residencesAll = Residence.findAll();
+		ArrayList<Residence> residences = new ArrayList<Residence>();
 
-		render(landlord);
+		for (Residence r : residencesAll) {
+			if (r.landlord.equals(Landlords.getCurrentLandlord())) {
+				residences.add(r);
+			}
+		}
+		Logger.info("Landlord " + getCurrentLandlord() + " Number residences " + residences.size());
+		render(residences, landlord);
 	}
 
 	/**
@@ -128,7 +139,30 @@ public class Landlords extends Controller {
 		landlord.save();
 
 		index();
+	}
 
+	/**
+	 * Facilitates deleting a residence with a specific eircode from a specific
+	 * residences list
+	 * 
+	 * @param Id
+	 *            deleteresidence
+	 */
+	public static void deleteresidence(String eircode_delete) {
+
+		Landlord landlord = getCurrentLandlord();
+		List<Residence> residences = Residence.findAll();
+		
+		Residence residence = Residence.findByEircode(eircode_delete);
+		residence.delete();
+		
+		Logger.info("Residence to be deleted " + residence);
+		Logger.info("Eircode to be deleted " + eircode_delete);
+		
+		residences.remove(residence);
+		landlord.save();
+
+		index();
 	}
 
 	/**

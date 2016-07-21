@@ -30,7 +30,9 @@ public class Contact extends Controller {
 	 * Renders contact page
 	 */
 	public static void index() {
-		render();
+		
+		Landlord landlord = Landlords.getCurrentLandlord();
+		render(landlord);
 	}
 
 	/**

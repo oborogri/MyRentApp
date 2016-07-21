@@ -54,11 +54,6 @@ public class InputData extends Controller {
 	    Logger.info("Number bathrooms: " + residence.numberBathrooms);
 	    Logger.info("Residence area: " + residence.area);
 	    
-		index();
-	    
-	   /* JSONObject obj = new JSONObject();
-	    String value = "Congratulations. You have successfully registered your " + residence.residenceType +".";
-	    obj.put("inputdata", value);
-	    renderJSON(obj);*/
+		Landlords.index();
 	}
 }
