@@ -18,7 +18,6 @@ import java.util.Date;
 public class Residence extends Model {
 
 	public String residenceType;
-	public String rented;
 	public int rent;
 	public int numberBedrooms;
 	public int numberBathrooms;

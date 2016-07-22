@@ -84,7 +84,6 @@ Residence(residence1):
     landlord: homer
     tenant: bart
     residenceType: Apartment | Flat
-    rented: yes
     rent: 1200
     numberBedrooms: 2
     numberBathrooms: 2
@@ -97,7 +96,6 @@ Residence(residence2):
     landlord: marge
     tenant: barney
     residenceType: House
-    rented: yes
     rent: 1400
     numberBedrooms: 4
     numberBathrooms: 3
@@ -108,8 +106,8 @@ Residence(residence2):
     
 Residence(residence3):
     landlord: homer
+    tenant:
     residenceType: Studio
-    rented: no
     rent: 1200
     numberBedrooms: 1
     numberBathrooms: 1
@@ -122,7 +120,6 @@ Residence(residence4):
     landlord: marge
     tenant: maggie 
     residenceType: House
-    rented: yes
     rent: 1800
     numberBedrooms: 4
     numberBathrooms: 2
@@ -135,7 +132,6 @@ Residence(residence5):
     landlord: greg
     tenant: bob 
     residenceType: House
-    rented: yes
     rent: 1400
     numberBedrooms: 3
     numberBathrooms: 2
@@ -148,11 +144,10 @@ Residence(residence6):
     landlord: greg
     tenant: pat 
     residenceType: Apartment | Flat
-    rented: yes
     rent: 1100
     numberBedrooms: 3
     numberBathrooms: 1
     area: 250
-    eircode: WY10 XTY9
+    eircode: W10 XTY9
     geolocation: 55.2584893,-6.3447946
     dateRegistered: 2016-07-12 20:05:43

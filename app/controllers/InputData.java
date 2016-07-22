@@ -50,7 +50,7 @@ public class InputData extends Controller {
 		Logger.info("Residence data received and saved");
 		Logger.info("Registered by: " + residence.landlord);
 		Logger.info("Residence type: " + residence.residenceType);
-		Logger.info("Rented? " + residence.rented);
+		Logger.info("Tenant: " + residence.tenant);
 		Logger.info("Number bathrooms: " + residence.numberBathrooms);
 		Logger.info("Residence area: " + residence.area);
 
