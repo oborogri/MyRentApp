@@ -4,12 +4,13 @@
 
 # Welcome page
 GET     /                                       Welcome.index
-GET     /home                                   Welcome.index    
-GET     /logout                                 Accounts.logout                 
+GET     /home                                   Welcome.index   
+GET     /logout                                 Welcome.logout 
 
 #Tenants
 GET     /tenants/signup                         Tenants.signup
 GET     /tenants/login                          Tenants.login
+GET     /tenants/logout                         Tenants.logout
 
 POST    /tenants/register                       Tenants.register
 POST    /tenants/authenticate                   Tenants.authenticate
@@ -18,6 +19,7 @@ POST    /tenants/authenticate                   Tenants.authenticate
 GET     /landlord                               Landlords.index
 GET     /landlords/signup                       Landlords.signup
 GET     /landlords/login                        Landlords.login
+GET     /landlords/logout                       Landlords.logout
 GET     /landlords/editprofile                  Landlords.editprofile    
 
 

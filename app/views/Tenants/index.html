@@ -1,35 +1,12 @@
 #{extends 'main.html' /} #{set title:'Tenant' /}
 <div class="ui inverted teal menu">
-	<a class="ui item">Home</a>
-	<a class="ui item" href="/inputdata">Input Data</a>
-	<a class="ui item" href="/report">Report</a>
+	<a class="ui item" href="/home">Home</a>
+	<a class="ui active item">Tenant</a>
 	<a class="ui item" href="/contact">Contact</a>
-	<a class="ui active item">Edit Profile</a>
-	<a class="ui item" href="/logout">Logout</a>
+	<a class="ui item" href="/tenants/logout">Logout</a>
 </div>
-<!-- <h3 class="ui header">Edit profile details for: ${landlord}</h3>
-<div class="ui tertiary teal segment">
-	<div class="ui two column grid">
-		<div class="column">
-			<h4 class="ui header">Enter new details:</h4>
-			<form class="ui form" action="/editProfile" method="POST">
-				<div class="ui field">
-					<label>First name</label><input placeholder="first name"
-						type="text" name="firstName" required>
-				</div>
-				<div class="ui field">
-					<label>Last name</label><input placeholder="last name" type="text"
-						name="lastName" required>
-				</div>
-				<div class="field">
-					<label>Address</label><input placeholder="city" type="text"
-						name="address" required>
-				</div>
-				<button class="ui teal button" type="submit">Submit</button>
-			</form>
-		</div>
-	<div class="cloumn">
-		<img src="/public/images/editprofile.jpg"></img>
-	</div>
+<div class="ui tertiary teal segement">
+<div class="ui three column grid">
+tenant page here
 </div>
-</div> -->
+</div>

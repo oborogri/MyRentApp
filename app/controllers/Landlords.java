@@ -6,6 +6,7 @@ import java.util.List;
 
 import models.Landlord;
 import models.Residence;
+import models.Tenant;
 import play.Logger;
 import play.mvc.Controller;
 
@@ -22,7 +23,7 @@ public class Landlords extends Controller {
 		List<Residence> residencesAll = Residence.findAll();
 		ArrayList<Residence> residences = new ArrayList<Residence>();
 
-		//selects all residences for current landlord
+		// selects all residences for current landlord
 		for (Residence r : residencesAll) {
 			if (r.landlord.equals(Landlords.getCurrentLandlord())) {
 				residences.add(r);
@@ -33,21 +34,21 @@ public class Landlords extends Controller {
 	}
 
 	/**
-	 * Renders signup page
+	 * Renders landlord signup page
 	 */
 	public static void signup() {
 		render();
 	}
 
 	/**
-	 * Renders signup error page
+	 * Renders landlord signup error page
 	 */
 	public static void signuperror() {
 		render();
 	}
 
 	/**
-	 * Renders login page
+	 * Renders landlord login page
 	 */
 	public static void login() {
 
@@ -55,11 +56,20 @@ public class Landlords extends Controller {
 	}
 
 	/**
-	 * Renders login error page
+	 * Renders landlord login error page
 	 */
 	public static void loginerror() {
 
 		render();
+	}
+
+	/**
+	 * Logs out current landlord
+	 */
+	public static void logout() {
+
+		session.clear();
+		Welcome.index();
 	}
 
 	/**
@@ -78,8 +88,8 @@ public class Landlords extends Controller {
 	public static void editresidence(String eircode_edit) {
 
 		Residence residence = Residence.findByEircode(eircode_edit);
-		
-		//checks that residence field is selected and residence is not null 
+
+		// checks that residence field is selected and residence is not null
 		if (residence != null) {
 			render(residence);
 		}
@@ -127,8 +137,9 @@ public class Landlords extends Controller {
 		if ((landlord != null) && (landlord.checkPassword(password) == true)) {
 			Logger.info("Authentication successful");
 
-			session.put("logged_in_userid", landlord.id);
+			session.put("logged_in_landlordid", landlord.id);
 			session.put("logged_status", "logged_in");
+
 			index();
 
 		} else {
@@ -202,7 +213,7 @@ public class Landlords extends Controller {
 			residence.save();
 			landlord.save();
 
-			Logger.info("Updated rent amount for residence: " + residence);
+			Logger.info("Updated rent amount for residence: " + residence.eircode);
 			Logger.info("Updated rent: " + rent);
 
 			index();
@@ -225,15 +236,15 @@ public class Landlords extends Controller {
 	}
 
 	/**
-	 * Checks logged in userId
+	 * Checks logged in landlord
 	 * 
 	 * @return String currentlandlord
 	 */
 	public static Landlord getCurrentLandlord() {
 		Landlord landlord = null;
-		if (session.contains("logged_in_userid")) {
-			String userId = session.get("logged_in_userid");
-			landlord = Landlord.findById(Long.parseLong(userId));
+		if (session.contains("logged_in_landlordid")) {
+			String landlordId = session.get("logged_in_landlordid");
+			landlord = Landlord.findById(Long.parseLong(landlordId));
 		}
 		return landlord;
 	}

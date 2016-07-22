@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import models.Tenant;
+import models.Landlord;
 import models.Residence;
 import play.Logger;
 import play.mvc.Controller;
@@ -48,6 +49,14 @@ public class Tenants extends Controller {
 	}
 
 	/**
+	 * Logs out current tenant
+	 */
+	public static void logout() {
+
+		session.clear();
+		Welcome.index();
+	}
+	/**
 	 * Registers new tenant with details entered on sign up page 
 	 * Displays error message if tenant already registered
 	 * 
@@ -88,8 +97,11 @@ public class Tenants extends Controller {
 		if ((tenant != null) && (tenant.checkPassword(password) == true)) {
 			Logger.info("Authentication successful");
 
-			session.put("logged_in_userid", tenant.id);
+			session.put("logged_in_tenantid", tenant.id);
 			session.put("logged_status", "logged_in");
+			
+			Logger.info("Logged in tenant: " + tenant.email);
+			
 			Tenants.index();
 
 		} else {
@@ -113,15 +125,15 @@ public class Tenants extends Controller {
 	}
 
 	/**
-	 * Checks logged in userId
+	 * Checks logged in tenant
 	 * 
 	 * @return current tenant
 	 */
 	public static Tenant getCurrentTenant() {
 		Tenant tenant = null;
-		if (session.contains("logged_in_userid")) {
-			String userId = session.get("logged_in_userid");
-			tenant = Tenant.findById(Long.parseLong(userId));
+		if (session.contains("logged_in_tenantid")) {
+			String tenantId = session.get("logged_in_tenantid");
+			tenant = Tenant.findById(Long.parseLong(tenantId));
 		}
 		return tenant;
 	}

@@ -18,15 +18,7 @@ public class InputData extends Controller {
 
 	public static void index() {
 
-		if (session.get("logged_in_userid") != null) {
-
-			Logger.info("Logged in userId: " + session.get("logged_in_userid"));
-			render();
-
-		} else {
-			Logger.info("No user logged in");
-			Welcome.index();
-		}
+		render();
 
 	}
 

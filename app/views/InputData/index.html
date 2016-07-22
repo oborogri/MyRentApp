@@ -4,7 +4,7 @@
 	<a class="ui item" href="/landlord">Landlord</a>
 	<a class="ui active item">Input Data</a>
 	<a class="ui item" href="/contact">Contact</a>
-	<a class="ui item" href="/logout">Logout</a>
+	<a class="ui item" href="/landlords/logout">Logout</a>
 </div>
 <h3 class="ui header">Please input residence data</h3>
 <div class="ui tertiary teal segment">
@@ -14,7 +14,7 @@
 				<div class="ui two column grid">
 					<div class="column">
 						<div class="ui fluid form segment">
-							<labeL>Location</labeL>
+							<labeL><i class="marker icon"></i>Location</labeL>
 							<div class="ui input">
 								<input id="geolocation" value="53.347298,-6.268344"
 									name="residence.geolocation" type="text" readonly>
@@ -100,7 +100,5 @@
 		</div>
 	</div>
 </div>
-<script
-	src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-<script src="@{'/public/javascripts/map.js'}" type="text/javascript"
-	charset="utf-8"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+<script src="@{'/public/javascripts/map.js'}" type="text/javascript" charset="utf-8"></script>

@@ -32,7 +32,12 @@ public class Contact extends Controller {
 	public static void index() {
 		
 		Landlord landlord = Landlords.getCurrentLandlord();
-		render(landlord);
+		Tenant tenant = Tenants.getCurrentTenant();
+		
+		Logger.info("Landlord: " + landlord);
+		Logger.info("Tenant: " + tenant);
+		
+		render(landlord, tenant);
 	}
 
 	/**
@@ -65,8 +70,6 @@ public class Contact extends Controller {
 	public static void sendMessage(String firstName, String lastName, String email, String messageText) {
 
 		if (Accounts.isValidEmailAddress(email)) {
-
-			/*if (session.get("logged_in_userid") != null) {*/
 
 				final String username = "xxxxxx@yahoo.com";
 				final String password = "password";
@@ -104,10 +107,7 @@ public class Contact extends Controller {
 				}
 
 				feedback();
-
-			/*} else {
-				Welcome.index();*/
-			
+		
 		} else {
 			contacterror();
 		}
