@@ -2,6 +2,7 @@ package models;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -35,7 +36,7 @@ public class Residence extends Model {
 	/**
 	 * Facilitates adding landlord to a residence
 	 * 
-	 * @param user
+	 * @param landlord
 	 */
 	public void addLandlord(Landlord landlord) {
 		this.landlord = landlord;
@@ -45,7 +46,7 @@ public class Residence extends Model {
 	/**
 	 * Facilitates adding tenant to a residence
 	 * 
-	 * @param user
+	 * @param tenant
 	 */
 	public void addtenant(Tenant tenant) {
 		this.tenant = tenant;

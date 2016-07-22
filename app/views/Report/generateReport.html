@@ -33,6 +33,7 @@
            <th>Eircode</th>
            <th>Residence Landlord</th>
            <th>Date registered</th>
+           <th>Property type</th>
            <th>Rented?</th>
            <th>Monthly rent<i class="euro icon"></i></th>
            <th>Area(sq.m.)</th>
@@ -47,6 +48,7 @@
              <td>${residence.eircode}</td>
              <td>${residence.landlord}</td>
              <td>${residence.dateRegistered.format('dd/MM/yyyy', 'en')}</td>
+             <td>${residence.residenceType}</td>
              <td>${residence.rented}</td>
              <td>${residence.rent.format('#')}</td>
              <td>${residence.area}</td>

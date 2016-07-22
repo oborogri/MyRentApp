@@ -6,6 +6,7 @@ Landlord(homer):
     password: secret
     residences:
                - residence1
+               - residence3
         
 Landlord(marge):
     firstName: Marge
@@ -15,6 +16,17 @@ Landlord(marge):
     password: secret
     residences:
                - residence2
+               - residence4
+               
+Landlord(greg):
+    firstName: Greg
+    lastName: Simpson
+    address: Cork
+    email: greg@simpson.com
+    password: secret
+    residences:
+               - residence5
+               - residence6
 
 Tenant(barney):
     firstName: Barney
@@ -24,6 +36,15 @@ Tenant(barney):
     password: secret
     residences: 
                - residence2
+
+Tenant(maggie):
+    firstName: Maggie
+    lastName: Simpson
+    address: Waterford 
+    email: maggie@simpson.com
+    password: secret
+    residences: 
+               - residence4
     
 Tenant(bart):
     firstName: Bart
@@ -33,6 +54,24 @@ Tenant(bart):
     password: secret
     residences: 
                - residence1
+               
+Tenant(bob):
+    firstName: Bob
+    lastName: Simpson
+    address: Waterford 
+    email: bob@simpson.com
+    password: secret
+    residences: 
+               - residence5
+               
+Tenant(pat):
+    firstName: Pat
+    lastName: Simpson
+    address: Waterford 
+    email: pat@simpson.com
+    password: secret
+    residences: 
+               - residence6
     
 Administrator(greg):
     firstName: Greg
@@ -81,7 +120,7 @@ Residence(residence3):
     
 Residence(residence4):
     landlord: marge
-    tenant: 
+    tenant: maggie 
     residenceType: House
     rented: yes
     rent: 1800
@@ -91,3 +130,29 @@ Residence(residence4):
     eircode: F92 DYY9
     geolocation: 55.2980813,-6.3562346
     dateRegistered: 2016-07-08 20:24:43
+    
+Residence(residence5):
+    landlord: greg
+    tenant: bob 
+    residenceType: House
+    rented: yes
+    rent: 1400
+    numberBedrooms: 3
+    numberBathrooms: 2
+    area: 350
+    eircode: X90 DTY9
+    geolocation: 55.2180813,-6.3962346
+    dateRegistered: 2016-07-10 21:20:43
+    
+Residence(residence6):
+    landlord: greg
+    tenant: pat 
+    residenceType: Apartment | Flat
+    rented: yes
+    rent: 1100
+    numberBedrooms: 3
+    numberBathrooms: 1
+    area: 250
+    eircode: WY10 XTY9
+    geolocation: 55.2584893,-6.3447946
+    dateRegistered: 2016-07-12 20:05:43
