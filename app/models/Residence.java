@@ -7,6 +7,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import controllers.Landlords;
+import controllers.Tenants;
 import play.db.jpa.Model;
 import utils.LatLng;
 
@@ -80,5 +81,15 @@ public class Residence extends Model {
 
 		Landlord landlord = Landlords.getCurrentLandlord();
 		return find("landlord", landlord).first();
+	}
+	
+	/**
+	 * Facilitates finding residence of current tenant
+	 * @return residence
+	 */
+	public static Residence findByTenant() {
+
+		Tenant tenant = Tenants.getCurrentTenant();
+		return find("tenant", tenant).first();
 	}
 }

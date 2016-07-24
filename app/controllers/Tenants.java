@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -15,7 +16,12 @@ public class Tenants extends Controller {
 	 * Renders tenants index page
 	 */
 	public static void index() {
-		render();
+		
+		Tenant tenant = Tenants.getCurrentTenant(); 
+		Residence tr = Residence.findByTenant(); 
+		
+		Logger.info("Tenant: " + tenant + " residence: " + tr.eircode);		
+		render(tr, tenant);
 	}
 
 	/**
@@ -108,6 +114,10 @@ public class Tenants extends Controller {
 			Logger.info("Tenant authentication failed");
 			loginerror();
 		}
+	}
+	
+	public static void endtenancy(String existingeircode) {
+		
 	}
 
 	/**

@@ -5,8 +5,22 @@
 	<a class="ui item" href="/contact">Contact</a>
 	<a class="ui item" href="/tenants/logout">Logout</a>
 </div>
-<div class="ui tertiary teal segement">
-<div class="ui three column grid">
-tenant page here
+<div class="ui tertiary teal segment">
+<h4>Tenant ${tenant} configuration page</h4>
+	<div class="ui three column grid">
+		<div class="column">
+           <div class="ui form segment">
+                <h5>Existing rental (eircode)</h5> 
+                <input id="exist_eircode" value="${tr.eircode}" name="existingeircode" type="text">
+            </div>
+            <section class="ui segment">
+            <h5>Press to end tenancy</h5>
+        <form class="ui form" action="/tenants/endtenancy" method="POST">
+          <div class="ui fluid form segment">           
+            <button type="submit" class="ui teal fluid submit button"><i class="remove icon"></i>Terminate tenancy</button>
+          </div>
+        </form>
+        </section>
+     </div>
 </div>
 </div>

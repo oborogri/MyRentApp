@@ -11,6 +11,7 @@ GET     /logout                                 Welcome.logout
 GET     /tenants/signup                         Tenants.signup
 GET     /tenants/login                          Tenants.login
 GET     /tenants/logout                         Tenants.logout
+GET     /tenant                                 Tenant.index
 
 POST    /tenants/register                       Tenants.register
 POST    /tenants/authenticate                   Tenants.authenticate
