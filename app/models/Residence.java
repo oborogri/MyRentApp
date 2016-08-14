@@ -92,4 +92,12 @@ public class Residence extends Model {
 		Tenant tenant = Tenants.getCurrentTenant();
 		return find("tenant", tenant).first();
 	}
+	
+	/**
+	 * Overrides toString method for Residence object 
+	 */
+	public String toString() {
+		return eircode;
+		
+	}
 }

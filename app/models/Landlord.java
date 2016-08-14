@@ -60,7 +60,7 @@ public class Landlord extends Model {
 	}
 
 	/**
-	 * Overrides toString method for user object
+	 * Overrides toString method for Landlord object
 	 */
 	public String toString() {
 		return firstName + " " + lastName;

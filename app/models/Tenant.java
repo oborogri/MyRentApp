@@ -2,6 +2,7 @@ package models;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import play.db.jpa.Model;
@@ -18,8 +19,8 @@ public class Tenant extends Model {
 	public String email;
 	public String password;
 	
-	@OneToMany(mappedBy = "tenant")
-	public List<Residence> residences = new ArrayList<Residence>();
+	@OneToOne(mappedBy = "tenant")
+	public Residence residence;
 	
 	/**
 	 * Facilitates identifying a tenant by their e-mail

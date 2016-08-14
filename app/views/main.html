@@ -3,15 +3,18 @@
   <head>
     <title>#{get 'title' /}</title>
     <meta charset="${_response_encoding}">
-    <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.css">
+    <link rel="stylesheet" media="screen" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.7/semantic.min.css">
     <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+    <script src="@{'/public/javascripts/jquery-2.2.4.js'}" type="text/javascript" charset="${_response_encoding}"></script> 
+    <script src="/public/semantic/semantic.js"></script>     
   </head>
   <body>
   <div class="ui segment">
     #{doLayout /}       
-    <script src="@{'/public/javascripts/jquery-2.2.4.js'}" type="text/javascript" charset="${_response_encoding}"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js"></script>
-    <script src="@{'/public/javascripts/inputdata.js'}" charset="${_response_encoding}"></script>   
+    <script src="@{'/public/javascripts/inputdata.js'}"></script>
+    <script src="@{'/public/javascripts/landlord.js'}"></script>
+    <script src="@{'/public/javascripts/rent.js'}"></script>
+    <script src="@{'/public/javascripts/tenant.js'}"></script>
     #{get 'moreScripts' /}
     </div>
   </body>

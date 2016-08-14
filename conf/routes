@@ -15,6 +15,8 @@ GET     /tenant                                 Tenant.index
 
 POST    /tenants/register                       Tenants.register
 POST    /tenants/authenticate                   Tenants.authenticate
+POST    /tenant/endtenancy                      Tenants.endtenancy
+POST    /tenants/changetenancy                  Tenants.changetenancy
 
 #Landlords 
 GET     /landlord                               Landlords.index

@@ -11,17 +11,20 @@ import play.Logger;
 import play.mvc.Controller;
 
 public class Tenants extends Controller {
-	
+
 	/**
 	 * Renders tenants index page
 	 */
 	public static void index() {
+
+		Tenant tenant = Tenants.getCurrentTenant();
+		Residence tr = Residence.findByTenant();
+
+		ArrayList<Residence> vr = getVacantResidences();
 		
-		Tenant tenant = Tenants.getCurrentTenant(); 
-		Residence tr = Residence.findByTenant(); 
-		
-		Logger.info("Tenant: " + tenant + " residence: " + tr.eircode);		
-		render(tr, tenant);
+		Logger.info("Tenant: " + tenant + " residence: " + tr);
+
+		render(tenant, tr, vr);
 	}
 
 	/**
@@ -62,9 +65,10 @@ public class Tenants extends Controller {
 		session.clear();
 		Welcome.index();
 	}
+
 	/**
-	 * Registers new tenant with details entered on sign up page 
-	 * Displays error message if tenant already registered
+	 * Registers new tenant with details entered on sign up page Displays error
+	 * message if tenant already registered
 	 * 
 	 * @param tenant
 	 */
@@ -80,8 +84,8 @@ public class Tenants extends Controller {
 		}
 		if (Accounts.isValidEmailAddress(tenant.email) && (terms != false)) {
 			tenant.save();
-			Logger.info("New tenant details: " + tenant.firstName + " " + tenant.lastName + " " + tenant.email
-					+ " " + tenant.password);
+			Logger.info("New tenant details: " + tenant.firstName + " " + tenant.lastName + " " + tenant.email + " "
+					+ tenant.password);
 			login();
 
 		} else {
@@ -105,9 +109,9 @@ public class Tenants extends Controller {
 
 			session.put("logged_in_tenantid", tenant.id);
 			session.put("logged_status", "logged_in");
-			
+
 			Logger.info("Logged in tenant: " + tenant.email);
-			
+
 			Tenants.index();
 
 		} else {
@@ -115,9 +119,65 @@ public class Tenants extends Controller {
 			loginerror();
 		}
 	}
+
+	/**
+	 * Facilitates ending tenancy at current residence
+	 */
+	public static void endtenancy() {
+
+		Tenant tenant = getCurrentTenant();
+		Residence residence = Residence.findByTenant();
+
+		residence.tenant = null;
+		residence.save();
+		tenant.save();
+
+		Logger.info("Tenant " + tenant + " tenancy at: " + residence.eircode + " terminated");
+
+		index();
+
+	}
+
+	/**
+	 * Facilitates changing tenancy for current tenant
+	 * 
+	 * @param eircode_residence
+	 */
+	public static void changetenancy(String eircode_vacancy) {
+
+		Tenant tenant = getCurrentTenant();
+		Residence residence = Residence.findByEircode(eircode_vacancy);
+
+		if(tenant.residence == null) {
 	
-	public static void endtenancy(String existingeircode) {
+		Logger.info("Tenant: " + tenant + " changing tenancy");
+		Logger.info("New residence: " + residence);
+
+		residence.addtenant(tenant);
+		tenant.save();
+
+		index();
 		
+		} else {
+		index();	
+		}
+	}
+
+	/**
+	 * Finds all vacant residences
+	 */
+	private static ArrayList<Residence> getVacantResidences() {
+
+		List<Residence> residences = Residence.findAll();
+		ArrayList<Residence> vacantresidences = new ArrayList<Residence>();
+
+		for (Residence r : residences) {
+			if (r.tenant == null) {
+				vacantresidences.add(r);
+			}
+		}
+		Logger.info("Vacant residences: " + vacantresidences);
+		return vacantresidences;
 	}
 
 	/**

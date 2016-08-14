@@ -1,11 +1,11 @@
 $( document ).ready(function() {	
-    $('#editresidence').dropdown();
-    $('#deleteresidence').dropdown();
+    $('#editresidence').dropdown('clear');
+    $('#deleteresidence').dropdown('clear');
     
     $('.ui.form').form({
       fields : {
         eircode_delete : {
-          identifier : 'eircode',
+          identifier : 'eircode_delete',
           rules : [{
             type : 'empty',
             prompt : 'Select residence to delete'
@@ -21,4 +21,4 @@ $( document ).ready(function() {
         }
       }
     });
-});
+});	
