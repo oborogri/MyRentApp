@@ -11,8 +11,11 @@ GET     /logout                                 Welcome.logout
 GET     /tenants/signup                         Tenants.signup
 GET     /tenants/login                          Tenants.login
 GET     /tenants/logout                         Tenants.logout
-GET     /tenant                                 Tenant.index
+GET     /tenant                                 Tenants.index
+GET     /tenants/vacantresidences               Tenants.vacantresidences
+GET     /tenants/generateReport                 Tenants.generateReport
 
+POST    /tenants/generateReport                 Tenants.generateReport 
 POST    /tenants/register                       Tenants.register
 POST    /tenants/authenticate                   Tenants.authenticate
 POST    /tenant/endtenancy                      Tenants.endtenancy

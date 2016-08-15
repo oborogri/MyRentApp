@@ -1,0 +1,53 @@
+#{extends 'main.html' /} #{set title:'vacantResidencesReport' /}
+<div class="ui inverted teal menu">
+	<a class="ui item" href="/home">Home</a> 
+	<a class="ui active item" href="/tenant">Tenant</a>
+	<a class="ui item" href="/contact">Contact</a> 
+	<a class="ui item" href="/tenants/logout">Logout</a>
+</div>
+<h3 class="ui header">Vacant residences</h3>
+  <div class="ui tertiary teal segment">
+    <table class="ui table segment">
+      <thead>
+        <tr>
+          <th>Tenant:</th>
+          <th>Search: radius (m)</th>
+          <th>center (latitude)</th>
+          <th>center (longitude)</th>
+         </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>${tenant}</td>
+            <td>${circle.radius.format('#.0')}</td>
+            <td>${circle.latcenter.format('#.00000')}</td>
+            <td>${circle.lngcenter.format('#.00000')}</td>
+            </tr>
+        </tbody>
+     </table>
+     <table class="ui eight column celled table segment">
+       <thead>
+         <tr>
+           <th>Eircode</th>
+           <th>Date registered</th>
+           <th>Rent<i class="euro icon"></i></th>
+           <th>Bedrooms</th>
+           <th>Bathrooms</th>
+           <th>Area(sq.m.)</th>
+         </tr>
+       </thead>
+       <tbody>
+         #{list items:residences, as:'residence'}
+           <tr>
+             <td>${residence.eircode}</td>
+             <td>${residence.dateRegistered.format('dd/MM/yyyy', 'en')}</td>
+             <td>${residence.rent.format('#')}</td> 
+             <td>${residence.numberBedrooms}</td>
+             <td>${residence.numberBathrooms}</td>
+             <td>${residence.area}</td>             
+           </tr>
+         #{/list}
+       </tbody>
+     </table>
+  </div>
+	

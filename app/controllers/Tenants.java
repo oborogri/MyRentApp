@@ -1,6 +1,7 @@
 package controllers;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -9,6 +10,9 @@ import models.Landlord;
 import models.Residence;
 import play.Logger;
 import play.mvc.Controller;
+import utils.Circle;
+import utils.Geodistance;
+import utils.LatLng;
 
 public class Tenants extends Controller {
 
@@ -21,7 +25,7 @@ public class Tenants extends Controller {
 		Residence tr = Residence.findByTenant();
 
 		ArrayList<Residence> vr = getVacantResidences();
-		
+
 		Logger.info("Tenant: " + tenant + " residence: " + tr);
 
 		render(tenant, tr, vr);
@@ -148,19 +152,37 @@ public class Tenants extends Controller {
 		Tenant tenant = getCurrentTenant();
 		Residence residence = Residence.findByEircode(eircode_vacancy);
 
-		if(tenant.residence == null) {
-	
-		Logger.info("Tenant: " + tenant + " changing tenancy");
-		Logger.info("New residence: " + residence);
+		if (tenant.residence == null) {
 
-		residence.addtenant(tenant);
-		tenant.save();
+			Logger.info("Tenant: " + tenant + " changing tenancy");
+			Logger.info("New residence: " + residence);
 
-		index();
-		
+			residence.addtenant(tenant);
+			tenant.save();
+
+			index();
+
 		} else {
-		index();	
+			index();
 		}
+	}
+
+	/**
+	 * Finds all vacant residences and returns residence details as array
+	 */
+	public static List<List<String>> vacantresidences() {
+
+		List<Residence> residences = Residence.findAll();
+		List<List<String>> vacantresidences = new ArrayList<List<String>>();
+
+		for (Residence r : residences) {
+
+			if (r.tenant == null) {
+				vacantresidences.add(Arrays.asList(r.eircode, "no tenant"));
+			}
+		}
+		Logger.info("Vacant residences " + vacantresidences);
+		return (vacantresidences);
 	}
 
 	/**
@@ -169,15 +191,48 @@ public class Tenants extends Controller {
 	private static ArrayList<Residence> getVacantResidences() {
 
 		List<Residence> residences = Residence.findAll();
-		ArrayList<Residence> vacantresidences = new ArrayList<Residence>();
+		ArrayList<Residence> vr = new ArrayList<Residence>();
 
 		for (Residence r : residences) {
 			if (r.tenant == null) {
-				vacantresidences.add(r);
+				vr.add(r);
 			}
 		}
-		Logger.info("Vacant residences: " + vacantresidences);
-		return vacantresidences;
+		Logger.info("Vacant residences: " + vr);
+		return vr;
+	}
+
+	/**
+	 * Generates a Report instance relating to all vacant residences within circle
+	 * @param radius
+	 * @param latcenter
+	 * @param lngcenter
+	 */
+	public static void generateReport(double radius, double latcenter, double lngcenter) {
+
+		Tenant tenant = Tenants.getCurrentTenant();
+
+		ArrayList<Residence> residences = new ArrayList<Residence>();
+
+		// All reported residences will fall within this circle
+		Circle circle = new Circle(latcenter, lngcenter, radius);
+
+		// Fetch all residences and filter out those within circle
+
+		List<Residence> residencesAll = Residence.findAll();
+
+		for (Residence res : residencesAll) {
+			if (res.tenant == null) {
+
+				LatLng residenceLocation = res.getGeolocation();
+
+				if (Geodistance.inCircle(residenceLocation, circle)) {
+					residences.add(res);
+				}
+			}
+		}
+
+		render(tenant, circle, residences);
 	}
 
 	/**
