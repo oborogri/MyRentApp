@@ -1,10 +1,10 @@
 #{extends 'main.html' /} #{set title:'Tenant Sign Up error' /}
 <div class="ui inverted teal menu">
-	<a class="ui item" href="/home">Home</a> <a class="ui active item">Sign
-		Up</a> <a class="ui item" href="/login">Login</a> <a class="ui item"
-		href="/contact">Contact</a>
+	<a class="ui item" href="/home">Home</a>
+	<a class="ui item" href="/admin">Administrator</a>
+	<a class="ui active item">Tenant signup</a>
 </div>
-<h3 class="ui header">Create MyRent tenant account</h3>
+<h3 class="ui header">Tenant registration</h3>
 <div class="ui tertiary teal segment">
 	<div class="ui two column grid">
 		<div class="column">
@@ -39,7 +39,7 @@
 				</div>
 				<div>
 					<button class="ui teal button" type="submit">Signup</button>
-					<a class="ui teal button" href="/home"> <i class="ban icon"></i>Cancel
+					<a class="ui teal button" href="/admin"> <i class="ban icon"></i>Cancel
 					</a>
 				</div>
 			</form>
@@ -48,7 +48,4 @@
 			<img src="/public/images/homes.jpg"></img>
 		</div>
 	</div>
-</div>
-<div class="ui message">
-	Already have a tenant account? <a href="/tenants/login">Login here </a>
 </div>

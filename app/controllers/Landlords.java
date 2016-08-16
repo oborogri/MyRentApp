@@ -76,7 +76,7 @@ public class Landlords extends Controller {
 	 * Renders landlords edit profile page
 	 */
 	public static void editprofile() {
-
+		
 		Landlord landlord = getCurrentLandlord();
 
 		render(landlord);
@@ -116,7 +116,7 @@ public class Landlords extends Controller {
 			landlord.save();
 			Logger.info("New landlord details: " + landlord.firstName + " " + landlord.lastName + " " + landlord.email
 					+ " " + landlord.password);
-			login();
+			Administrators.index();
 
 		} else {
 			Logger.info("Error - could not register landlord: " + landlord.email + " Please check your details!");
@@ -153,15 +153,22 @@ public class Landlords extends Controller {
 	 * 
 	 * @param firstName
 	 * @param lastName
-	 * @param address
+	 * @param address1
+	 * @param address2
+	 * @param city
+	 * @param county
 	 */
-	public static void updateprofile(String firstName, String lastName, String address) {
-
+	public static void updateprofile(String firstName, String lastName, String address1, String address2, String city, String county) {
+		
 		Landlord landlord = getCurrentLandlord();
 
 		landlord.firstName = firstName;
-		landlord.lastName = lastName;
-		landlord.address = address;
+		landlord.lastName =lastName;
+		landlord.address1 = address1;
+		landlord.address2 = address2;
+		landlord.city = city;
+		landlord.county = county;
+		
 		landlord.save();
 
 		index();

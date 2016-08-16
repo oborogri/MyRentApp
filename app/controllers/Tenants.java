@@ -90,7 +90,7 @@ public class Tenants extends Controller {
 			tenant.save();
 			Logger.info("New tenant details: " + tenant.firstName + " " + tenant.lastName + " " + tenant.email + " "
 					+ tenant.password);
-			login();
+			Administrators.index();
 
 		} else {
 			Logger.info("Error - tenant " + tenant.email + " not registered! Please check your details!");
@@ -132,12 +132,14 @@ public class Tenants extends Controller {
 		Tenant tenant = getCurrentTenant();
 		Residence residence = Residence.findByTenant();
 
-		residence.tenant = null;
-		residence.save();
-		tenant.save();
+		if (residence != null) {
 
-		Logger.info("Tenant " + tenant + " tenancy at: " + residence.eircode + " terminated");
+			residence.tenant = null;
+			residence.save();
+			tenant.save();
 
+			Logger.info("Tenant " + tenant + " tenancy at: " + residence.eircode + " terminated");
+		}
 		index();
 
 	}

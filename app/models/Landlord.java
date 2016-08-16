@@ -1,5 +1,6 @@
 package models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -16,10 +17,13 @@ public class Landlord extends Model {
 	public String firstName;
 	public String lastName;
 	public String email;
-	public String address;
+	public String address1;
+	public String address2;
+	public String city;
+	public String county;	
 	public String password;
 
-	@OneToMany(mappedBy = "landlord")
+	@OneToMany(mappedBy = "landlord", cascade=CascadeType.ALL)
 	public List<Residence> residences = new ArrayList<Residence>();
 
 	/**

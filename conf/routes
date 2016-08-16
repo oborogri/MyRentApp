@@ -37,10 +37,9 @@ POST    /landlords/editresidence                Landlords.editresidence
 POST    /landlords/updateresidence              Landlords.updateresidence 
 
 #Administrators
-GET     /admin/signup                           Administrators.signup
 GET     /admin/login                            Administrators.login
+GET     /admin                                  Administrators.index
 
-POST    /admin/register                         Administrators.register
 POST    /admin/authenticate                     Administrators.authenticate
 
 #InputData

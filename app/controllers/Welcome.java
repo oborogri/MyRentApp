@@ -20,9 +20,11 @@ public class Welcome extends Controller {
 		//checks if any user logged in
 		Landlord landlord = Landlords.getCurrentLandlord();
 		Tenant tenant = Tenants.getCurrentTenant();
+		Administrator administrator = Administrators.getCurrentAdministrator();
 		
 		Logger.info("Current landlord: " + landlord);
 		Logger.info("Current tenant: " + tenant);
+		Logger.info("Current administrator: " + administrator);
 		
 		render();
 	}

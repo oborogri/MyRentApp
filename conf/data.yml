@@ -4,9 +4,7 @@ Landlord(homer):
     address: Waterford 
     email: homer@simpson.com
     password: secret
-    residences:
-               - residence1
-               - residence3
+    residences: [residence1, residence3]
         
 Landlord(marge):
     firstName: Marge
@@ -14,9 +12,7 @@ Landlord(marge):
     address: Cork
     email: marge@simpson.com
     password: secret
-    residences:
-               - residence2
-               - residence4
+    residences: [residence2, residence4]
                
 Landlord(greg):
     firstName: Greg
@@ -24,18 +20,15 @@ Landlord(greg):
     address: Cork
     email: greg@simpson.com
     password: secret
-    residences:
-               - residence5
-               - residence6
-
+    residences: [residence5, residence6]
+    
 Tenant(barney):
     firstName: Barney
     lastName: Simpson
     address: Waterford 
     email: barney@gumble.com
     password: secret
-    residences: 
-               - residence2
+    residence: residence2
 
 Tenant(maggie):
     firstName: Maggie
@@ -43,8 +36,7 @@ Tenant(maggie):
     address: Waterford 
     email: maggie@simpson.com
     password: secret
-    residences: 
-               - residence4
+    residence: residence4
     
 Tenant(bart):
     firstName: Bart
@@ -52,17 +44,15 @@ Tenant(bart):
     address: Waterford 
     email: bart@simpson.com
     password: secret
-    residences: 
-               - residence1
-               
+    residence: residence1
+                   
 Tenant(bob):
     firstName: Bob
     lastName: Simpson
     address: Waterford 
     email: bob@simpson.com
     password: secret
-    residences: 
-               - residence5
+    residence: residence5
                
 Tenant(pat):
     firstName: Pat
@@ -70,19 +60,9 @@ Tenant(pat):
     address: Waterford 
     email: pat@simpson.com
     password: secret
-    residences: 
-               - residence6
-    
-Administrator(greg):
-    firstName: Greg
-    lastName: Oboroceanu
-    address: Waterford 
-    email: admin@witpress.ie
-    password: secret
-    
+    residence: residence6
+
 Residence(residence1):
-    landlord: homer
-    tenant: bart
     residenceType: Apartment | Flat
     rent: 1200
     numberBedrooms: 2
@@ -91,6 +71,8 @@ Residence(residence1):
     geolocation: 53.2980813,-6.3562346
     eircode: W91 X934
     dateRegistered: 2016-07-03 20:24:43
+    landlord: homer
+    tenant: bart
     
 Residence(residence2):
     landlord: marge
@@ -163,3 +145,10 @@ Residence(residence7):
     eircode: T10 XTY9
     geolocation: 52.2154893,-7.2847946
     dateRegistered: 2016-07-19 21:05:43
+       
+Administrator(greg):
+    firstName: Greg
+    lastName: Oboroceanu
+    address: Waterford 
+    email: admin@witpress.ie
+    password: secret

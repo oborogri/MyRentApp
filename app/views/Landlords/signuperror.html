@@ -1,59 +1,72 @@
 #{extends 'main.html' /} #{set title:'Landlord Sign Up error' /}
 <div class="ui inverted teal menu">
-	<a class="ui item" href="/home">Home</a> <a class="ui active item">Sign
-		Up</a> <a class="ui item" href="/landlords/login">Login</a> <a
-		class="ui item" href="/contact">Contact</a>
+	<a class="ui item" href="/home">Home</a>
+	<a class="ui item" href="/admin">Administrator</a>
+	<a class="ui active item">Landlord signup</a>
 </div>
-<h3 class="ui header">Create MyRent tenant account</h3>
+<h3 class="ui header">Landlord registration</h3>
 <div class="ui tertiary teal segment">
 	<div class="ui two column grid">
 		<div class="column">
-			<h4 class="ui header">Error! PLease check your details and try
+			<h4 class="ui header">Error! Please check your details and try
 				again</h4>
 			<form class="ui form" action="/landlords/register" method="POST">
-				<div class="two fields">
-					<div class="required field">
-						<label>First Name</label> <input placeholder="First Name"
-							type="text" name="landlord.firstName" required>
-					</div>
-					<div class="required field">
-						<label>Last Name</label><input placeholder="Last Name" type="text"
-							name="landlord.lastName" required>
-					</div>
-				</div>
-				<div class="two fields">
-					<div class="required field">
-						<label>E-mail</label><input placeholder="e-mail" type="text"
-							name="landlord.email" required>
-					</div>
-					<div class="required field">
-						<label>Password</label> <input placeholder="password" type="text"
-							name="landlord.password" required>
-					</div>
+			<div class="two fields">
+				<div class="required field">
+					<label>First Name</label> <input placeholder="First Name"
+						type="text" name="landlord.firstName" required>
 				</div>
 				<div class="required field">
-					<label>Address</label> <input placeholder="address" type="text"
-						name="landlord.address" required>
+					<label>Last Name</label><input placeholder="Last Name" type="text"
+						name="landlord.lastName" required>
+				</div>
+				</div>
+				<div class="two fields">
+				<div class="required field">
+					<label>Address 1</label> <input placeholder="Address 1" type="text"
+						name="landlord.address1" required>
 				</div>
 				<div class="required field">
-					<div align="left">
-						<input type="checkbox" name="terms" required> I agree to
-						the terms and conditions
-					</div>
+					<label>Address 2</label> <input placeholder="Address 2" type="text"
+						name="landlord.address2" required>
 				</div>
-				<div>
-					<button class="ui teal button" type="submit"><i class="add user icon"></i>Signup</button>
-					<a class="ui teal button" href="/home"> <i class="ban icon"></i>Cancel
-					</a>
+			</div>
+			<div class="two fields">
+				<div class="required field">
+					<label>City</label> <input placeholder="address" type="text"
+						name="landlord.city" required>
 				</div>
-			</form>
-		</div>
-		<div class="ui center aligned column">
-			<img src="/public/images/homes.jpg"></img>
-		</div>
+				<div class="required field">
+					<label>County</label> <input placeholder="address" type="text"
+						name="landlord.county" required>
+				</div>
+				</div>
+			<div class="two fields">
+				<div class="required field">
+					<label>E-mail</label><input placeholder="e-mail" type="text"
+						name="landlord.email" required>
+				</div>
+				<div class="required field">
+					<label>Password</label> <input placeholder="password" type="text"
+						name="landlord.password" required>
+				</div>
+			</div>
+			
+			<div class="required field">
+				<div align="left">
+					<input type="checkbox" name="terms" required> I agree to
+					the terms and conditions
+				</div>
+			</div>
+			<div>
+				<button class="ui teal button" type="submit"><i class="add user icon"></i>Signup</button>
+				<a class="ui teal button" href="/admin"><i class="ban icon"></i>Cancel
+				</a>
+			</div>
+		</form>
+	</div>
+	<div class="ui center aligned column">
+		<img src="/public/images/homes.jpg"></img>
 	</div>
 </div>
-<div class="ui message">
-	Already have a landlord account? <a href="/landlords/login">Login
-		here </a>
 </div>

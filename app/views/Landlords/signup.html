@@ -1,11 +1,10 @@
 #{extends 'main.html' /} #{set title:'Landlord Sign Up' /}
 <div class="ui inverted teal menu">
 	<a class="ui item" href="/home">Home</a>
-	<a class="ui active item">Sign Up</a>
-	<a class="ui item" href="/landlords/login">Log In</a>
-	<a class="ui item" href="/contact">Contact</a>
+	<a class="ui item" href="/admin">Administrator</a>
+	<a class="ui active item">Landlord signup</a>
 </div>
-<h3 class="ui header">Create MyRent landlord account</h3>
+<h3 class="ui header">Landlord registration</h3>
 <div class="ui tertiary teal segment">
 <div class="ui two column grid">
 	<div class="column">
@@ -20,7 +19,27 @@
 					<label>Last Name</label><input placeholder="Last Name" type="text"
 						name="landlord.lastName" required>
 				</div>
+				</div>
+				<div class="two fields">
+				<div class="required field">
+					<label>Address 1</label> <input placeholder="Address 1" type="text"
+						name="landlord.address1" required>
+				</div>
+				<div class="required field">
+					<label>Address 2</label> <input placeholder="Address 2" type="text"
+						name="landlord.address2" required>
+				</div>
 			</div>
+			<div class="two fields">
+				<div class="required field">
+					<label>City</label> <input placeholder="address" type="text"
+						name="landlord.city" required>
+				</div>
+				<div class="required field">
+					<label>County</label> <input placeholder="address" type="text"
+						name="landlord.county" required>
+				</div>
+				</div>
 			<div class="two fields">
 				<div class="required field">
 					<label>E-mail</label><input placeholder="e-mail" type="text"
@@ -31,10 +50,7 @@
 						name="landlord.password" required>
 				</div>
 			</div>
-			<div class="required field">
-					<label>Address</label> <input placeholder="address" type="text"
-						name="landlord.address" required>
-				</div>
+			
 			<div class="required field">
 				<div align="left">
 					<input type="checkbox" name="terms" required> I agree to
@@ -43,7 +59,7 @@
 			</div>
 			<div>
 				<button class="ui teal button" type="submit"><i class="add user icon"></i>Signup</button>
-				<a class="ui teal button" href="/home"> <i class="ban icon"></i>Cancel
+				<a class="ui teal button" href="/admin"><i class="ban icon"></i>Cancel
 				</a>
 			</div>
 		</form>
@@ -52,8 +68,4 @@
 		<img src="/public/images/homes.jpg"></img>
 	</div>
 </div>
-</div>
-<div class="ui message">
-	Already have a landlord account? <a href="/landlords/login">Login here
-	</a>
 </div>

@@ -19,7 +19,7 @@ public class Tenant extends Model {
 	public String email;
 	public String password;
 	
-	@OneToOne(mappedBy = "tenant")
+	@OneToOne(mappedBy="tenant")
 	public Residence residence;
 	
 	/**

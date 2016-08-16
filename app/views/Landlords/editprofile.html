@@ -1,10 +1,9 @@
 #{extends 'main.html' /} #{set title:'EditProfile' /}
 <div class="ui inverted teal menu">
-	<a class="ui item" href="/home">Home</a>
-	<a class="ui active item">Edit Profile</a>
-	<a class="ui item" href="/report">Report</a>
-	<a class="ui item" href="/contact">Contact</a>
-	<a class="ui item" href="/logout">Logout</a>
+	<a class="ui item" href="/home">Home</a> <a class="ui active item">Edit
+		Profile</a> <a class="ui item" href="/report">Report</a> <a
+		class="ui item" href="/contact">Contact</a> <a class="ui item"
+		href="/logout">Logout</a>
 </div>
 <h3 class="ui header">Edit landlord profile details</h3>
 <div class="ui tertiary teal segment">
@@ -12,24 +11,46 @@
 		<div class="column">
 			<h4 class="ui header">Enter new details:</h4>
 			<form class="ui form" action="/landlords/updateprofile" method="POST">
-				<div class="ui field">
-					<label>First name</label><input placeholder="first name"
-						type="text" name="firstName" required>
+				<div class="ui two fields">
+					<div class="ui required field">
+						<label>First name</label><input placeholder="First name"
+							type="text" name="firstName" required>
+					</div>
+					<div class="ui required field">
+						<label>Last name</label><input placeholder="Last name" type="text"
+							name="lastName" required>
+					</div>
 				</div>
-				<div class="ui field">
-					<label>Last name</label><input placeholder="last name" type="text"
-						name="lastName" required>
+				<div class="ui two fields">
+					<div class="ui required field">
+						<label>Address 1</label><input placeholder="Address 1"
+							type="text" name="address1" required>
+					</div>
+					<div class="ui required field">
+						<label>Address 2</label><input placeholder="Address 2"
+							type="text" name="address2" required>
+					</div>
 				</div>
-				<div class="field">
-					<label>Address</label><input placeholder="city" type="text"
-						name="address" required>
+				<div class="ui two fields">
+					<div class="ui required field">
+						<label>City</label><input placeholder="City"
+							type="text" name="city" required>
+					</div>
+					<div class="ui required field">
+						<label>County</label><input placeholder="County"
+							type="text" name="county" required>
+					</div>
 				</div>
-				<button class="ui teal button" type="submit"><i class="checkmark icon"></i>Submit</button>
+
+				<button class="ui teal button" type="submit">
+					<i class="checkmark icon"></i>Submit
+				</button>
 				<a class="ui teal button" href="/landlord"><i class="ban icon"></i>Cancel</a>
 			</form>
 		</div>
-	<div class="ui center aligned column">
-	<br><img src="/public/images/editprofile.jpg"></img>
+		<div class="ui center aligned column">
+			<br>
+			<img src="/public/images/editprofile.jpg"></img>
+		</div>
 	</div>
-</div>
 </div>

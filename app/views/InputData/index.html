@@ -1,10 +1,9 @@
 #{extends 'main.html' /} #{set title:'InputData' /}
 <div class="ui inverted teal menu">
-	<a class="ui item">Home</a>
-	<a class="ui item" href="/landlord">Landlord</a>
-	<a class="ui active item">Input Data</a>
-	<a class="ui item" href="/contact">Contact</a>
-	<a class="ui item" href="/landlords/logout">Logout</a>
+	<a class="ui item">Home</a> <a class="ui item" href="/landlord">Landlord</a>
+	<a class="ui active item">Input Data</a> <a class="ui item"
+		href="/contact">Contact</a> <a class="ui item"
+		href="/landlords/logout">Logout</a>
 </div>
 <h3 class="ui header">Please input residence data</h3>
 <div class="ui tertiary teal segment">
@@ -71,20 +70,23 @@
 						</div>
 					</div>
 				</div>
-				<div class="ui fluid form segment">
-					<div class="ui selection dropdown">
+				<div class="ui form segment">
+         		<div class="ui selection dropdown">
 						<input name="residence.residenceType" type="hidden" >
 						<div class="text">Residence type</div>
 						<i class="dropdown icon"></i>
 						<div class="menu">
-							<div class="item" data-value="flat">Apartment|Flat</div>
-							<div class="item" data-value="studio">Studio</div>
-							<div class="item" data-value="house">House</div>
+							<div class="item" data-value="Apartment|Flat">Apartment|Flat</div>
+							<div class="item" data-value="Studio">Studio</div>
+							<div class="item" data-value="House">House</div>
 						</div>
 					</div>
 				</div>
-				<button class="ui teal button" type="submit"><i class="checkmark icon"></i>Submit Data</button>
-				<a class="ui teal button" href="/landlord"> <i class="ban icon"></i>Cancel</a>
+				<button class="ui teal button" type="submit">
+					<i class="checkmark icon"></i>Submit Data
+				</button>
+				<a class="ui teal button" href="/landlord"> <i class="ban icon"></i>Cancel
+				</a>
 				<div class="ui error message"></div>
 			</form>
 		</div>
@@ -103,4 +105,3 @@
 </div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKHXn_KSUWM9pAbtKTKgb_F-DL0-mbYHg&callback=i"></script>
 <script src="@{'/public/javascripts/map.js'}" type="text/javascript" charset="utf-8"></script>
-<script src="@{'/public/javascripts/inputdata.js'}" type="text/javascript" charset="${_response_encoding}"></script>
