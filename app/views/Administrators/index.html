@@ -75,26 +75,13 @@
 			</form>
 		</div>
 <div class="column">
-	<form action="/tenants/generateReport" method="POST">
-		<section class="ui segment">
-			<div class="ui embed 4:3" id="map-canvas"
-				style="width: 100%; height: 400px; border: 0'"></div>
-			<button type="submit" class="ui fluid teal submit button"
-				onclick="requestReportCircle()">
-				<i class="search icon"></i>Search for vacant residences
-			</button>
-		</section>
-		<div style="visibility: hidden" id="circledata">
-			<input type="text" id="radius" name="radius"> <input
-				type="text" id="latcenter" name="latcenter"> <input
-				type="text" id="lngcenter" name="lngcenter">
-		</div>
-	</form>
+<section class="ui segment">
+	<h5>Single click on marker to read eircode and tenant</h5>
+          <div class="ui embed 4:3" id="map" style="width:500px; height:460px;"></div>  
+          </section>
+        </div> 
+      </div>
 </div>
-</div>
-</div>
-<script
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKHXn_KSUWM9pAbtKTKgb_F-DL0-mbYHg&callback=i"></script>
-<script src="@{'/public/javascripts/reportMapCircle.js'}"
-	type="text/javascript" charset="utf-8"></script>
-<script src="/public/javascripts/administrators.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKHXn_KSUWM9pAbtKTKgb_F-DL0-mbYHg&callback=i"></script>
+<script src="@{'/public/javascripts/administrator_map.js'}" type="text/javascript" charset="utf-8"></script>
+<script src="@{'/public/javascripts/administrators.js'}" type="text/javascript" charset="utf-8"></script>

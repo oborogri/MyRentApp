@@ -183,7 +183,7 @@ public class Tenants extends Controller {
 
 			if (r.tenant == null) {
 				vacantresidences.add(0, Arrays.asList(r.eircode, String.valueOf(r.getGeolocation().getLatitude()),
-						String.valueOf(r.getGeolocation().getLongitude()), "No tenant"));
+						String.valueOf(r.getGeolocation().getLongitude()), Residence.getTenant(r)));
 			}
 		}
 		Logger.info("Vacant residences " + vacantresidences);

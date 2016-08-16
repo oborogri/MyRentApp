@@ -1,10 +1,13 @@
 package controllers;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
 import models.Administrator;
 import models.Landlord;
+import models.Residence;
 import play.Logger;
 import play.mvc.Controller;
 
@@ -56,6 +59,25 @@ public class Administrators extends Controller {
 		} else {
 			loginerror();
 		}
+	}
+	
+	/**
+	 * Finds all registered residences and renders residences details to the html page  
+	 */
+	public static void geolocations() {
+		
+		List<Residence> residences = Residence.findAll();
+
+		List<List<String>> geolocations = new ArrayList<List<String>>();
+
+		for (Residence r : residences) {
+
+			geolocations.add(0, Arrays.asList(r.eircode, String.valueOf(r.getGeolocation().getLatitude()),
+					String.valueOf(r.getGeolocation().getLongitude()), Residence.getTenant(r)));
+			}
+		
+		Logger.info("List of residences: " + geolocations);
+		renderJSON(geolocations);
 	}
 
 	/**
