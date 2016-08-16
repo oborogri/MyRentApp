@@ -4,16 +4,15 @@
     <title>#{get 'title' /}</title>
     <meta charset="${_response_encoding}">
     <link rel="stylesheet" media="screen" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.7/semantic.min.css">
-    <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
-    <script src="@{'/public/javascripts/jquery-2.2.4.js'}" type="text/javascript" charset="${_response_encoding}"></script> 
-    <script src="/public/semantic/semantic.js"></script>     
+    <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">       
   </head>
   <body>
   <div class="ui segment">
-    #{doLayout /}       
-    <script src="@{'/public/javascripts/inputdata.js'}"></script>
-    <script src="@{'/public/javascripts/landlord.js'}"></script>
-    <script src="@{'/public/javascripts/tenant.js'}"></script>
+    #{doLayout /}      
+    <script src="@{'/public/javascripts/jquery-2.2.4.js'}" type="text/javascript" charset="${_response_encoding}"></script> 
+    <script src="@{'/public/semantic/semantic.js'}" type="text/javascript" charset="${_response_encoding}"></script> 
+    <script src="@{'/public/javascripts/landlord.js'}"type="text/javascript" charset="${_response_encoding}"></script> 
+    <script src="@{'/public/javascripts/tenant.js'}" type="text/javascript" charset="${_response_encoding}"></script>
     #{get 'moreScripts' /}
     </div>
   </body>

@@ -75,6 +75,7 @@ public class Residence extends Model {
 
 	/**
 	 * Facilitates finding residence of current landlord
+	 * 
 	 * @return residence
 	 */
 	public static Residence findByLandlord() {
@@ -82,9 +83,10 @@ public class Residence extends Model {
 		Landlord landlord = Landlords.getCurrentLandlord();
 		return find("landlord", landlord).first();
 	}
-	
+
 	/**
 	 * Facilitates finding residence of current tenant
+	 * 
 	 * @return residence
 	 */
 	public static Residence findByTenant() {
@@ -92,12 +94,12 @@ public class Residence extends Model {
 		Tenant tenant = Tenants.getCurrentTenant();
 		return find("tenant", tenant).first();
 	}
-	
+
 	/**
-	 * Overrides toString method for Residence object 
+	 * Overrides toString method for Residence object
 	 */
 	public String toString() {
 		return eircode;
-		
+
 	}
 }

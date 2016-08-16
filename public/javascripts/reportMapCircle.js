@@ -2,17 +2,17 @@ const CIRCLEMAP= (function(context) {
   let map;
   let circle;
   const markers = [];
-  
+   
   context.onclick = function requestReportCircle() {
-	    const center = circle.getCenter();
-	    const latcenter = center.lat().toString();
-	    const lngcenter = center.lng().toString();
-	    const radius = circle.getRadius().toString();
-	    $('#radius').val(radius);
-	    $('#latcenter').val(latcenter);
-	    $('#lngcenter').val(lngcenter);
-	  }
-     
+    const center = circle.getCenter();
+    const latcenter = center.lat().toString();
+    const lngcenter = center.lng().toString();
+    const radius = circle.getRadius().toString();
+    $('#radius').val(radius);
+    $('#latcenter').val(latcenter);
+    $('#lngcenter').val(lngcenter);
+  }
+  
   function initialize() {
     const center = new google.maps.LatLng(53.347298, -7.268344);
     const initRadius = 40000;
@@ -41,12 +41,16 @@ const CIRCLEMAP= (function(context) {
   }
   
   /**
-	 * Use ajax call to get markers pass returned array marker locations to
-	 * positionMarkers method Here is the format in which marker data stored
-	 * geoObj[0] is eircode geoObj[1] is latitude geoObj[2] is longitude
-	 * geoObj[3] is rented status message We use selection of geoObj in the
-	 * infoWindow. Click on marker reveals the message
-	 */
+   * Use ajax call to get markers
+   * pass returned array marker locations to positionMarkers method
+   * Here is the format in which marker data stored
+   * geoObj[0] is eircode             
+   * geoObj[1] is latitude                              
+   * geoObj[2] is longitude
+   * geoObj[3] is rented status message  
+   * We use selection of geoObj in the infoWindow. 
+   * Click on marker reveals the message
+   */
   function retrieveMarkerLocations()
   {
     const latlng = [];
@@ -63,14 +67,14 @@ const CIRCLEMAP= (function(context) {
    }
       
   /**
-	 * we've got the marker location from data in ajax call we now put data into
-	 * an array the format is 'zzz zzz, xx.xxxx, yy.yyyyy, sssssss ' ->
-	 * (eircode, lat, lng, tenant) then invoke 'fitBounds' to render the
-	 * markers, centre map and create infoWindow to display firstName
-	 */
+   * we've got the marker location from data in ajax call
+   * we now put data into an array
+   * the format is 'zzz zzz, xx.xxxx, yy.yyyyy, sssssss ' -> (eircode, lat, lng, tenant)
+   * then invoke 'fitBounds' to render the markers, centre map and create infoWindow to display firstName
+   */
   function positionMarkers(data)
   {
-    // removeMarkers();
+    //removeMarkers();
     latlngStr = [];
     $.each(data, function(index, geoObj) 
     {
@@ -80,20 +84,19 @@ const CIRCLEMAP= (function(context) {
   }
   
   /**
-	 * A helper function to convert the latlng string to individual numbers and
-	 * thence to a google.maps.LatLng object
-	 * 
-	 * @param str
-	 *            str is list of strings : eircode, lat, lon, tenant str[0] is
-	 *            eircode str[1] is latitude str[2] is longitude str[3] is
-	 *            tenant name
-	 * 
-	 * We extract the latitude:longitude pair from the parameter
-	 * 
-	 * @param The
-	 *            object 'str' holding an individual marker data set
-	 * @return A google.maps.LatLng object containing the marker coordinates.
-	 */
+   * A helper function to convert the latlng string to individual numbers
+   * and thence to a google.maps.LatLng object
+   * @param str str is list of strings : eircode, lat, lon, tenant  
+   * str[0] is eircode                
+   * str[1] is latitude                              
+   * str[2] is longitude    
+   * str[3] is tenant name                       
+   * 
+   * We extract the latitude:longitude pair from the parameter
+   * 
+   * @param The object 'str' holding an individual marker data set
+   * @return A google.maps.LatLng object containing the marker coordinates.
+   */
   function getLatLng(str)
   { 
   
@@ -103,8 +106,9 @@ const CIRCLEMAP= (function(context) {
   }
    
   /**
-	 * creates and positions markers sets zoom level so that all markers visible
-	 */
+   * creates and positions markers
+   * sets zoom level so that all markers visible
+   */
   function fitBounds(latlngStr)
   {
       const bounds = new google.maps.LatLngBounds();
@@ -116,7 +120,7 @@ const CIRCLEMAP= (function(context) {
             position: getLatLng(latlngStr[i]),
             map: map
         });
-          /* click marker displays message (infowindow) */
+          /*click marker displays message (infowindow) */
         google.maps.event.addListener(marker, 'click', (function (marker, i) {
             return function () {
               infowindow.setContent('Eircode ' + latlngStr[i][0] + " : " + latlngStr[i][3]);
@@ -133,11 +137,11 @@ const CIRCLEMAP= (function(context) {
   }
 
   /**
-	 * Method intended to be used where markers replaced on exist map without
-	 * changing bounds. we've got the marker location from data in ajax call we
-	 * now put data into an array the format is 'zzz zzz, xx.xxxx, yy.yyyyy,
-	 * sssssss ' -> (eircode, lat, lng, tenant)
-	 */
+   * Method intended to be used where markers replaced on exist map without changing bounds.
+   * we've got the marker location from data in ajax call
+   * we now put data into an array
+   * the format is 'zzz zzz, xx.xxxx, yy.yyyyy, sssssss ' -> (eircode, lat, lng, tenant)
+   */
    
   function updateMarkers(data)
   {
@@ -157,7 +161,7 @@ const CIRCLEMAP= (function(context) {
             map: map
         });
         
-        /* respond to click on marker by displaying user (donor) name */
+        /*respond to click on marker by displaying user (donor) name */
         google.maps.event.addListener(marker, 'click', (function (marker, i) {
             return function () {
               infowindow.setContent('Eircode ' + latlngStr[i][0] + " : " + latlngStr[i][3]);
@@ -165,7 +169,7 @@ const CIRCLEMAP= (function(context) {
             }
         })(marker, i));
                   
-        markers.push(marker); // to facilitate removal of markers
+        markers.push(marker); // to facilitate removel of markers
     }
   }
   
@@ -177,12 +181,17 @@ const CIRCLEMAP= (function(context) {
   }
 
     /**
-	 * Use ajax call to get markers pass returned array marker locations to
-	 * positionMarkers method Here is the format in which marker data stored
-	 * geoObj[0] is eircode geoObj[1] is latitude geoObj[2] is longitude
-	 * geoObj[3] is rented status message We use selection of geoObj in the
-	 * infoWindow. Click on marker reveals the message Bounds remain unaltered
-	 */
+   * Use ajax call to get markers
+   * pass returned array marker locations to positionMarkers method
+   * Here is the format in which marker data stored
+   * geoObj[0] is eircode             
+   * geoObj[1] is latitude                              
+   * geoObj[2] is longitude
+   * geoObj[3] is rented status message  
+   * We use selection of geoObj in the infoWindow. 
+   * Click on marker reveals the message
+   * Bounds remain unaltered
+   */
   function refreshMarkers()
   {
     const latlng = [];
@@ -206,3 +215,4 @@ const CIRCLEMAP= (function(context) {
 }(this));
 
 google.maps.event.addDomListener(window, 'load', CIRCLEMAP.initialize);
+

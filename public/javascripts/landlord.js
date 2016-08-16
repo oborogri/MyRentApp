@@ -1,6 +1,6 @@
 $( document ).ready(function() {	
-    $('#editresidence').dropdown('clear');
-    $('#deleteresidence').dropdown('clear');
+    $('#editresidence').dropdown();
+    $('#deleteresidence').dropdown();
     
     $('.ui.form').form({
       fields : {

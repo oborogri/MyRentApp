@@ -125,7 +125,7 @@ Residence(residence4):
     numberBathrooms: 2
     area: 450
     eircode: F92 DYY9
-    geolocation: 55.2980813,-6.3562346
+    geolocation: 54.3980813,-6.3562346
     dateRegistered: 2016-07-08 20:24:43
     
 Residence(residence5):
@@ -137,7 +137,7 @@ Residence(residence5):
     numberBathrooms: 2
     area: 350
     eircode: X90 DTY9
-    geolocation: 55.2180813,-6.3962346
+    geolocation: 54.2180813,-6.3962346
     dateRegistered: 2016-07-10 21:20:43
     
 Residence(residence6):
@@ -149,7 +149,7 @@ Residence(residence6):
     numberBathrooms: 1
     area: 250
     eircode: W10 XTY9
-    geolocation: 55.2584893,-6.3447946
+    geolocation: 53.2584893,-6.3447946
     dateRegistered: 2016-07-12 20:05:43
     
 Residence(residence7):
@@ -161,5 +161,5 @@ Residence(residence7):
     numberBathrooms: 1
     area: 350
     eircode: T10 XTY9
-    geolocation: 55.2154893,-6.2847946
+    geolocation: 52.2154893,-7.2847946
     dateRegistered: 2016-07-19 21:05:43

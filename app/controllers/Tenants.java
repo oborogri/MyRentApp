@@ -168,25 +168,28 @@ public class Tenants extends Controller {
 	}
 
 	/**
-	 * Finds all vacant residences and returns residence details as array
+	 * Finds all vacant residences and returns JSON object with residence
+	 * details as array
 	 */
-	public static List<List<String>> vacantresidences() {
+	public static void vacantresidences() {
 
 		List<Residence> residences = Residence.findAll();
+
 		List<List<String>> vacantresidences = new ArrayList<List<String>>();
 
 		for (Residence r : residences) {
 
 			if (r.tenant == null) {
-				vacantresidences.add(Arrays.asList(r.eircode, "no tenant"));
+				vacantresidences.add(0, Arrays.asList(r.eircode, String.valueOf(r.getGeolocation().getLatitude()),
+						String.valueOf(r.getGeolocation().getLongitude()), "No tenant"));
 			}
 		}
 		Logger.info("Vacant residences " + vacantresidences);
-		return (vacantresidences);
+		renderJSON(vacantresidences);
 	}
 
 	/**
-	 * Finds all vacant residences
+	 * Finds all vacant residences returns ArrayList of all vacant residences
 	 */
 	private static ArrayList<Residence> getVacantResidences() {
 
@@ -199,11 +202,14 @@ public class Tenants extends Controller {
 			}
 		}
 		Logger.info("Vacant residences: " + vr);
+
 		return vr;
 	}
 
 	/**
-	 * Generates a Report instance relating to all vacant residences within circle
+	 * Generates a Report instance relating to all vacant residences within
+	 * circle
+	 * 
 	 * @param radius
 	 * @param latcenter
 	 * @param lngcenter

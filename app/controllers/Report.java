@@ -63,7 +63,7 @@ public class Report extends Controller {
 				residences.add(res);
 			}
 		}
-		
+
 		render(landlord, circle, residences);
 	}
 
