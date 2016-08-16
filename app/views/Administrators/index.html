@@ -17,7 +17,14 @@
 						<i class="add user icon"></i>Register landlord
 					</button>
 				</div>
-			</form>			
+			</form>		
+			<form action="/tenants/signup" method="GET">
+				<div class="ui fluid form segment">
+					<button type="submit" class="ui fluid teal submit button">
+						<i class="add user icon"></i>Register tenant
+					</button>
+				</div>
+			</form>	
 			<!-- <form class="ui form segment"  action="/administrators/deletelandlord" method="POST"> -->
 			<form class="ui form segment landlord">
 				<div id="deletelandlord"
@@ -42,15 +49,7 @@
 					<div class="ui error message"></div>
 				</div>
 			</form>
-			</div>
-			<div class="ui column">
-			<form action="/tenants/signup" method="GET">
-				<div class="ui fluid form segment">
-					<button type="submit" class="ui fluid teal submit button">
-						<i class="add user icon"></i>Register tenant
-					</button>
-				</div>
-			</form>
+			
 			<!-- <form class="ui form segment"  action="/administrators/deletetenant" method="POST"> -->
 			<form class="ui form segment tenant">
 				<div id="deletetenant" class="ui fluid selection dropdown">
@@ -74,14 +73,14 @@
 				</div>
 			</form>
 		</div>
-<div class="column">
+<div class="ui seven wide column">
 <section class="ui segment">
 	<h5>Single click on marker to read eircode and tenant</h5>
-          <div class="ui embed 4:3" id="map" style="width:500px; height:460px;"></div>  
+          <div id="map" style="width:520px; height:480px;"></div>  
           </section>
         </div> 
       </div>
-</div>
+      </div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKHXn_KSUWM9pAbtKTKgb_F-DL0-mbYHg&callback=i"></script>
 <script src="@{'/public/javascripts/administrator_map.js'}" type="text/javascript" charset="utf-8"></script>
 <script src="@{'/public/javascripts/administrators.js'}" type="text/javascript" charset="utf-8"></script>
