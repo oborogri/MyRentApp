@@ -45,6 +45,11 @@ POST    /admin/authenticate                     Administrators.authenticate
 POST    /administrators/deletelandlord          Administrators.deletelandlord
 POST    /administrators/deletetenant            Administrators.deletetenant
 
+#AdminReports
+GET     /adminReports                           AdminReports.index
+
+POST     /byRented                              AdminReports.byRented
+
 #InputData
 GET     /inputdata                              InputData.index
 GET     /report                                 Report.index

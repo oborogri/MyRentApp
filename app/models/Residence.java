@@ -107,6 +107,25 @@ public class Residence extends Model {
 	}
 
 	/**
+	 * Helper method to return rentedStatus of a residence as String
+	 * 
+	 * @param residence
+	 * @return String rentedStatus
+	 */
+	public static String rentedStatus(Residence residence) {
+		
+		String rentedStatus = null;
+		
+		if(residence.tenant == null) {
+			rentedStatus = "vacant";
+			
+		} else {
+			rentedStatus = "rented";
+		}
+		return rentedStatus;
+	}
+	
+	/**
 	 * Helper method to find current residence tenant and return tenant as
 	 * string
 	 * 
