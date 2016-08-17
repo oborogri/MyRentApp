@@ -37,7 +37,7 @@
         $('#notificationLandlord').html('Landlord deleted : ' + $('#form_delete_landlord').val());
         // response format: eircode, lat, lng, marker message
         ADMIN_MAP.updateMarkers(response);
-        
+                
         let email = $('#deletelandlord').dropdown('get text');
         removeItemLandlordDropdown(email);
       }

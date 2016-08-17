@@ -21,14 +21,13 @@ public class Tenants extends Controller {
 	 */
 	public static void index() {
 
-		Tenant tenant = Tenants.getCurrentTenant();
-		Residence tr = Residence.findByTenant();
-
+		Tenant tenant = getCurrentTenant();
+		
 		ArrayList<Residence> vr = getVacantResidences();
 
-		Logger.info("Tenant: " + tenant + " residence: " + tr);
+		Logger.info("Tenant: " + tenant + " residence: " + tenant.residence);
 
-		render(tenant, tr, vr);
+		render(tenant, vr);
 	}
 
 	/**
@@ -129,16 +128,14 @@ public class Tenants extends Controller {
 	 */
 	public static void endtenancy() {
 
-		Tenant tenant = getCurrentTenant();
-		Residence residence = Residence.findByTenant();
+		Tenant tenant = Tenants.getCurrentTenant();
 
-		if (residence != null) {
-
-			residence.tenant = null;
-			residence.save();
+		if (tenant.residence != null) {
+			tenant.residence = null;
 			tenant.save();
 
-			Logger.info("Tenant " + tenant + " tenancy at: " + residence.eircode + " terminated");
+			Logger.info("Tenant " + tenant + " tenancy at: " + tenant.residence + " terminated");
+			index();
 		}
 		index();
 
@@ -151,7 +148,7 @@ public class Tenants extends Controller {
 	 */
 	public static void changetenancy(String eircode_vacancy) {
 
-		Tenant tenant = getCurrentTenant();
+		Tenant tenant = Tenants.getCurrentTenant();
 		Residence residence = Residence.findByEircode(eircode_vacancy);
 
 		if (tenant.residence == null) {
@@ -159,14 +156,12 @@ public class Tenants extends Controller {
 			Logger.info("Tenant: " + tenant + " changing tenancy");
 			Logger.info("New residence: " + residence);
 
-			residence.addtenant(tenant);
+			tenant.residence = residence;
 			tenant.save();
 
 			index();
-
-		} else {
-			index();
 		}
+		index();
 	}
 
 	/**

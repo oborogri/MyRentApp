@@ -1,68 +1,67 @@
 #{extends 'main.html' /} #{set title:'Tenant' /}
 <div class="ui inverted teal menu">
 	<a class="ui item" href="/home">Home</a> <a class="ui active item">Tenant</a>
-	<a class="ui item" href="/contact">Contact</a> <a class="ui item" href="/tenants/logout">Logout</a>
+	<a class="ui item" href="/contact">Contact</a> <a class="ui item"
+		href="/tenants/logout">Logout</a>
 </div>
-<div class="ui tertiary teal segment">
-	<h4>Tenant ${tenant} configuration page</h4>
-	<div class="ui three column grid">
-		<div class="column">
+<h4>Tenant ${tenant} configuration page</h4>
+<div class="ui three column grid">
+	<div class="column">
+		<section class="ui segment">
 			<div class="ui form segment">
-				<div class="ui fluid form segment">
-					<h5>Existing rental</h5>
-					<div class="ui fluid labeled input">
-						<div class="ui label">Eircode</div>
-						<input readonly value="${tr}" name="existingeircode" type="text">
-					</div>
+				<h5>Existing rental (eircode)</h5>
+				<div class="ui fluid labeled input">
+					<div class="ui label">Eircode</div>
+					<input readonly value="${tenant.residence}" name="existingeircode" type="text">
 				</div>
 			</div>
-			<section class="ui segment">
-				<h5>Press to end tenancy</h5>
-				<form class="ui form endTenancy" action="/tenants/endtenancy" method="POST">
-					<div class="ui fluid form segment">
-						<button type="submit" class="ui teal fluid submit button">
-							<i class="remove icon"></i>Terminate tenancy
-						</button>
-					</div>
-				</form>
-			</section>
-			<section class="ui segment">
-				<h5>Select from vacant residences for new rental</h5>
-				<form class="ui form" action="/tenants/changetenancy" method="POST">
-					<div class="ui fluid form segment">
-						<div class="ui fluid selection dropdown" id="eircode_residence">
-							<input name="eircode_vacancy" type="hidden" required>
-							<div class="default text">Vacant residences</div>
-							<i class="dropdown icon"></i>
-							<div class="menu">
-								#{list items:vr, as:'residence'}
-								<div class="item" data-value="${residence.eircode}">${residence.eircode}</div>
-								#{/list}
-							</div>
-						</div>
-					</div>	
+		</section>
+		<section class="ui segment">
+			<h5>Press to end tenancy</h5>
+			<form class="ui form" action="/tenants/endtenancy" method="POST">
+				<div class="ui fluid form segment">
 					<button type="submit" class="ui teal fluid submit button">
-						<i class="map signs icon"></i>Change Tenancy
+						<i class="remove icon"></i>Terminate tenancy
 					</button>
-					<div class="ui error message"></div>
-				</form>
-			</section>
-		</div>
-		<div class="column">
-			<form action="/tenants/generateReport" method="POST">
-				<section class="ui segment">
+				</div>
+			</form>
+		</section>
+		<section class="ui segment">
+			<h5>Select from vacant residences for new rental</h5>
+			<form class="ui form" action="/tenants/changetenancy" method="POST">
+				<div class="ui fluid form segment">
+					<div class="ui fluid selection dropdown" id="eircode_residence">
+						<input name="eircode_vacancy" type="hidden">
+						<div class="default text">Vacant residences</div>
+						<i class="dropdown icon"></i>
+						<div class="menu">
+							#{list items:vr, as:'residence'}
+							<div class="item" data-value="${residence.eircode}">${residence.eircode}</div>
+							#{/list}
+						</div>
+					</div>
+				</div>
+				<button type="submit" class="ui teal fluid submit button"><i class="map signs icon"></i>
+				Change Tenancy</button>
+				<div class="ui error message"></div>
+			</form>
+		</section>
+	</div>
+	<div class="column">
+		<form action="/tenants/generateReport" method="POST">
+			<section class="ui segment">
 					<div class="ui embed 4:3" id="map-canvas" style="width: 100%; height: 400px; border: 0'"></div>
 					<button type="submit" class="ui fluid teal submit button" onclick="requestReportCircle()">
 						<i class="search icon"></i>Search for vacant residences</button>
 				</section>
-				<div style="visibility: hidden" id="circledata">
-					<input type="text" id="radius" name="radius"> <input
-						type="text" id="latcenter" name="latcenter"> <input
-						type="text" id="lngcenter" name="lngcenter">
-				</div>
-				</form>
+			<div style="visibility: hidden" id="circledata">
+				<input type="text" id="radius" name="radius"> <input
+					type="text" id="latcenter" name="latcenter"> <input
+					type="text" id="lngcenter" name="lngcenter">
 			</div>
-		</div>
+		</form>
 	</div>
+</div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKHXn_KSUWM9pAbtKTKgb_F-DL0-mbYHg&callback=i"></script>
 <script src="@{'/public/javascripts/reportMapCircle.js'}" type="text/javascript" charset="utf-8"></script>
+<script src="@{'/public/javascripts/rent.js'}" type="text/javascript" charset="utf-8"></script>

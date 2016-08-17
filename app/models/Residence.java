@@ -1,5 +1,6 @@
 package models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -31,7 +32,7 @@ public class Residence extends Model {
 	@ManyToOne
 	public Landlord landlord;
 
-	@OneToOne
+	@OneToOne(mappedBy = "residence")
 	public Tenant tenant;
 
 	/**
@@ -93,7 +94,16 @@ public class Residence extends Model {
 	public static Residence findByTenant() {
 
 		Tenant tenant = Tenants.getCurrentTenant();
-		return find("tenant", tenant).first();
+		//return find("tenant", tenant).first();
+
+		List<Residence> residences = Residence.findAll();
+
+		for (Residence r : residences) {
+			if (r.tenant == tenant) {
+				return r;
+			}
+		}
+		return null;
 	}
 
 	/**

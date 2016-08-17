@@ -12,13 +12,13 @@ GET     /tenants/signup                         Tenants.signup
 GET     /tenants/login                          Tenants.login
 GET     /tenants/logout                         Tenants.logout
 GET     /tenant                                 Tenants.index
+GET     /tenant/endtenancy                      Tenants.endtenancy
 GET     /tenants/vacantresidences               Tenants.vacantresidences
 GET     /tenants/generateReport                 Tenants.generateReport
 
 POST    /tenants/generateReport                 Tenants.generateReport 
 POST    /tenants/register                       Tenants.register
 POST    /tenants/authenticate                   Tenants.authenticate
-POST    /tenant/endtenancy                      Tenants.endtenancy
 POST    /tenants/changetenancy                  Tenants.changetenancy
 
 #Landlords 
@@ -42,7 +42,8 @@ GET     /admin                                  Administrators.index
 GET     /administrators/geolocations            Administrators.geolocations
 
 POST    /admin/authenticate                     Administrators.authenticate
-POST    /administrators/deletelandlord{landlord}          Administrators.deletelandlord
+POST    /administrators/deletelandlord          Administrators.deletelandlord
+POST    /administrators/deletetenant            Administrators.deletetenant
 
 #InputData
 GET     /inputdata                              InputData.index

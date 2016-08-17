@@ -18,10 +18,10 @@ public class Tenant extends Model {
 	public String lastName;
 	public String email;
 	public String password;
-	
-	@OneToOne(mappedBy="tenant")
+
+	@OneToOne
 	public Residence residence;
-	
+
 	/**
 	 * Facilitates identifying a tenant by their e-mail
 	 * 

@@ -17,7 +17,8 @@ import play.mvc.Controller;
 public class Administrators extends Controller {
 
 	/**
-	 * Finds all registered landlords and tenants and renders their details to admin index page 
+	 * Finds all registered landlords and tenants and renders their details to
+	 * admin index page
 	 */
 	public static void index() {
 
@@ -70,27 +71,59 @@ public class Administrators extends Controller {
 			loginerror();
 		}
 	}
-	
+
 	/**
 	 * Facilitates deleting a landlord and affiliated residences from the list
 	 * updates the markers on residences map
 	 * 
 	 * @param email_landlord
 	 */
-	
 	public static void deletelandlord(String email_landlord) {
-		
+
 		Landlord landlord = Landlord.findByEmail(email_landlord);
-										
+
 		landlord.delete();
+
 		List<Landlord> landlordsAll = Landlord.findAll();
+				
 		Logger.info("Landlords list: " + landlordsAll);
-		
+
 		geolocations();
-		
+		//index();
+	
+		List<Tenant> tenants = Tenant.findAll();
+
 		JSONObject obj = new JSONObject();
 		obj.put("landlord deleted", landlord.email);
-		renderJSON(obj);		
+		obj.put("tenants", tenants);
+		renderJSON(obj);
+				
+	}
+
+	/**
+	 * Facilitates deleting a tenant from registered tenants list updates
+	 * markers on residences map
+	 * 
+	 * @param email_tenant
+	 */
+	public static void deletetenant(String email_tenant) {
+
+		Tenant tenant = Tenant.findByEmail(email_tenant);
+
+		if (tenant != null) {
+
+			tenant.delete();
+
+			List<Tenant> tenantsAll = Tenant.findAll();
+			Logger.info("Tenants list: " + tenantsAll);
+
+			geolocations();
+
+			JSONObject obj = new JSONObject();
+			obj.put("tenant deleted", tenant.email);
+			renderJSON(obj);
+		}
+		index();
 	}
 
 	/**

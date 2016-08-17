@@ -22,46 +22,6 @@ Landlord(greg):
     password: secret
     residences: [residence5, residence6]
     
-Tenant(barney):
-    firstName: Barney
-    lastName: Simpson
-    address: Waterford 
-    email: barney@gumble.com
-    password: secret
-    residence: residence2
-
-Tenant(maggie):
-    firstName: Maggie
-    lastName: Simpson
-    address: Waterford 
-    email: maggie@simpson.com
-    password: secret
-    residence: residence4
-    
-Tenant(bart):
-    firstName: Bart
-    lastName: Simpson
-    address: Waterford 
-    email: bart@simpson.com
-    password: secret
-    residence: residence1
-                   
-Tenant(bob):
-    firstName: Bob
-    lastName: Simpson
-    address: Waterford 
-    email: bob@simpson.com
-    password: secret
-    residence: residence5
-               
-Tenant(pat):
-    firstName: Pat
-    lastName: Simpson
-    address: Waterford 
-    email: pat@simpson.com
-    password: secret
-    residence: residence6
-
 Residence(residence1):
     residenceType: Apartment | Flat
     rent: 1200
@@ -145,7 +105,46 @@ Residence(residence7):
     eircode: T10 XTY9
     geolocation: 52.2154893,-7.2847946
     dateRegistered: 2016-07-19 21:05:43
-       
+    
+Tenant(barney):
+    firstName: Barney
+    lastName: Simpson
+    address: Waterford 
+    email: barney@gumble.com
+    password: secret
+    residence: residence2
+
+Tenant(maggie):
+    firstName: Maggie
+    lastName: Simpson
+    address: Waterford 
+    email: maggie@simpson.com
+    password: secret
+    residence: residence4
+    
+Tenant(bart):
+    firstName: Bart
+    lastName: Simpson
+    address: Waterford 
+    email: bart@simpson.com
+    password: secret
+    residence: residence1
+                   
+Tenant(bob):
+    firstName: Bob
+    lastName: Simpson
+    address: Waterford 
+    email: bob@simpson.com
+    password: secret
+    residence: residence5
+               
+Tenant(pat):
+    firstName: Pat
+    lastName: Simpson
+    address: Waterford 
+    email: pat@simpson.com
+    password: secret
+    residence: residence6
 Administrator(greg):
     firstName: Greg
     lastName: Oboroceanu
