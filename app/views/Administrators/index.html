@@ -7,8 +7,8 @@
 	<a class="ui item" href="/logout">Log out</a>
 </div>
 <div class="ui tertiary teal segment">
-	<h3>Administration page</h3>
-	<h5>Landlords and Tenants</h5>
+	<h3 class="ui header">Administration page</h3>
+	<h5 class="ui header">Landlords and Tenants</h5>
 	<div class="ui three column grid">
 		<div class="column">
 			<form action="/landlords/signup" method="GET">
@@ -27,15 +27,13 @@
 			</form>	
 			<!-- <form class="ui form segment"  action="/administrators/deletelandlord" method="POST"> -->
 			<form class="ui form segment landlord">
-				<div id="deletelandlord"
-					class="ui fluid selection dropdown landlord">
-					<input name="email_landlord" type="hidden"
-						id="form_delete_landlord">
+				<div id="deletelandlord" class="ui fluid selection dropdown landlord">
+					<input name="email_landlord" type="hidden" id="form_delete_landlord">
 					<div class="default text">Select landlord to delete</div>
 					<i class="dropdown icon"></i>
 					<div class="menu landlord">
 						#{list items:landlords, as:'landlord'}
-						<div class="item landlord" data-value="landlord.email">${landlord.email}</div>
+						<div class="item landlord" data-value="${landlord.email}">${landlord.email}</div>
 						#{/list}
 					</div>
 				</div>
@@ -58,7 +56,7 @@
 					<i class="dropdown icon"></i>
 					<div class="menu">
 						#{list items:tenants, as:'tenant'}
-						<div class="item tenant" data-value="tenant.email">${tenant.email}</div>
+						<div class="item tenant" data-value="${tenant.email}">${tenant.email}</div>
 						#{/list}
 					</div>
 				</div>
@@ -83,4 +81,3 @@
       </div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKHXn_KSUWM9pAbtKTKgb_F-DL0-mbYHg&callback=i"></script>
 <script src="@{'/public/javascripts/administrator_map.js'}" type="text/javascript" charset="utf-8"></script>
-<script src="@{'/public/javascripts/administrators.js'}" type="text/javascript" charset="utf-8"></script>

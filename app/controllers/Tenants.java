@@ -186,7 +186,6 @@ public class Tenants extends Controller {
 						String.valueOf(r.getGeolocation().getLongitude()), Residence.getTenant(r)));
 			}
 		}
-		Logger.info("Vacant residences " + vacantresidences);
 		renderJSON(vacantresidences);
 	}
 

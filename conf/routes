@@ -42,6 +42,7 @@ GET     /admin                                  Administrators.index
 GET     /administrators/geolocations            Administrators.geolocations
 
 POST    /admin/authenticate                     Administrators.authenticate
+POST    /administrators/deletelandlord{landlord}          Administrators.deletelandlord
 
 #InputData
 GET     /inputdata                              InputData.index

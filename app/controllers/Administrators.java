@@ -5,16 +5,26 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+import org.json.simple.JSONObject;
+
 import models.Administrator;
 import models.Landlord;
 import models.Residence;
+import models.Tenant;
 import play.Logger;
 import play.mvc.Controller;
 
 public class Administrators extends Controller {
 
+	/**
+	 * Finds all registered landlords and tenants and renders their details to admin index page 
+	 */
 	public static void index() {
-		render();
+
+		List<Landlord> landlords = Landlord.findAll();
+		List<Tenant> tenants = Tenant.findAll();
+
+		render(landlords, tenants);
 
 	}
 
@@ -62,10 +72,33 @@ public class Administrators extends Controller {
 	}
 	
 	/**
-	 * Finds all registered residences and renders residences details to the html page  
+	 * Facilitates deleting a landlord and affiliated residences from the list
+	 * updates the markers on residences map
+	 * 
+	 * @param email_landlord
+	 */
+	
+	public static void deletelandlord(String email_landlord) {
+		
+		Landlord landlord = Landlord.findByEmail(email_landlord);
+										
+		landlord.delete();
+		List<Landlord> landlordsAll = Landlord.findAll();
+		Logger.info("Landlords list: " + landlordsAll);
+		
+		geolocations();
+		
+		JSONObject obj = new JSONObject();
+		obj.put("landlord deleted", landlord.email);
+		renderJSON(obj);		
+	}
+
+	/**
+	 * Finds all registered residences and renders residences details to the
+	 * html page
 	 */
 	public static void geolocations() {
-		
+
 		List<Residence> residences = Residence.findAll();
 
 		List<List<String>> geolocations = new ArrayList<List<String>>();
@@ -74,9 +107,8 @@ public class Administrators extends Controller {
 
 			geolocations.add(0, Arrays.asList(r.eircode, String.valueOf(r.getGeolocation().getLatitude()),
 					String.valueOf(r.getGeolocation().getLongitude()), Residence.getTenant(r)));
-			}
-		
-		Logger.info("List of residences: " + geolocations);
+		}
+
 		renderJSON(geolocations);
 	}
 

@@ -26,7 +26,7 @@ const ADMIN_MAP = (function() {
   {
     const latlng = [];
       $(function() {
-          $.get("administrators/geolocations", function(data) {
+          $.get('administrators/geolocations', function(data) {
           }).done(function(data) {
                $.each(data, function(index, geoObj) 
                {
