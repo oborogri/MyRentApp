@@ -1,5 +1,4 @@
 $('.ui.dropdown').dropdown();
-$('.ui.checkbox').checkbox();
 $('.ui.form')
 .form({
   residenceType : {
@@ -12,23 +11,3 @@ $('.ui.form')
     ]
   }
 });
-
-/*
-onSuccess : function() {
-    submitForm();
-    return false;
-}
-});
-
-function submitForm() {
-    var formData = $('.ui.form.segment input').serialize(); 
-    $.ajax({
-      type: 'POST',
-      url: 'inputdata/datacapture',
-      data: formData,
-      success: function(response) { 
-          console.log("notification: " + response.inputdata);
-          $('#notification').html(response.inputdata);
-      }
-    });
-*/
