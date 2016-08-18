@@ -23,7 +23,7 @@ Landlord(greg):
     residences: [residence5, residence6]
     
 Residence(residence1):
-    residenceType: Apartment | Flat
+    residenceType: Apartment|Flat
     rent: 1200
     numberBedrooms: 2
     numberBathrooms: 2
@@ -85,7 +85,7 @@ Residence(residence5):
 Residence(residence6):
     landlord: greg
     tenant: pat 
-    residenceType: Apartment | Flat
+    residenceType: Apartment|Flat
     rent: 1100
     numberBedrooms: 3
     numberBathrooms: 1
@@ -97,7 +97,7 @@ Residence(residence6):
 Residence(residence7):
     landlord: greg
     tenant:
-    residenceType: Apartment | Flat
+    residenceType: Apartment|Flat
     rent: 1400
     numberBedrooms: 4
     numberBathrooms: 1

@@ -141,7 +141,7 @@ public class Administrators extends Controller {
 			geolocations.add(0, Arrays.asList(r.eircode, String.valueOf(r.getGeolocation().getLatitude()),
 					String.valueOf(r.getGeolocation().getLongitude()), Residence.getTenant(r)));
 		}
-
+		//render residences data to the page as JSON object
 		renderJSON(geolocations);
 	}
 

@@ -47,8 +47,12 @@ POST    /administrators/deletetenant            Administrators.deletetenant
 
 #AdminReports
 GET     /adminReports                           AdminReports.index
-
-POST     /byRented                              AdminReports.byRented
+GET     /vacant                                 AdminReports.vacant
+GET     /rented                                 AdminReports.rented
+GET     /adminReports/filter                    AdminReports.filter
+GET     /adminReports/byRented                  AdminReports.byRented
+GET     /adminReports/byResidenceType           AdminReports.byResidenceType
+GET     /adminReports/bySortedRent              AdminReports.bySortedRent
 
 #InputData
 GET     /inputdata                              InputData.index

@@ -94,7 +94,7 @@ public class Residence extends Model {
 	public static Residence findByTenant() {
 
 		Tenant tenant = Tenants.getCurrentTenant();
-		//return find("tenant", tenant).first();
+		// return find("tenant", tenant).first();
 
 		List<Residence> residences = Residence.findAll();
 
@@ -113,18 +113,23 @@ public class Residence extends Model {
 	 * @return String rentedStatus
 	 */
 	public static String rentedStatus(Residence residence) {
-		
-		String rentedStatus = null;
-		
-		if(residence.tenant == null) {
-			rentedStatus = "vacant";
-			
-		} else {
-			rentedStatus = "rented";
+
+		if (residence.tenant == null) {
+			return "vacant";
 		}
-		return rentedStatus;
+		return "rented";
 	}
 	
+	/**
+	 * Helper method to find vacant residence
+	 * 
+	 * @param residence r
+	 * @return boolean vacant
+	 */
+	public static boolean vacant(Residence r) {
+		return r.tenant == null;
+	}
+
 	/**
 	 * Helper method to find current residence tenant and return tenant as
 	 * string

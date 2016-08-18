@@ -1,4 +1,4 @@
-#{extends 'main.html' /} #{set title:'Admin reports' /}
+#{extends 'main.html' /} #{set title:'Admin reports byResidenceType' /}
 <div class="ui inverted teal menu">
 	<a class="ui item" href="/home">Home</a> 
 	<a class="ui item" href="/admin">Administrator</a>
@@ -23,7 +23,7 @@
       </tr>
     </thead>
     <tbody>
-         #{list items:residences, as:'residence'}
+         #{list items:byResidenceType, as:'residence'}
            <tr>
              <td>${residence}</td>
              <td>${residence.dateRegistered.format('dd/MM/yyyy', 'en')}</td>
@@ -43,7 +43,7 @@
 <div class="ui grid">
 <div class="four wide column">
 <div class="ui form" >
-  <form action="/adminReports/byRented" method="POST"> 
+  <form action="/adminReports/byRented" method="GET"> 
   <div class="ui fluid form segment">       
     <div class="ui dropdown" id="byrented">
       <i class="privacy icon"></i>
@@ -105,6 +105,5 @@
   </div>
 </form>
 </div> 
-
 </div>
 </section>

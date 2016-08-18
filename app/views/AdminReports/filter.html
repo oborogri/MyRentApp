@@ -1,4 +1,4 @@
-#{extends 'main.html' /} #{set title:'Admin reports' /}
+#{extends 'main.html' /} #{set title:'Admin reports filter' /}
 <div class="ui inverted teal menu">
 	<a class="ui item" href="/home">Home</a> 
 	<a class="ui item" href="/admin">Administrator</a>
@@ -43,7 +43,7 @@
 <div class="ui grid">
 <div class="four wide column">
 <div class="ui form" >
-  <form action="/adminReports/byRented" method="POST"> 
+  <form action="/adminReports/byRented" method="GET"> 
   <div class="ui fluid form segment">       
     <div class="ui dropdown" id="byrented">
       <i class="privacy icon"></i>
@@ -98,12 +98,12 @@
 </div>
 </div>
 <div class="three wide column">
-<form action="/adminReports/filter" method="GET">
+<!-- <form action="/adminReports/filter" method="GET"> -->
   <div class="ui form segment">
     <i class="refresh icon"></i>
     <button type="submit" class="ui teal submit button">All</button>
   </div>
-</form>
+<!-- </form> -->
 </div> 
 
 </div>
