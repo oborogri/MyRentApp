@@ -1,0 +1,43 @@
+#{extends 'main.html' /} #{set title:'Admin charts' /}
+<div class="ui inverted teal menu">
+	<a class="ui item" href="/home">Home</a>
+	<a class="ui item" href="/admin">Administrator</a>
+	<a class="ui item" href="/adminReports">Reports</a>
+	<a class="ui active item">Charts</a>
+	<a class="ui item" href="/contact">Contact</a>
+	<a class="ui item" href="/logout">Log out</a>
+</div>
+<section class="ui segment">
+	<div class="ui two column grid">
+		<div class="column">
+			<div class="ui segment">
+				<h4>List rents</h4>
+				<table class="ui table segment">
+					<thead>
+						<tr>
+							<th>Landlord</th>
+							<th>Eircode</th>
+							<th>Rent</th>
+						</tr>
+					</thead>
+					<tbody>
+						#{list items:residences, as:'residence'}
+						<tr>
+							<td>${residence.landlord}</td>
+							<td>${residence}</td>
+							<td>${residence.rent.format('#')}</td>
+						</tr>
+						#{/list}
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="column">
+			<div class="ui segment">
+				<div id="chartContainer" style="width: 90%; height: 350px"></div>
+			</div>
+		</div>
+	</div>
+</section>
+<script src="${'/public/javascripts/piechart.js'}" charset="utf-8"></script> 
+<script src="${'/public/javascripts/jquery.canvasjs.min.js'}" charset="utf-8"></script>

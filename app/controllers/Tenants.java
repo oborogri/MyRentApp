@@ -21,8 +21,8 @@ public class Tenants extends Controller {
 	 */
 	public static void index() {
 
+		//find logged in tenant and all vacant residences
 		Tenant tenant = getCurrentTenant();
-		
 		ArrayList<Residence> vr = getVacantResidences();
 
 		Logger.info("Tenant: " + tenant + " residence: " + tenant.residence);
@@ -79,12 +79,14 @@ public class Tenants extends Controller {
 
 		List<Tenant> tenants = Tenant.findAll();
 
+		//check if tenant not already registered
 		for (Tenant a : tenants) {
 			if (equalTenant(tenant, a)) {
 				Logger.info("Error - tenant " + tenant.email + " already registered!");
 				signuperror();
 			}
 		}
+		//check if valid email entered and terms box checked
 		if (Accounts.isValidEmailAddress(tenant.email) && (terms != false)) {
 			tenant.save();
 			Logger.info("New tenant details: " + tenant.firstName + " " + tenant.lastName + " " + tenant.email + " "
@@ -104,9 +106,11 @@ public class Tenants extends Controller {
 	 * @param password
 	 */
 	public static void authenticate(String email, String password) {
+		
 		Logger.info("Attempting to authenticate tenant with " + email + " : " + password);
 		Tenant tenant = Tenant.findByEmail(email);
 
+		//check if tenant exists and password is valid 
 		if ((tenant != null) && (tenant.checkPassword(password) == true)) {
 			Logger.info("Authentication successful");
 
@@ -130,8 +134,11 @@ public class Tenants extends Controller {
 
 		Tenant tenant = Tenants.getCurrentTenant();
 
+		//check if tenancy exists 
 		if (tenant.residence != null) {
+			//terminate existing tenancy
 			tenant.residence = null;
+			
 			tenant.save();
 
 			Logger.info("Tenant " + tenant + " tenancy at: " + tenant.residence + " terminated");
@@ -151,6 +158,7 @@ public class Tenants extends Controller {
 		Tenant tenant = Tenants.getCurrentTenant();
 		Residence residence = Residence.findByEircode(eircode_vacancy);
 
+		//check if tenancy exists and change to new residence 
 		if (tenant.residence == null) {
 
 			Logger.info("Tenant: " + tenant + " changing tenancy");
@@ -174,6 +182,7 @@ public class Tenants extends Controller {
 
 		List<List<String>> vacantresidences = new ArrayList<List<String>>();
 
+		//finds all vacant residences and returns json list to html page
 		for (Residence r : residences) {
 
 			if (r.tenant == null) {
@@ -192,6 +201,7 @@ public class Tenants extends Controller {
 		List<Residence> residences = Residence.findAll();
 		ArrayList<Residence> vr = new ArrayList<Residence>();
 
+		//finds all vacant residences and renders arraylist of vacant residences to the index page
 		for (Residence r : residences) {
 			if (r.tenant == null) {
 				vr.add(r);
@@ -257,7 +267,9 @@ public class Tenants extends Controller {
 	 * @return current tenant
 	 */
 	public static Tenant getCurrentTenant() {
+		
 		Tenant tenant = null;
+		
 		if (session.contains("logged_in_tenantid")) {
 			String tenantId = session.get("logged_in_tenantid");
 			tenant = Tenant.findById(Long.parseLong(tenantId));

@@ -40,6 +40,8 @@ POST    /landlords/updateresidence              Landlords.updateresidence
 GET     /admin/login                            Administrators.login
 GET     /admin                                  Administrators.index
 GET     /administrators/geolocations            Administrators.geolocations
+GET     /charts                                 Administrators.charts
+GET     /administrators/chart_data              Administrators.chart_data
 
 POST    /admin/authenticate                     Administrators.authenticate
 POST    /administrators/deletelandlord          Administrators.deletelandlord

@@ -94,15 +94,16 @@ public class Residence extends Model {
 	public static Residence findByTenant() {
 
 		Tenant tenant = Tenants.getCurrentTenant();
-		// return find("tenant", tenant).first();
 
 		List<Residence> residences = Residence.findAll();
-
+		
+		//check residence tenant is same as logged in tenant 
 		for (Residence r : residences) {
 			if (r.tenant == tenant) {
 				return r;
 			}
 		}
+		//return null if no residence found for current tenant 
 		return null;
 	}
 
@@ -131,10 +132,9 @@ public class Residence extends Model {
 	}
 
 	/**
-	 * Helper method to find current residence tenant and return tenant as
-	 * string
+	 * Helper method to find current residence status
 	 * 
-	 * @return tenant string
+	 * @return tenant info string
 	 */
 	public static String getTenant(Residence residence) {
 
@@ -149,6 +149,5 @@ public class Residence extends Model {
 	 */
 	public String toString() {
 		return eircode;
-
 	}
 }

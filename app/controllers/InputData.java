@@ -15,7 +15,6 @@ public class InputData extends Controller {
 	/**
 	 * Renders InputData page if user not logged in - redirects to login page
 	 */
-
 	public static void index() {
 
 		render();
@@ -27,16 +26,22 @@ public class InputData extends Controller {
 	 * 
 	 * @param residence
 	 */
-
 	public static void datacapture(Residence residence) {
 
 		Landlord landlord = Landlords.getCurrentLandlord();
 		List<Residence> residences = new ArrayList<Residence>();
 
+		//new residence has assigned a time stamp and registering landlord 
 		residence.dateRegistered = new Date();
 		residence.addLandlord(landlord);
+		
+		//saves residence model passed from the html page
 		residence.save();
+		
+		//adds new residence to the residences list
 		residences.add(residence);
+		
+		//saves landlord that registered the new residence
 		landlord.save();
 
 		Logger.info("Residence data received and saved");
@@ -48,5 +53,4 @@ public class InputData extends Controller {
 
 		Landlords.index();
 	}
-
 }

@@ -28,8 +28,8 @@ public class AdminReports extends Controller {
 	}
 
 	/**
-	 * Sorts residences by rented status 
-	 * Renders sorted residences to the reports page
+	 * Sorts residences by rented status Renders sorted residences to the
+	 * reports page
 	 * 
 	 * @param rentedStatus
 	 *            vacant/rented
@@ -41,7 +41,8 @@ public class AdminReports extends Controller {
 		Logger.info("Sort by rented status: " + rentedStatus);
 
 		ArrayList<Residence> byrented = new ArrayList<Residence>();
-
+		
+		//loop through existing residences and check their rented status
 		for (Residence r : residences) {
 			if ((rentedStatus.equals("vacant")) && (Residence.vacant(r))) {
 				byrented.add(r);
@@ -56,8 +57,7 @@ public class AdminReports extends Controller {
 	}
 
 	/**
-	 * Sorts residences by residence type 
-	 * Renders residences to reports page 
+	 * Sorts residences by residence type Renders residences to reports page
 	 * 
 	 * @param residenceType
 	 */
@@ -68,6 +68,7 @@ public class AdminReports extends Controller {
 
 		ArrayList<Residence> byResidenceType = new ArrayList<Residence>();
 
+		//loop through all residences and check their residence Type
 		for (Residence r : residences) {
 			if ((r.residenceType.equals("Apartment|Flat")) && ((r.residenceType).equals(residenceType))) {
 				byResidenceType.add(r);
@@ -84,8 +85,8 @@ public class AdminReports extends Controller {
 	}
 
 	/**
-	 * Sorts residences list by rent ascending or descending 
-	 * Renders sorted residences list to the report page
+	 * Sorts residences list by rent ascending or descending Renders sorted
+	 * residences list to the report page
 	 * 
 	 * @param sortDirection
 	 */

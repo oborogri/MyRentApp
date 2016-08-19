@@ -19,7 +19,6 @@ public class Message extends Model {
 	 * @param from
 	 * @param messageText
 	 */
-
 	public Message(Landlord from, String messageText) {
 		this.from = from;
 		this.messageText = messageText;

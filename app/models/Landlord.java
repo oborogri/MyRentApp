@@ -27,23 +27,6 @@ public class Landlord extends Model {
 	public List<Residence> residences = new ArrayList<Residence>();
 
 	/**
-	 * Constructor for landlord object
-	 * 
-	 * @param firstName
-	 * @param lastName
-	 * @param email
-	 * @param password
-	 *//*
-		 * public Landlord(String firstName, String lastName, String email,
-		 * String password) {
-		 * 
-		 * this.firstName = firstName; this.lastName = lastName; this.email =
-		 * email; this.password = password;
-		 * 
-		 * }
-		 */
-
-	/**
 	 * Facilitates identifying a user by their e-mail
 	 * 
 	 * @param email

@@ -4,29 +4,35 @@
 	<a class="ui item" href="/logout">Logout</a>
 	<a class="ui active item">Contact</a>
 </div>
-	<h4 class="ui header">Error! Please check your details and try again!</h4>
-	<div class="ui tertiary teal segment">
+<h4 class="ui header">Error! Please check your details and try
+	again!</h4>
+<div class="ui tertiary teal segment">
 	<form action="/sendmessage" method="POST">
 		<div class="ui input field">
-			<input placeholder="your first name" name="firstName"
-				type="text" required>
+			<input placeholder="your first name" name="firstName" type="text"
+				required>
 		</div>
 		<div class="ui input field">
-		<input placeholder="your last name" name="lastName" type="text" required>
+			<input placeholder="your last name" name="lastName" type="text"
+				required>
 		</div>
 		<div class="ui divider"></div>
 		<div class="ui input field">
-		<input placeholder="your email address" name="email" type="text"
+			<input placeholder="your email address" name="email" type="text"
 				size="30" required>
 		</div>
 		<div class="ui divider"></div>
 		<div class="ui form">
-		<div class="field">
-				<textarea placeholder="Enter message here" name="messageText" required></textarea>
+			<div class="field">
+				<textarea placeholder="Enter message here" name="messageText"
+					required></textarea>
 			</div>
-			</div>
+		</div>
 		<div class="ui divider"></div>
-		<button type="submit" class="ui teal submit button"><i class="send icon"></i>Send Message</button>
-		<a class="ui teal button" href="/home"> <i class="ban icon"></i>Cancel</a>
+		<button type="submit" class="ui teal submit button">
+			<i class="send icon"></i>Send Message
+		</button>
+		<a class="ui teal button" href="/home"> <i class="ban icon"></i>Cancel
+		</a>
 	</form>
 </div>

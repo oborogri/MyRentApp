@@ -3,11 +3,12 @@
 	<a class="ui item" href="/home">Home</a> 
 	<a class="ui active item">Administrator</a>
 	<a class="ui item" href="/adminReports">Reports</a>
+	<a class="ui item" href="/charts">Charts</a>
 	<a class="ui item" href="/contact">Contact</a>
 	<a class="ui item" href="/logout">Log out</a>
 </div>
 <div class="ui tertiary teal segment">
-	<h3 class="ui header">Administration page</h3>
+	<h4 class="ui header">Administration page</h4>
 	<h5 class="ui header">Landlords and Tenants</h5>
 	<div class="ui three column grid">
 		<div class="column">
@@ -25,7 +26,6 @@
 					</button>
 				</div>
 			</form>	
-			<!-- <form class="ui form segment"  action="/administrators/deletelandlord" method="POST"> -->
 			<form class="ui form segment landlord">
 				<div id="deletelandlord" class="ui fluid selection dropdown landlord">
 					<input name="email_landlord" type="hidden" id="form_delete_landlord">
@@ -47,8 +47,6 @@
 					<div class="ui error message"></div>
 				</div>
 			</form>
-			
-			<!-- <form class="ui form segment"  action="/administrators/deletetenant" method="POST"> -->
 			<form class="ui form segment tenant">
 				<div id="deletetenant" class="ui fluid selection dropdown">
 					<input name="email_tenant" type="hidden" id="form_delete_tenant">

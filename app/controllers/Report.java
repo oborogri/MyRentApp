@@ -53,7 +53,6 @@ public class Report extends Controller {
 		Circle circle = new Circle(latcenter, lngcenter, radius);
 
 		// Fetch all residences and filter out those within circle
-
 		List<Residence> residencesAll = Residence.findAll();
 
 		for (Residence res : residencesAll) {
@@ -63,8 +62,6 @@ public class Report extends Controller {
 				residences.add(res);
 			}
 		}
-
 		render(landlord, circle, residences);
 	}
-
 }
