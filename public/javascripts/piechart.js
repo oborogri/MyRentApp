@@ -1,6 +1,6 @@
 /**
- * @author Adapted by jfitzgerald
- * @version 4-6-2016
+ * @author Adapted by GOboroceanu
+ * @version 18-8-2016
  * @see JQuery Charts Plugin
  * http://canvasjs.com/jquery-charts/
  */

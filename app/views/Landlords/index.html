@@ -5,8 +5,8 @@
 	<a class="ui item" href="/report">Report</a>
 	<a class="ui item" href="/contact">Contact</a>
 	<a class="ui item" href="/landlords/logout">Logout</a>
-</div> 
-<h4>Landlord: ${landlord}, managed residences: ${residences.size()}</h4>
+</div>
+<h4>Landlord: ${landlord}. Managed residences: ${residences.size()}</h4>
 <div class="ui tertiary teal segment">
 	<div class="ui three column grid">
 		<div class="column">
@@ -19,14 +19,14 @@
 			</form>
 			<form class="ui form segment" action="/landlords/deleteresidence" method="POST">
 				<div class="ui fluid selection dropdown" id="deleteresidence">
-				  <input type="hidden" name="eircode_delete">
-				  <i class="dropdown icon"></i>
-				  <div class="default text">Select residence to delete</div>
-				  <div class="menu">
-				  #{list items:residences, as:'residence'}
-				    <div class="item" data-value="${residence.eircode}">${residence.eircode}</div>
-				    #{/list}
-				  </div>
+					<input type="hidden" name="eircode_delete"> <i
+						class="dropdown icon"></i>
+					<div class="default text">Select residence to delete</div>
+					<div class="menu">
+						#{list items:residences, as:'residence'}
+						<div class="item" data-value="${residence.eircode}">${residence.eircode}</div>
+						#{/list}
+					</div>
 				</div>
 				<div class="ui fluid form segment">
 					<button type="submit" class="ui fluid teal submit button">
@@ -44,16 +44,17 @@
 					</button>
 				</div>
 			</form>
-			<form class="ui form segment" action="/landlords/editresidence" method="POST">
-			<div class="ui fluid selection dropdown" id="editresidence">
-				  <input type="hidden" name="eircode_edit">
-				  <i class="dropdown icon"></i>
-				  <div class="default text">Select residence to edit</div>
-				  <div class="menu">
-				  #{list items:residences, as:'residence'}
-				    <div class="item" data-value="${residence.eircode}">${residence.eircode}</div>
-				    #{/list}
-				  </div>
+			<form class="ui form segment" action="/landlords/editresidence"
+				method="POST">
+				<div class="ui fluid selection dropdown" id="editresidence">
+					<input type="hidden" name="eircode_edit"> <i
+						class="dropdown icon"></i>
+					<div class="default text">Select residence to edit</div>
+					<div class="menu">
+						#{list items:residences, as:'residence'}
+						<div class="item" data-value="${residence.eircode}">${residence.eircode}</div>
+						#{/list}
+					</div>
 				</div>
 				<div class="ui fluid form segment">
 					<button type="submit" class="ui fluid teal submit button">
@@ -62,9 +63,9 @@
 				</div>
 				<div class="ui error message"></div>
 			</form>
-			</div>
+		</div>
 		<div class="ui center aligned column">
 			<img src="/public/images/config.jpg"></img>
 		</div>
 	</div>
-</div> 
+</div>
