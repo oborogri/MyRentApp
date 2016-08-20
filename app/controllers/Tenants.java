@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+import org.json.simple.JSONObject;
+
 import models.Tenant;
 import models.Landlord;
 import models.Residence;
@@ -168,6 +170,17 @@ public class Tenants extends Controller {
 			tenant.save();
 
 			index();
+
+			/*
+			 * //render json object to the page JSONObject obj = new
+			 * JSONObject(); obj.put("eircodeNewRental", residence.eircode);
+			 * obj.put("lat",
+			 * String.valueOf(residence.getGeolocation().getLatitude()));
+			 * obj.put("lang",
+			 * String.valueOf(residence.getGeolocation().getLongitude()));
+			 * obj.put("marker message", Residence.getTenant(residence));
+			 * renderJSON(obj);
+			 */
 		}
 		index();
 	}
