@@ -44,12 +44,9 @@ public class InputData extends Controller {
 		//saves landlord that registered the new residence
 		landlord.save();
 
-		Logger.info("Residence data received and saved");
-		Logger.info("Registered by: " + residence.landlord);
+		Logger.info("New residence registered by: " + residence.landlord);
 		Logger.info("Residence type: " + residence.residenceType);
 		Logger.info("Tenant: " + residence.tenant);
-		Logger.info("Number bathrooms: " + residence.numberBathrooms);
-		Logger.info("Residence area: " + residence.area);
 
 		Landlords.index();
 	}

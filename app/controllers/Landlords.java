@@ -23,16 +23,16 @@ public class Landlords extends Controller {
 		List<Residence> residencesAll = Residence.findAll();
 		ArrayList<Residence> residences = new ArrayList<Residence>();
 
-		//finds all residences for current landlord
+		// finds all residences for current landlord
 		for (Residence r : residencesAll) {
-			
+
 			if (r.landlord.equals(Landlords.getCurrentLandlord())) {
 				residences.add(r);
 			}
 		}
 		Logger.info("Landlord " + getCurrentLandlord() + " Number residences " + residences.size());
-		
-		//render landlord details to the html page
+
+		// render landlord details to the html page
 		render(residences, landlord);
 	}
 
@@ -109,14 +109,14 @@ public class Landlords extends Controller {
 
 		List<Landlord> landlords = Landlord.findAll();
 
-		//check if landlord not already registered
+		// check if landlord not already registered
 		for (Landlord a : landlords) {
 			if (equalLandlord(landlord, a)) {
 				Logger.info("Error - landlord " + landlord.email + " already registered!");
 				signuperror();
 			}
 		}
-		//check if entered e-mail is valid format and terms box checked
+		// check if entered e-mail is valid format and terms box checked
 		if (Accounts.isValidEmailAddress(landlord.email) && (terms != false)) {
 			landlord.save();
 			Logger.info("New landlord details: " + landlord.firstName + " " + landlord.lastName + " " + landlord.email
@@ -136,11 +136,11 @@ public class Landlords extends Controller {
 	 * @param password
 	 */
 	public static void authenticate(String email, String password) {
-		
+
 		Logger.info("Attempting to authenticate landlord with " + email + " : " + password);
 		Landlord landlord = Landlord.findByEmail(email);
 
-		//check if landlord exists and password is valid
+		// check if landlord exists and password is valid
 		if ((landlord != null) && (landlord.checkPassword(password) == true)) {
 			Logger.info("Authentication successful");
 
@@ -186,8 +186,7 @@ public class Landlords extends Controller {
 	 * Facilitates deleting a residence with a specific eircode from a specific
 	 * residences list
 	 * 
-	 * @param Id
-	 *            deleteresidence
+	 * @param residence eircode ro delete
 	 */
 	public static void deleteresidence(String eircode_delete) {
 
@@ -195,15 +194,15 @@ public class Landlords extends Controller {
 		List<Residence> residences = Residence.findAll();
 
 		Residence residence = Residence.findByEircode(eircode_delete);
-		
-		//find residence by e-mail and delete if exists
+
+		// find residence by e-mail and delete if exists
 		if (residence != null) {
 			residence.delete();
 
 			Logger.info("Residence to be deleted " + residence);
 			Logger.info("Eircode to be deleted " + eircode_delete);
 
-			//remove residence from residences list and update landlord
+			// remove residence from residences list and update landlord
 			residences.remove(residence);
 			landlord.save();
 
@@ -224,12 +223,12 @@ public class Landlords extends Controller {
 
 		Landlord landlord = getCurrentLandlord();
 		Residence residence = Residence.findByEircode(eircode_edit);
-		
-		//check if residence exists and update rent field
+
+		// check if residence exists and update rent field
 		if (residence != null) {
 			residence.rent = rent;
-			
-			//save residence update and landlord
+
+			// save residence update and landlord
 			residence.save();
 			landlord.save();
 
@@ -261,9 +260,9 @@ public class Landlords extends Controller {
 	 * @return String currentlandlord
 	 */
 	public static Landlord getCurrentLandlord() {
-		
+
 		Landlord landlord = null;
-		
+
 		if (session.contains("logged_in_landlordid")) {
 			String landlordId = session.get("logged_in_landlordid");
 			landlord = Landlord.findById(Long.parseLong(landlordId));

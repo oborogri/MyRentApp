@@ -72,9 +72,11 @@ public class AdminReports extends Controller {
 
 		while (keySetIterator.hasNext()) {
 			String key = keySetIterator.next();
-			
-			//calculate landlord residence % rate of total residences, cast to String and add to JSON object residences
-			residences.add(0, Arrays.asList(key, (Integer.valueOf((int) Math.round(data.get(key) / totalRent() * 100)).toString())));
+
+			// calculate landlord residence % rate of total residences, cast to
+			// String and add to JSON object residences
+			residences.add(0, Arrays.asList(key,
+					(Integer.valueOf((int) Math.round(data.get(key) / totalRent() * 100)).toString())));
 		}
 		renderJSON(residences);
 	}
@@ -171,8 +173,7 @@ public class AdminReports extends Controller {
 	}
 
 	/**
-	 * Helper method to get total residences rent for residence rent %
-	 * calculations
+	 * Helper method to get total residences rent and calculate residence rent %
 	 * 
 	 * @return double totalRent
 	 */
