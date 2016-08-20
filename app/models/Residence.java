@@ -32,7 +32,7 @@ public class Residence extends Model {
 	@ManyToOne
 	public Landlord landlord;
 
-	@OneToOne(mappedBy = "residence")
+	@OneToOne(mappedBy = "residence", cascade=CascadeType.ALL)
 	public Tenant tenant;
 
 	/**
@@ -85,6 +85,15 @@ public class Residence extends Model {
 		Landlord landlord = Landlords.getCurrentLandlord();
 		return find("landlord", landlord).first();
 	}
+	
+	/**
+	 * Helper method to find residences of given landlord
+	 * @param landlord
+	 * @return residence
+	 */
+	public static Residence findByOneLandlord(Landlord landlord) {
+		return find("landlord", landlord).first();
+	}	
 
 	/**
 	 * Facilitates finding residence of current tenant

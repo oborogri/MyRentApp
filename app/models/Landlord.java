@@ -47,6 +47,17 @@ public class Landlord extends Model {
 	}
 
 	/**
+	 * Helper method to assert equal landlords
+	 * 
+	 * @param landlord a
+	 * @param landlord b
+	 * @return boolean equals
+	 */
+	public static boolean equalsLandlord(Landlord a, Landlord b) {
+		return a.equals(b);
+	}
+		
+	/**
 	 * Overrides toString method for Landlord object
 	 */
 	public String toString() {

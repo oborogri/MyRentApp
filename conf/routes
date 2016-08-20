@@ -40,8 +40,6 @@ POST    /landlords/updateresidence              Landlords.updateresidence
 GET     /admin/login                            Administrators.login
 GET     /admin                                  Administrators.index
 GET     /administrators/geolocations            Administrators.geolocations
-GET     /charts                                 Administrators.charts
-GET     /administrators/chart_data              Administrators.chart_data
 
 POST    /admin/authenticate                     Administrators.authenticate
 POST    /administrators/deletelandlord          Administrators.deletelandlord
@@ -55,6 +53,8 @@ GET     /adminReports/filter                    AdminReports.filter
 GET     /adminReports/byRented                  AdminReports.byRented
 GET     /adminReports/byResidenceType           AdminReports.byResidenceType
 GET     /adminReports/bySortedRent              AdminReports.bySortedRent
+GET     /charts                                 AdminReports.charts
+GET     /adminReports/chart_data                AdminReports.chart_data
 
 #InputData
 GET     /inputdata                              InputData.index

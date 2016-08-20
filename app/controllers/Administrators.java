@@ -48,30 +48,6 @@ public class Administrators extends Controller {
 	}
 
 	/**
-	 * Finds all registered residences, sorts list in alphabetical order by
-	 * landlord Renders index page with sorted residence list
-	 */
-	public static void charts() {
-
-		List<Residence> residences = Residence.findAll();
-		Collections.sort(residences, new ResidenceLandlordComparator());
-
-		render(residences);
-	}
-
-	/**
-	 * Renders residences data for ajax call
-	 */
-	public static void chart_data() {
-
-		List<Residence> residences = Residence.findAll();
-
-		JSONObject obj = new JSONObject();
-		obj.put("residences", residences);
-		renderJSON(obj);
-	}
-
-	/**
 	 * Checks login details are correct and renders admin home page
 	 * 
 	 * @param email

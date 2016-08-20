@@ -10,7 +10,7 @@ $(document).ready(function () {
    * Retrieve residence data using ajax call
    */
   $.ajax({
-    url: '/administrators/chart_data',
+    url: '/adminReports/chart_data',
   }).done(function (data) {
     if (console && console.log) {
       for (let i = 0; i < data.length; i += 1)
