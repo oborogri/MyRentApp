@@ -1,11 +1,23 @@
 # MyRentApp
+# Author: Grigore Oboroceanu
+# Version: 20-08-2016
+#
+Project built in Eclipse using Play framework
+#
+# Login credentials:
+# Administrator: username: admin@witpress.ie/ password: secret
+# Landlord: homer@simpson.com/ password: secret
+# Tenant: bart@simpson.com/ password: secret
+#
+# Application deployed to Heroku:  http://my-rent20073381.herokuapp.com
+#
+This app facilitates administrator login and register landlord and tenant. Then landlord can login, add new residences, edit or delete existing residences. He may generate report with registered residences for specified region on the map.
+Signed up tenant can login and check his current residence eircode, may end up current residence and choose new residence from available vacant residences. He is presented with a map with available residences on it. 
+The administrator has options to register tenant/landlord, delete existing tenant/landlord, generate reports and charts on registered residences. 
+The deletion/registration of tenants/landlords is dynamically reflected on the residences map.
 
-This is a prototype web application to allow a user to register and authenticate, to gather data on residential properties, 
-to store the data in a database and generate reports on properties located within specified regions.
-
-Assignemnt tasks: 
-
-Part 1. Develop MyRentApp, the purpose of which is to allow a user to register, log in and log out, gather data on residential properties, store the data in a database and generate reports. .
+# Assignment tasks (part 1): 
+Develop MyRentApp, the purpose of which is to allow a user to register, log in and log out, gather data on residential properties, store the data in a database and generate reports. .
 
 This being a prototype, only a subset of the necessary data to define a property should be gathered:
 
@@ -19,7 +31,7 @@ Develop the project in 4 iterations:
 Each iteration to comprise a completed, working, error-free, part of the application as specified.
 Add tags to each iteration.
 
-Iteration v0: 
+# Iteration v0: 
 
 Develop the sign up and sign in facility.
 Introduce a model named User:
@@ -27,27 +39,26 @@ Introduce a model named User:
 A user should be capable of signing on (registering) and logging in.
 It should be possible to open the database and verify that the user is recorded in User.
 
-Iteration v1: 
+# Iteration v1: 
 
 Build on iteration v0 by adding:
 a residence model,
 an input data controller and
 a view template to accept user data.
 
-Iteration v2: 
+# Iteration v2: 
 
 Build on iteration v1 by adding a report view that allows the user to select a circular area 
 within which all properties are listed together with specified attributes
 
-Iteration v3: 
+# Iteration v3: 
 This is an optional iteration.
 
 Complete the application building on iteration v2.
 Provide a template to allow the user send feedback.
 
 
-Part 2 of the assignment comprises the addition of features in the form of stories to the MyRent web app developed to base level above. 
-Additionally, the use of Git to manage and track the project.
+# Part 2 of the assignment comprises the extension of the MyRent web app developed during the first part by the addition of features described in a series of supplied stories.  Additionally, the use of Git to manage and track the project.
 
 • Story 1:
 Provide for additional Residence fields
